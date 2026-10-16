@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, X, Brain, Target, Zap, ChevronDown, Activity, TrendingUp, ArrowRight } from "lucide-react";
@@ -145,6 +145,7 @@ export default function CategoryWorkClient() {
     const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -166,6 +167,10 @@ export default function CategoryWorkClient() {
     });
 
     if (!mounted) return <div className="min-h-screen bg-black" />;
+
+    if (categorySlug === "websites") {
+        return <FeaturedWebsites projects={filteredProjects} />;
+    }
 
     if (filteredProjects.length === 0) {
         return (

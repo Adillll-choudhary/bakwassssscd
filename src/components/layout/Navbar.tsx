@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -61,10 +61,13 @@ export default function Navbar() {
     const [isHovered, setIsHovered] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
-    const [mounted, setMounted] = useState(false);
+    const mounted = useSyncExternalStore(
+        () => () => {},
+        () => true,
+        () => false
+    );
 
     useEffect(() => {
-        setMounted(true);
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
@@ -73,7 +76,8 @@ export default function Navbar() {
             setHasPreloaded(true);
         };
 
-        if (typeof window !== 'undefined' && (window as any).preloaderDone) {
+        if (typeof window !== 'undefined' && (window as unknown as { preloaderDone?: boolean }).preloaderDone) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setHasPreloaded(true);
         }
 

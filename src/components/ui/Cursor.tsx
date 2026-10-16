@@ -7,6 +7,7 @@ interface Particle {
     id: number;
     x: number;
     y: number;
+    driftX: number;
     size: number;
     rotation: number;
     type: 'smoke' | 'sparkle' | 'lightning';
@@ -59,6 +60,7 @@ export default function Cursor() {
                     id: particleIdCounter.current++,
                     x: e.clientX,
                     y: e.clientY,
+                    driftX: Math.random() * 40 - 20,
                     size: type === 'lightning' ? Math.random() * 12 + 8 : (type === 'sparkle' ? Math.random() * 3 + 1 : Math.random() * 8 + 4),
                     rotation: Math.random() * 360,
                     type: type
@@ -76,7 +78,7 @@ export default function Cursor() {
 
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+    }, [mouseX, mouseY]);
 
     // Cleanup old particles
     useEffect(() => {
@@ -95,7 +97,7 @@ export default function Cursor() {
         <>
             {/* 1. PRIMARY SPOTLIGHT - Micro-Dot Size */}
             <motion.div
-                className="fixed top-0 left-0 w-5 h-5 bg-accent rounded-full pointer-events-none z-[99999] shadow-[0_0_20px_rgba(172,200,162,0.8),0_0_40px_rgba(172,200,162,0.4)]"
+                className="fixed top-0 left-0 w-5 h-5 bg-[#3CFF8F] rounded-full pointer-events-none z-[99999] shadow-[0_0_20px_rgba(60,255,143,0.9),0_0_40px_rgba(60,255,143,0.5)]"
                 style={{
                     x: springX,
                     y: springY,
@@ -119,7 +121,7 @@ export default function Cursor() {
                             opacity: 0,
                             scale: particle.type === 'smoke' ? 2 : 1,
                             y: particle.y - 80,
-                            x: particle.x + (Math.random() * 40 - 20),
+                            x: particle.x + particle.driftX,
                         }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1, ease: "easeOut" }}
@@ -129,14 +131,14 @@ export default function Cursor() {
                             top: particle.y,
                             width: particle.size,
                             height: particle.size,
-                            backgroundColor: particle.type === 'sparkle' ? '#FFF' : '#ACC8A2',
-                            boxShadow: `0 0 10px ${particle.type === 'sparkle' ? '#FFF' : '#ACC8A2'}`,
+                            backgroundColor: particle.type === 'sparkle' ? '#FFF' : '#3CFF8F',
+                            boxShadow: `0 0 10px ${particle.type === 'sparkle' ? '#FFF' : '#3CFF8F'}`,
                             borderRadius: particle.type === 'lightning' ? '0%' : '50%',
                             filter: particle.type === 'smoke' ? 'blur(4px)' : 'none',
                         }}
                     >
                         {particle.type === 'lightning' && (
-                            <svg viewBox="0 0 24 24" fill="white" className="w-full h-full text-accent opacity-40">
+                            <svg viewBox="0 0 24 24" fill="white" className="w-full h-full text-[#3CFF8F] opacity-50">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                             </svg>
                         )}

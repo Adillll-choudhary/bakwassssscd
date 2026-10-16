@@ -1,4 +1,4 @@
-﻿export interface Project {
+export interface Project {
     id: number;
     file: string;
     type: "image" | "video" | "youtube";
@@ -735,7 +735,7 @@ export const workProjects: Project[] = [
     // --- 8. WEBSITES ---
     { 
         id: 7004, 
-        file: "websites/Daylight Capital Luxury Landing Page.png", 
+        file: "websites/daylight-capital-cover.webp", 
         type: "image", 
         title: "Daylight Capital", 
         location: "Global", 
@@ -751,7 +751,7 @@ export const workProjects: Project[] = [
     },
     { 
         id: 7005, 
-        file: "websites/wearth livingg.png", 
+        file: "websites/wearth-living-cover.jpg", 
         type: "image", 
         title: "Wearth Living", 
         location: "Global", 
@@ -783,7 +783,7 @@ export const workProjects: Project[] = [
     },
     { 
         id: 7002, 
-        file: "websites/ISHARYA Essentials Jewelry App Mockup.png", 
+        file: "websites/isharya-cover.jpg", 
         type: "image", 
         title: "Isharya Luxury Jewelry", 
         location: "Mumbai", 
@@ -799,7 +799,7 @@ export const workProjects: Project[] = [
     },
     { 
         id: 7006, 
-        file: "websites/leetcoree.png", 
+        file: "websites/leeeeeeeeeeettttttttttcoree.png", 
         type: "image", 
         title: "Leetcore (Ongoing Project)", 
         location: "Global", 
@@ -815,7 +815,7 @@ export const workProjects: Project[] = [
     },
     { 
         id: 7007, 
-        file: "websites/uma solaar.png", 
+        file: "websites/umaaaaa solar.png", 
         type: "image", 
         title: "UMA Solar (Ongoing Project)", 
         location: "Global", 
@@ -831,7 +831,7 @@ export const workProjects: Project[] = [
     },
           { 
           id: 7010, 
-          file: "websites/fou.png", 
+          file: "websites/fou-cover.jpg", 
           type: "image", 
           title: "FOU", 
           location: "Global", 
@@ -847,7 +847,7 @@ export const workProjects: Project[] = [
       },
       { 
           id: 7011, 
-          file: "websites/Creet Nitro Cold Brew Card.png", 
+          file: "websites/creaaaattttt.png", 
           type: "image", 
           title: "Creet", 
           location: "Global", 
@@ -863,7 +863,7 @@ export const workProjects: Project[] = [
       },
       { 
           id: 7012, 
-          file: "websites/rivaaz.png", 
+          file: "websites/rivaaz-cover.jpg", 
           type: "image", 
           title: "Rivaaz", 
           location: "Global", 
@@ -879,7 +879,7 @@ export const workProjects: Project[] = [
       },
       { 
           id: 7013, 
-          file: "websites/silver.png", 
+          file: "websites/silverhouse-cover.jpg", 
           type: "image", 
           title: "Silver House by Rathi Jewellers", 
           location: "Global", 
@@ -895,7 +895,7 @@ export const workProjects: Project[] = [
       },
       { 
           id: 7014, 
-          file: "websites/Kohsar_ Timeless Kashmiri Craft.png", 
+          file: "websites/kohsar-cover.jpg", 
           type: "image", 
           title: "Kohsar", 
           location: "Global", 
@@ -911,7 +911,7 @@ export const workProjects: Project[] = [
       },
       { 
           id: 7015, 
-          file: "websites/aurus life only.png", 
+          file: "websites/aurus-life-only.jpg", 
           type: "image", 
           title: "Aurus Life (Ongoing Project)", 
           location: "Global", 
@@ -929,7 +929,7 @@ export const workProjects: Project[] = [
       
       { 
           id: 7018, 
-          file: "websites/future ee.png", 
+          file: "websites/future-cover.jpg", 
           type: "image", 
           title: "Future", 
           location: "Global", 
@@ -945,7 +945,7 @@ export const workProjects: Project[] = [
       },
       { 
           id: 7019, 
-          file: "websites/aurus life luxury.png", 
+          file: "websites/aurus-life-luxury-cover.jpg", 
           type: "image", 
           title: "Aurus Life Luxury", 
           location: "Global", 

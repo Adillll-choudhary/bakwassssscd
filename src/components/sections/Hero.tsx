@@ -56,7 +56,7 @@ export default function Hero() {
     const heroOpacity = useTransform(scrollYProgress, [0.97, 1], [1, 0]);
 
     return (
-        <section ref={sectionRef} className="relative w-full h-[250vh] bg-transparent">
+        <section id="hero" ref={sectionRef} className="relative w-full h-[250vh] bg-transparent">
             {/* 1. Background Scroll Sequence (Sticky) */}
             <motion.div style={{ opacity: heroOpacity }} className="fixed inset-0 z-0 pointer-events-none">
                 <BackgroundScrollSequence hasPreloaded={hasPreloaded} scrollProgress={scrollYProgress} />

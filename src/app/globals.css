@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 @font-face {
   font-family: 'Universo_Black';
@@ -439,4 +439,13 @@ body {
 a, button, [role="button"], .cursor-pointer {
   cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10.5V3.5C10 2.67 9.33 2 8.5 2C7.67 2 7 2.67 7 3.5V13.78L4.21 12.35C3.81 12.15 3.32 12.23 3.01 12.54L2 13.55L7.75 19.3C8.12 19.67 8.64 19.93 9.17 19.98L16.2 20.68C17.41 20.8 18.52 19.96 18.66 18.75L19.29 13.37C19.4 12.44 18.77 11.59 17.84 11.4L13 10.5V10.5Z" fill="%233CFF8F" stroke="black" stroke-width="1.5" stroke-linejoin="round"/></svg>') 8 2, pointer !important;
 }
+
+/* Hide Next.js dev indicators and overlays */
+[data-nextjs-toast],
+[data-nextjs-route-announcer],
+nextjs-portal,
+#nextjs-dev-overlay {
+  display: none !important;
+}
+
 

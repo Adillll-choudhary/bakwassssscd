@@ -20,7 +20,7 @@ export default function Manifesto() {
     const color6 = useTransform(scrollYProgress, [0.83, 1], ["rgba(255,255,255,0.2)", "#3CFF8F"]);
 
     return (
-        <section className="relative w-full bg-transparent pt-0 pb-32 md:pb-64 lg:pb-[700px] mb-32 md:mb-64 -mt-16 md:-mt-32 overflow-hidden flex items-center justify-center">
+        <section id="manifesto" className="relative w-full bg-transparent pt-0 pb-32 md:pb-64 lg:pb-[700px] mb-32 md:mb-64 -mt-16 md:-mt-32 overflow-hidden flex items-center justify-center">
             
             {/* Absolute Images - Floating effect */}
             {/* Top Left Image - Overlaps Text */}

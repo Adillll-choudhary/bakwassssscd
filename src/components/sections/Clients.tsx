@@ -25,7 +25,7 @@ const clientLogos = [
 
 export default function Clients() {
     return (
-        <section id="partners" className="py-32 md:py-60 mb-32 md:mb-64 bg-transparent relative overflow-hidden">
+        <section id="clients" className="py-32 md:py-60 mb-32 md:mb-64 bg-transparent relative overflow-hidden">
             <div className="w-full pl-6 pr-6 md:pl-16 md:pr-12">
                 <div className="text-left mb-24 md:mb-40 ml-0 md:ml-0 lg:ml-4">
                     <motion.div 
