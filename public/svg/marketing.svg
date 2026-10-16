@@ -1,0 +1,15 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="black">
+
+<!-- base line -->
+<rect x="20" y="150" width="160" height="8"></rect>
+
+<!-- bars -->
+<rect x="40" y="110" width="20" height="40"></rect>
+<rect x="80" y="90" width="20" height="60"></rect>
+<rect x="120" y="70" width="20" height="80"></rect>
+
+<!-- growth arrow -->
+<path d="M35 95 L85 65 L125 50 L165 30" stroke="black" stroke-width="10" fill="none"></path>
+<polygon points="165,30 150,35 158,20" fill="black"></polygon>
+
+</svg>

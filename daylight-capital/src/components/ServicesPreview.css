@@ -1,0 +1,218 @@
+.services-preview {
+  padding: 120px 0; /* More breathing room */
+  background-color: var(--color-bg-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 100px;
+  gap: 80px;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-summary {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 450px;
+  margin-top: 40px;
+  letter-spacing: 0.02em;
+}
+
+.header-right-visual {
+  flex: 1.8;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-light);
+}
+
+.visual-mask {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.visual-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 8px 15px;
+}
+
+.preview-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 2.5s var(--ease-expo);
+}
+
+.header-right-visual:hover .preview-main-img {
+  transform: scale(1.08);
+}
+
+.preview-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  margin-top: 25px;
+}
+
+.services-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 80px; /* Reduced vertical gap */
+  margin-top: 40px;
+}
+
+.service-premium-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  transition: all 0.8s var(--ease-expo);
+}
+
+/* Staggered Layout Logic */
+.card-variant-1 {
+  margin-top: 100px;
+}
+
+.card-top-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 20px;
+}
+
+.card-num {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+}
+
+.card-category {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.card-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card-title-massive {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
+}
+
+.card-desc-premium {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 90%;
+  opacity: 0.8;
+}
+
+.card-action-gold {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.card-action-gold span {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  opacity: 0.6;
+  transition: all 0.4s ease;
+}
+
+.action-line {
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.6s var(--ease-expo);
+}
+
+/* Hover States */
+.service-premium-card:hover .card-title-massive {
+  color: var(--color-accent);
+}
+
+.service-premium-card:hover .action-line {
+  width: 100%;
+}
+
+.service-premium-card:hover .card-action-gold span {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+.card-visual-accent {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 2px;
+  height: 0;
+  background: var(--color-accent);
+  transition: height 0.6s var(--ease-expo);
+}
+
+.service-premium-card:hover .card-visual-accent {
+  height: 40px;
+}
+
+@media (max-width: 1024px) {
+  .services-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+  .card-variant-1 {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-title-massive {
+    font-size: 2.2rem;
+  }
+  .services-preview {
+    padding: 80px 0;
+  }
+}
+
+

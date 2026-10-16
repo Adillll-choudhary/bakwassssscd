@@ -1,0 +1,131 @@
+.services-architectural {
+  padding: 150px 0;
+  background-color: var(--color-bg-ivory);
+  position: relative;
+  z-index: 5;
+}
+
+.arch-header {
+  margin-bottom: 100px;
+}
+
+.arch-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.arch-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  color: var(--color-text-primary);
+  max-width: 800px;
+}
+
+.services-grid-arch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 80px;
+  row-gap: 120px;
+}
+
+.service-grid-panel {
+  position: relative;
+  padding-top: 40px;
+}
+
+.panel-reveal-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-light);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.panel-header-arch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.panel-index-arch {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.panel-icon-arch {
+  color: var(--color-accent);
+  opacity: 0.5;
+}
+
+.panel-title-arch {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--color-text-primary);
+}
+
+.panel-desc-arch {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 40px;
+  max-width: 90%;
+}
+
+.panel-footer-arch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 25px;
+}
+
+.arch-tags {
+  display: flex;
+  gap: 15px;
+}
+
+.arch-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.arch-cta {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-expo);
+}
+
+.arch-cta:hover {
+  transform: translateX(10px);
+  color: var(--color-accent);
+}
+
+@media (max-width: 900px) {
+  .services-grid-arch {
+    grid-template-columns: 1fr;
+    row-gap: 80px;
+  }
+  .arch-title {
+    font-size: 2.5rem;
+  }
+}

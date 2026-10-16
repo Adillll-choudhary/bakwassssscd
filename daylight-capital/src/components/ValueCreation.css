@@ -1,0 +1,198 @@
+.value-creation-section {
+  padding: 120px 0;
+  background-color: #ffffff; /* Pure White */
+  color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #eeeeee;
+}
+
+/* Subtle luxury grain */
+.value-creation-section::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.value-header {
+  margin-bottom: 80px;
+  max-width: 900px;
+}
+
+.value-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.text-accent-value {
+  color: #c5a059; /* Muted Gold */
+  font-style: italic;
+}
+
+.value-summary-box {
+  max-width: 500px;
+  border-left: 1px solid #c5a059;
+  padding-left: 40px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.value-description {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444444;
+  font-weight: 400;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Strategic Pipeline (Non-Grid) */
+.value-strategic-pipeline {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.value-pipeline-row {
+  display: grid;
+  grid-template-columns: 80px 100px 1fr 300px;
+  align-items: center;
+  padding: 80px 0;
+  position: relative;
+  transition: all 0.8s var(--ease-expo);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Zigzag Alignment */
+.value-pipeline-row:nth-child(even) {
+  grid-template-columns: 300px 1fr 100px 80px;
+  text-align: right;
+}
+
+.value-pipeline-row:nth-child(even) .pipeline-content {
+  grid-column: 2;
+  order: -1;
+}
+
+.value-pipeline-row:nth-child(even) .pipeline-index {
+  grid-column: 4;
+}
+
+.value-pipeline-row:nth-child(even) .pipeline-icon-box {
+  grid-column: 3;
+}
+
+.value-pipeline-row:nth-child(even) .pipeline-hover-reveal {
+  grid-column: 1;
+  text-align: left;
+  transform: translateX(-20px);
+}
+
+.value-pipeline-row:nth-child(even):hover .pipeline-hover-reveal {
+  transform: translateX(0);
+}
+
+.value-pipeline-row:nth-child(even) .value-card-desc {
+  margin-left: auto;
+}
+
+.pipeline-index {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  opacity: 0.3;
+  transition: all 0.4s ease;
+}
+
+.pipeline-icon-box {
+  color: var(--color-accent);
+  opacity: 0.5;
+  transition: all 0.6s var(--ease-expo);
+}
+
+.value-card-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--color-text-primary);
+  transition: all 0.6s var(--ease-expo);
+  opacity: 1 !important;
+}
+
+.value-card-desc {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  max-width: 500px;
+  font-weight: 300;
+  opacity: 1 !important;
+}
+
+.pipeline-hover-reveal {
+  text-align: right;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.6s var(--ease-expo);
+}
+
+.reveal-tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Hover States */
+.value-pipeline-row:hover {
+  background: rgba(197, 160, 89, 0.02);
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.value-pipeline-row:hover .pipeline-index {
+  opacity: 1;
+}
+
+.value-pipeline-row:hover .pipeline-icon-box {
+  opacity: 1;
+  transform: scale(1.2) rotate(-10deg);
+}
+
+.value-pipeline-row:hover .value-card-title {
+  color: var(--color-accent);
+  transform: translateX(10px);
+}
+
+.value-pipeline-row:hover .pipeline-hover-reveal {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 1200px) {
+  .value-pipeline-row {
+    grid-template-columns: 60px 1fr;
+    gap: 30px;
+    padding: 40px 0;
+  }
+  .pipeline-icon-box, .pipeline-hover-reveal {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .value-card-title { font-size: 1.6rem; }
+}

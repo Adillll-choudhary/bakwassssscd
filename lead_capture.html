@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Capture | Coldune Studio</title>
+    <style>
+        :root {
+            --accent: #ACC8A2;
+            --bg: #0B0D10;
+            --card: #14171C;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #0B0D10 0%, #1a1e24 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .card {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        h2 { font-size: 24px; margin-bottom: 8px; font-weight: 700; }
+        p { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 32px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.3); margin-bottom: 8px; font-weight: 600; }
+        input, select, textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 14px;
+            border-radius: 12px;
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); background: rgba(255,255,255,0.06); }
+        button {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            border: none;
+            border-radius: 12px;
+            color: black;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(172, 200, 162, 0.2); }
+        button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        #success-msg { display: none; text-align: center; padding: 20px; color: var(--accent); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div id="form-container">
+            <h2>Start a Project</h2>
+            <p>Fill out the form below to initialize transmission.</p>
+            <form id="lead-form">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="phone" required placeholder="+91 98765 43210">
+                </div>
+                <div class="form-group">
+                    <label>Service</label>
+                    <select id="service" required>
+                        <option value="SEO">SEO</option>
+                        <option value="Ads">Ads</option>
+                        <option value="Website">Website</option>
+                        <option value="Automation">Automation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="message" rows="3" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" id="submit-btn">Initialize Transmission</button>
+            </form>
+        </div>
+        <div id="success-msg">
+            🚀 Thanks! We'll contact you within 24 hours.
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('lead-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formContainer = document.getElementById('form-container');
+        const successMsg = document.getElementById('success-msg');
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxdYsptCXKe7J89MCaD7AMxxpz66p8WcNn5UTokzF6gEscbFzv6h9gmBrjZ0HK6MslVQQ/exec";
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Submitting...";
+
+            const formData = new URLSearchParams();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('service', document.getElementById('service').value);
+            formData.append('message', document.getElementById('message').value);
+            formData.append('source', 'Standalone Form');
+
+            try {
+                await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+                formContainer.style.display = 'none';
+                successMsg.style.display = 'block';
+            } catch (error) {
+                alert("Transmission Error. Please try again.");
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Initialize Transmission";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1517 @@
+/* ================================================
+   DAYLIGHT CAPITAL — COMPREHENSIVE RESPONSIVE CSS
+   Mobile (320px) → Tablet (768px) → Laptop (1024px) → Desktop (1440px+)
+   Zoom-safe: 80%, 90%, 100%, 110%
+   ================================================ */
+
+/* ---- CUSTOM CURSOR — HIDE ON TOUCH DEVICES ---- */
+@media (pointer: coarse) {
+  .custom-cursor,
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+  body {
+    cursor: auto !important;
+  }
+}
+
+/* ---- SMOOTH SCROLL PERFORMANCE ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================================================
+   LARGE DESKTOP (1440px+)
+   ================================================ */
+@media (min-width: 1440px) {
+  .container {
+    padding-left: clamp(80px, 8vw, 140px);
+    padding-right: clamp(80px, 8vw, 140px);
+  }
+}
+
+/* ================================================
+   MEDIUM DESKTOP / WIDE LAPTOP (1200px - 1440px)
+   ================================================ */
+@media (max-width: 1440px) {
+  .stack-layout {
+    gap: 80px;
+  }
+
+  .hero-asymmetric-layout {
+    gap: 60px;
+  }
+
+  .portfolio-hero-asymmetric {
+    gap: 60px;
+  }
+
+  .manifesto-grid {
+    gap: 60px;
+  }
+
+  .letter-layout {
+    gap: 60px;
+  }
+
+  .voices-layout {
+    gap: 60px;
+  }
+
+  .contact-grid-layout {
+    gap: 80px;
+  }
+}
+
+/* ================================================
+   LAPTOP / SMALL DESKTOP (1024px - 1200px)
+   ================================================ */
+@media (max-width: 1200px) {
+  .container {
+    padding-left: clamp(40px, 5vw, 80px) !important;
+    padding-right: clamp(40px, 5vw, 80px) !important;
+  }
+
+  /* Hero */
+  .hero-content-layout {
+    padding-top: clamp(120px, 16vh, 180px) !important;
+  }
+
+  /* Services hero */
+  .hero-asymmetric-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .services-hero-img-wrap {
+    height: 450px;
+  }
+
+  .hero-reveal-text.desc-out {
+    font-size: 1.3rem;
+  }
+
+  /* Portfolio */
+  .portfolio-hero-asymmetric {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .portfolio-hero-desc {
+    font-size: 1.3rem;
+  }
+
+  /* About Us */
+  .hero-asymmetric-layout {
+    gap: 50px;
+  }
+
+  .manifesto-grid {
+    grid-template-columns: 1fr 1.3fr;
+    gap: 50px;
+  }
+
+  .letter-layout {
+    gap: 50px;
+  }
+
+  /* Voices / Testimonials */
+  .voices-layout {
+    gap: 60px;
+  }
+
+  .large-quote {
+    font-size: 2.4rem;
+  }
+
+  /* Footer */
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .footer-newsletter {
+    grid-column: span 2;
+    max-width: 400px;
+  }
+
+  /* Stack cards */
+  .stack-layout {
+    gap: 60px;
+  }
+
+  .stack-tagline {
+    font-size: 1.5rem;
+  }
+
+  /* Industries */
+  .industry-panel {
+    min-height: 350px;
+  }
+
+  /* Insights */
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ================================================
+   TABLET / IPAD PORTRAIT & LANDSCAPE (768px - 1024px)
+   ================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  /* Typography scale-down */
+  h1 { font-size: clamp(3rem, 8vw, 5rem) !important; }
+  h2 { font-size: clamp(2.5rem, 6vw, 4rem) !important; }
+  h3 { font-size: clamp(1.8rem, 4vw, 2.8rem) !important; }
+
+  /* Hero */
+  .hero-content-layout {
+    padding-top: clamp(130px, 18vh, 180px) !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
+  }
+
+  .hero-actions-refined {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  /* Services Hero */
+  .hero-asymmetric-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .services-hero-img-wrap {
+    height: 350px;
+    max-width: 500px;
+  }
+
+  .hero-reveal-text.title-out {
+    font-size: clamp(3rem, 7vw, 5rem) !important;
+  }
+
+  .hero-reveal-text.desc-out {
+    font-size: 1.15rem;
+    max-width: 100%;
+  }
+
+  /* Portfolio Hero */
+  .portfolio-hero-asymmetric {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .portfolio-vertical-accent {
+    display: none;
+  }
+
+  .portfolio-hero-desc {
+    font-size: 1.15rem;
+    padding-left: 20px;
+  }
+
+  .portfolio-hero-title {
+    font-size: clamp(3rem, 7vw, 5rem) !important;
+  }
+
+  /* About Us */
+  .manifesto-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .manifesto-sticky {
+    position: static;
+  }
+
+  .letter-layout {
+    grid-template-columns: 1fr !important;
+    gap: 50px;
+  }
+
+  .sidebar-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+
+  .letter-visuals {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* Team */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+  }
+
+  /* Testimonials */
+  .voices-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .large-quote {
+    font-size: 2rem !important;
+  }
+
+  .large-quote::before {
+    display: none;
+  }
+
+  .voice-navigation {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .voice-nav-item {
+    width: 100px;
+  }
+
+  /* Industries */
+  .accordion-wrapper {
+    flex-direction: column;
+  }
+
+  .industry-panel {
+    height: 40vh !important;
+    min-height: 280px;
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .collapsed-label {
+    display: none;
+  }
+
+  .panel-content {
+    opacity: 1 !important;
+  }
+
+  /* Logo grid */
+  .logo-item {
+    flex: 0 0 calc((100% - 80px) / 3) !important;
+    height: 120px !important;
+  }
+
+  /* Insights */
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Contact */
+  .contact-grid-layout {
+    grid-template-columns: 1fr !important;
+    gap: 50px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer */
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px;
+  }
+
+  .footer-newsletter {
+    grid-column: span 2;
+  }
+
+  /* About hero */
+  .about-full-hero {
+    padding: 80px 0 60px !important;
+    height: auto;
+    min-height: 70vh;
+  }
+
+  .manifesto-intro {
+    padding: 100px 0 80px 0 !important;
+  }
+
+  /* Services stack */
+  .stack-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .service-stacking-card {
+    height: auto !important;
+    padding: 80px 0 !important;
+  }
+
+  .stack-img-wrapper {
+    max-width: 450px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+  }
+
+  .stack-num-giant {
+    font-size: 8rem !important;
+  }
+
+  .stack-info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  /* Grids */
+  .about-grid,
+  .capabilities-grid,
+  .approach-grid,
+  .why-layout,
+  .why-daylight-grid,
+  .value-creation-grid,
+  .vc-layout,
+  .services-preview-grid,
+  .founder-grid,
+  .philosophy-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+  }
+
+  /* Sections */
+  .section {
+    padding: clamp(60px, 8vw, 100px) 0 !important;
+  }
+
+  .portfolio-voices {
+    padding: 80px 0 !important;
+  }
+
+  .portfolio-logos {
+    padding: 60px 0 !important;
+  }
+}
+
+/* ================================================
+   MOBILE LANDSCAPE + PHABLET (600px - 768px)
+   ================================================ */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* Typography */
+  h1 { font-size: clamp(2.5rem, 10vw, 4rem) !important; }
+  h2 { font-size: clamp(2rem, 8vw, 3.2rem) !important; }
+  h3 { font-size: clamp(1.5rem, 5vw, 2.2rem) !important; }
+
+  p {
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    line-height: 1.7;
+  }
+
+  .section {
+    padding: 60px 0 !important;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 18px 0;
+  }
+
+  .navbar-container {
+    padding: 0 24px;
+  }
+
+  .brand-logo {
+    height: 55px !important;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-bg-primary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 9999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-item {
+    font-size: 1.2rem !important;
+    letter-spacing: 0.15em;
+    color: var(--color-text-primary) !important;
+  }
+
+  .nav-divider {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+    z-index: 10000;
+    position: relative;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--color-text-primary);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-btn.is-open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .mobile-menu-btn.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.is-open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  .navbar.on-home .mobile-menu-btn span {
+    background: white;
+  }
+
+  .navbar.scrolled .mobile-menu-btn span {
+    background: var(--color-text-primary) !important;
+  }
+
+  /* Hero */
+  .hero-content-layout {
+    padding-top: 240px !important; /* Pushed significantly down on mobile to clear fixed navbar elements */
+    padding-bottom: 40px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 11vw, 4.5rem) !important; /* Larger text for high-impact presence on mobile */
+    line-height: 1.05 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-subtitle-text {
+    font-size: 0.8rem;
+    max-width: 280px;
+  }
+
+  .hero-actions-refined {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .hero-btn-minimal {
+    text-align: center;
+    padding: 14px 28px;
+    font-size: 0.65rem;
+  }
+
+  .hero-footer-refined {
+    display: none;
+  }
+
+  .hero-edge-blur-left {
+    width: 100vw;
+  }
+
+  /* About Section */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .about-image-col {
+    height: 350px;
+  }
+
+  /* Manifesto / About Us */
+  .manifesto-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .manifesto-sticky {
+    position: static;
+  }
+
+  .manifesto-intro {
+    padding: 80px 0 60px 0 !important;
+  }
+
+  .large-p {
+    font-size: 1.2rem;
+  }
+
+  /* Letter Layout */
+  .letter-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .letter-visuals {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sidebar-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .sidebar-progress-line {
+    display: none;
+  }
+
+  .founder-portrait-frame {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Team */
+  .team-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+
+  .team-header-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Hero background pages */
+  .portfolio-hero::before,
+  .insights-hero::before,
+  .recruiters-hero::before {
+    opacity: 0.2;
+  }
+
+  .portfolio-hero::after,
+  .insights-hero::after,
+  .recruiters-hero::after {
+    background: linear-gradient(to bottom, var(--color-bg-primary) 0%, transparent 20%, transparent 80%, var(--color-bg-primary) 100%) !important;
+  }
+
+  .insights-hero,
+  .recruiters-hero {
+    padding: 80px 0 50px !important;
+  }
+
+  .portfolio-hero {
+    padding: 80px 0 50px 0 !important;
+  }
+
+  /* Portfolio Hero */
+  .portfolio-hero-asymmetric {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .portfolio-vertical-accent {
+    display: none;
+  }
+
+  .portfolio-hero-desc {
+    font-size: 1.1rem;
+    padding-left: 16px;
+    border-left-width: 2px;
+  }
+
+  .portfolio-hero-title {
+    font-size: clamp(2.5rem, 9vw, 4rem) !important;
+  }
+
+  /* Logos */
+  .logos-grid {
+    gap: 15px !important;
+  }
+
+  .logo-item {
+    flex: 0 0 calc((100% - 30px) / 2) !important;
+    height: 90px !important;
+  }
+
+  /* Testimonials */
+  .portfolio-voices {
+    padding: 80px 0 !important;
+  }
+
+  .voices-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .large-quote {
+    font-size: 1.6rem !important;
+    margin-bottom: 30px;
+  }
+
+  .large-quote::before {
+    display: none;
+  }
+
+  .voice-navigation {
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+  }
+
+  .voice-nav-item {
+    width: 80px;
+  }
+
+  .voices-founder-name {
+    font-size: 1.4rem !important;
+  }
+
+  /* Industries Accordion */
+  .accordion-wrapper {
+    flex-direction: column;
+  }
+
+  .industry-panel {
+    height: 45vw !important;
+    min-height: 250px;
+    max-height: 400px;
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .collapsed-label {
+    display: none;
+  }
+
+  .panel-content {
+    opacity: 1 !important;
+  }
+
+  .panel-title {
+    font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+  }
+
+  /* Capabilities */
+  .capabilities-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* Approach */
+  .approach-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  /* Why Daylight */
+  .why-layout,
+  .why-daylight-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  /* Value Creation */
+  .value-creation-grid,
+  .vc-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Services Preview */
+  .services-preview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* Metrics */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+
+  /* Founder */
+  .founder-grid,
+  .philosophy-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .founder-image-wrap {
+    height: 320px;
+  }
+
+  /* Growth Charts */
+  .charts-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Global Presence */
+  .presence-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* Network */
+  .network-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Partnerships */
+  .partnerships-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Sectors */
+  .sectors-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  /* Insights */
+  .insights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .filter-bar {
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+
+  /* Recruiters */
+  .candidate-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* Contact */
+  .contact-grid-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    padding: 60px 0 !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .contact-col-context {
+    gap: 40px;
+  }
+
+  /* Footer */
+  .footer-editorial {
+    padding: 60px 0 30px 0 !important;
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    margin-bottom: 50px !important;
+  }
+
+  .footer-nav-columns {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+  }
+
+  .footer-newsletter {
+    grid-column: span 1;
+  }
+
+  .bottom-content {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Services Page Stack */
+  .services-stack-hero {
+    height: auto;
+    min-height: 80vh;
+    padding: 120px 0 60px !important;
+  }
+
+  .hero-asymmetric-layout {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .services-hero-img-wrap {
+    height: 280px;
+    max-width: 100%;
+  }
+
+  .stack-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .service-stacking-card {
+    height: auto !important;
+    padding: 60px 0 !important;
+  }
+
+  .stack-img-wrapper {
+    max-width: 100%;
+    aspect-ratio: 16/10;
+  }
+
+  .stack-num-giant {
+    font-size: 6rem !important;
+  }
+
+  .stack-title {
+    font-size: clamp(2.5rem, 8vw, 4rem) !important;
+  }
+
+  .stack-tagline {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+  }
+
+  .stack-info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+    padding-top: 30px;
+  }
+
+  /* Brand Marquee */
+  .brand-marquee-section {
+    padding: 60px 0 !important;
+  }
+
+  .marquee-header {
+    margin-bottom: 30px !important;
+  }
+
+  /* CTA Section */
+  .about-cta-premium .cta-premium-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: left;
+  }
+
+  .magnetic-button-wrap {
+    align-self: flex-start;
+  }
+}
+
+/* ================================================
+   SMALL MOBILE (480px - 600px)
+   ================================================ */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 11vw, 3rem) !important;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+  }
+
+  .logo-item {
+    flex: 0 0 calc(50% - 10px) !important;
+    height: 80px !important;
+  }
+
+  .voice-navigation {
+    gap: 10px;
+  }
+
+  .voice-nav-item {
+    width: 60px;
+  }
+
+  .footer-nav-columns {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .filter-bar button {
+    font-size: 0.6rem !important;
+    padding: 8px 14px !important;
+  }
+}
+
+/* ================================================
+   EXTRA SMALL MOBILE (< 480px)
+   ================================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px !important;
+  }
+
+  h1 { font-size: clamp(2rem, 12vw, 2.8rem) !important; }
+  h2 { font-size: clamp(1.8rem, 9vw, 2.5rem) !important; }
+  h3 { font-size: clamp(1.4rem, 6vw, 2rem) !important; }
+
+  .hero-title {
+    font-size: 2rem !important;
+    margin-bottom: 16px;
+  }
+
+  .hero-btn-minimal {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .portfolio-manifesto-text {
+    padding: 20px !important;
+  }
+
+  .candidate-card {
+    padding: 25px !important;
+  }
+
+  .filter-bar {
+    gap: 8px !important;
+  }
+
+  .industry-panel {
+    min-height: 220px !important;
+    height: 55vw !important;
+  }
+
+  .large-quote {
+    font-size: 1.4rem !important;
+  }
+
+  .stack-title {
+    font-size: 2.2rem !important;
+  }
+
+  .stack-num-giant {
+    font-size: 4rem !important;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 320px !important;
+  }
+
+  .section {
+    padding: 50px 0 !important;
+  }
+}
+
+/* ================================================
+   ZOOM LEVEL HANDLING (80% - 110%)
+   These target the effective viewport width changes
+   caused by browser zoom. clamp() handles most cases,
+   but some fixed-value layouts need explicit fixes.
+   ================================================ */
+
+/* At 80% zoom, viewport is effectively ~1.25x wider */
+@media (min-width: 1600px) {
+  .container {
+    padding: 0 clamp(100px, 9vw, 160px);
+  }
+
+  .hero-asymmetric-layout {
+    gap: 100px;
+  }
+
+  .manifesto-grid {
+    gap: 120px;
+  }
+
+  .portfolio-hero-asymmetric {
+    gap: 120px;
+  }
+
+  .voices-layout {
+    gap: 120px;
+  }
+}
+
+/* Prevent overflow-x at any zoom */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ================================================
+   ABOUT US — LETTER LAYOUT SPECIFIC
+   ================================================ */
+@media (max-width: 900px) {
+  .founder-letter {
+    padding: 80px 0 !important;
+  }
+
+  .letter-layout {
+    display: flex !important;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .letter-visuals {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .story-image {
+    height: 200px !important;
+  }
+
+  .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sidebar-progress-line {
+    display: none;
+  }
+
+  .manifesto-intro {
+    padding: 100px 0 80px 0 !important;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .about-hero-grid,
+  .team-grid,
+  .values-grid,
+  .founders-letter-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .team-member-img-wrap {
+    height: 320px;
+  }
+
+  .team-section {
+    padding: 80px 0 !important;
+  }
+
+  .team-header-layout {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start !important;
+  }
+
+  .team-desc-side {
+    max-width: 100%;
+  }
+}
+
+/* ================================================
+   SERVICES PAGE — STACKING CARDS
+   ================================================ */
+@media (max-width: 900px) {
+  .hero-asymmetric-layout {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .stack-layout {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .stack-img-wrapper {
+    height: 300px;
+    aspect-ratio: unset;
+  }
+
+  .stack-num-giant {
+    font-size: 6rem !important;
+  }
+
+  .stack-info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+}
+
+/* ================================================
+   PORTFOLIO PAGE — VOICES
+   ================================================ */
+@media (max-width: 900px) {
+  .portfolio-hero-asymmetric {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .portfolio-manifesto-text {
+    padding: 30px !important;
+  }
+
+  .portfolio-vertical-accent {
+    display: none;
+  }
+
+  .logos-grid {
+    gap: 20px !important;
+  }
+
+  .logo-item {
+    flex: 0 0 calc((100% - 40px) / 2) !important;
+    height: 100px !important;
+  }
+
+  .voices-layout {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .large-quote {
+    font-size: 1.8rem !important;
+  }
+
+  .large-quote::before {
+    display: none;
+  }
+
+  .portfolio-voices {
+    padding: 80px 0 !important;
+  }
+}
+
+/* ================================================
+   INSIGHTS PAGE
+   ================================================ */
+@media (max-width: 1100px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .insights-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ================================================
+   RECRUITERS PAGE
+   ================================================ */
+@media (max-width: 900px) {
+  .candidate-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+}
+
+/* ================================================
+   CONTACT SECTION
+   ================================================ */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+}
+
+/* ================================================
+   FOOTER SECTION
+   ================================================ */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+/* ================================================
+   SECTION MARKERS — HIDE ON SMALL SCREENS
+   ================================================ */
+@media (max-width: 1024px) {
+  .section-marker,
+  .marker-label {
+    display: none !important;
+  }
+}
+
+/* ================================================
+   INDUSTRIES / ACCORDION
+   ================================================ */
+@media (max-width: 900px) {
+  .accordion-wrapper {
+    flex-direction: column;
+  }
+
+  .industry-panel {
+    height: 50vh !important;
+    min-height: 300px;
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .collapsed-label {
+    display: none;
+  }
+
+  .panel-content {
+    opacity: 1 !important;
+  }
+}
+
+/* ================================================
+   CAPABILITIES / APPROACH / WHY DAYLIGHT
+   ================================================ */
+@media (max-width: 900px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .approach-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .why-layout,
+  .why-daylight-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .value-creation-grid,
+  .vc-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-preview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .founder-grid,
+  .philosophy-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .founder-image-wrap {
+    height: 400px;
+  }
+}
+
+/* ================================================
+   METRICS — RESPONSIVE GRID
+   ================================================ */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content-layout {
+    padding-top: 260px !important; /* Extra padding for phone portrait to avoid logo overlap */
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 12vw, 4.2rem) !important; /* Bold, beautiful presence on small viewports */
+    line-height: 1.05 !important;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ================================================
+   HERO BACKGROUND PAGES — OPACITY ON MOBILE
+   ================================================ */
+@media (max-width: 768px) {
+  .portfolio-hero::before,
+  .insights-hero::before,
+  .recruiters-hero::before {
+    opacity: 0.25;
+  }
+
+  .portfolio-hero::after,
+  .insights-hero::after,
+  .recruiters-hero::after {
+    background: linear-gradient(to bottom, var(--color-bg-primary) 0%, transparent 20%, transparent 80%, var(--color-bg-primary) 100%) !important;
+  }
+
+  .insights-hero,
+  .recruiters-hero {
+    padding: 140px 0 60px !important;
+  }
+
+  .portfolio-hero {
+    padding: 140px 0 60px 0 !important;
+  }
+}
+
+/* ================================================
+   GROWTH CHARTS / GLOBAL PRESENCE / NETWORK
+   ================================================ */
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .presence-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .network-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .partnerships-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sectors-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+  }
+}
+
+/* ================================================
+   SMALL HEIGHT SCREENS (LAPTOPS / ZOOM RESILIENCE)
+   ================================================ */
+@media (max-height: 850px) {
+  .hero-content-layout {
+    padding-top: 155px !important; /* Restored elegant clearance for standard laptops */
+    padding-bottom: clamp(15px, 3vh, 30px) !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 7vh, 4.6rem) !important; /* Restored premium prominent sweet spot size */
+    line-height: 0.95 !important;
+    margin-bottom: clamp(15px, 2.5vh, 25px) !important;
+  }
+
+  .hero-subtitle-container {
+    gap: 20px !important;
+  }
+
+  .hero-subtitle-line {
+    width: 50px !important;
+  }
+
+  .hero-subtitle-text {
+    font-size: 0.8rem !important; /* Restored premium subtitle typography */
+    line-height: 1.5 !important;
+    max-width: 350px !important;
+  }
+
+  .hero-actions-refined {
+    margin-top: clamp(15px, 2.5vh, 25px) !important;
+  }
+
+  .hero-btn-minimal {
+    padding: 12px 30px !important; /* Restored prominent action button size */
+    font-size: 0.65rem !important;
+  }
+}
+
+@media (max-height: 720px) {
+  .hero-content-layout {
+    padding-top: 100px !important; /* Minimal safety gap under navbar */
+    padding-bottom: 8px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.3rem, 3.8vh, 1.8rem) !important; /* Micro-scale to fit highly zoomed screens perfectly */
+    line-height: 0.95 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .hero-subtitle-container {
+    gap: 15px !important;
+  }
+
+  .hero-subtitle-line {
+    display: none !important; /* Hide separator line on ultra-short screens to save height */
+  }
+
+  .hero-subtitle-text {
+    font-size: 0.75rem !important;
+    max-width: 300px !important;
+  }
+
+  .hero-actions-refined {
+    margin-top: 15px !important;
+  }
+
+  .hero-btn-minimal {
+    padding: 10px 24px !important;
+    font-size: 0.6rem !important;
+  }
+}
+

@@ -1,0 +1,26 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+
+<!-- trunk -->
+<rect x="145" y="170" width="10" height="70" fill="black"></rect>
+
+<!-- branches -->
+<line x1="150" y1="170" x2="120" y2="140" stroke="black" stroke-width="4"></line>
+<line x1="150" y1="170" x2="180" y2="140" stroke="black" stroke-width="4"></line>
+<line x1="150" y1="160" x2="110" y2="120" stroke="black" stroke-width="4"></line>
+<line x1="150" y1="160" x2="190" y2="120" stroke="black" stroke-width="4"></line>
+<line x1="150" y1="150" x2="135" y2="110" stroke="black" stroke-width="4"></line>
+<line x1="150" y1="150" x2="165" y2="110" stroke="black" stroke-width="4"></line>
+
+<!-- leaves -->
+<circle cx="110" cy="120" r="12" fill="black"></circle>
+<circle cx="190" cy="120" r="12" fill="black"></circle>
+<circle cx="120" cy="140" r="10" fill="black"></circle>
+<circle cx="180" cy="140" r="10" fill="black"></circle>
+<circle cx="135" cy="105" r="12" fill="black"></circle>
+<circle cx="165" cy="105" r="12" fill="black"></circle>
+<circle cx="150" cy="90" r="14" fill="black"></circle>
+
+<!-- ground -->
+<ellipse cx="150" cy="250" rx="90" ry="10" fill="black"></ellipse>
+
+</svg>

@@ -1,0 +1,36 @@
+# Exclude large and unnecessary files from Vercel upload
+node_modules
+.next
+out
+.git
+*.zip
+*.rar
+backup_old
+backup_redesign
+site_2.zip
+err.txt
+errors.txt
+lint.txt
+lint_output.txt
+ts_errors.txt
+tsconfig.tsbuildinfo
+inputs
+outputs
+temp_bg_list.csv
+parzival
+parzival-v2
+
+# Exclude heavy background PNGs (using WebP instead)
+public/bg/*.png
+public/bg/*.jpg
+public/bg/*.jpeg
+public/bg/*.MP4
+public/bg/*.mp4
+
+# Exclude massive video files exceeding Vercel's 100MB limit
+public/work/videos/light axxis.mp4
+public/work/ai content/IMG_5064.MP4
+
+# System clutter
+.DS_Store
+Thumbs.db

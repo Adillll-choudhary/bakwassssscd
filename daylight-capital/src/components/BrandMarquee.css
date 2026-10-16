@@ -1,0 +1,117 @@
+.brand-marquee-section {
+  padding: 120px 0;
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.marquee-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.marquee-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-text-primary);
+  margin-top: 15px;
+}
+
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.marquee-content {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: scrollMarquee 40s linear infinite;
+  width: max-content;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 80px;
+  padding-right: 80px;
+  align-items: center;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+.marquee-item:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.marquee-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.2);
+  transition: all 0.4s ease;
+}
+
+.marquee-img.logo-black {
+  filter: grayscale(1) brightness(0) !important;
+}
+
+.marquee-img.logo-large {
+  height: 160%; /* Expands layout box instead of just visual transform to prevent overlap */
+}
+
+.marquee-item:hover .marquee-img.logo-large {
+  transform: scale(1.1); /* Slight hover pop, safe from major overlap */
+}
+
+.marquee-item:hover .marquee-img {
+  filter: grayscale(0) brightness(1);
+}
+
+.marquee-fade-left,
+.marquee-fade-right {
+  position: absolute;
+  top: 0;
+  width: 15vw;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg-primary), transparent);
+}
+
+.marquee-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg-primary), transparent);
+}
+
+@media (max-width: 768px) {
+  .marquee-item {
+    height: 55px;
+  }
+  .marquee-content {
+    gap: 40px;
+  }
+}

@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+  /* Ultra-Premium Ivory Luxury Palette */
+  --color-bg-primary: #fcfbf9;
+  --color-bg-secondary: #ffffff;
+  --color-bg-ivory: #f7f3ed;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: rgba(26, 26, 26, 0.6);
+  --color-accent: #c5a059; /* Champagne Gold */
+  --color-accent-dark: #8c6d31;
+  --color-accent-light: rgba(197, 160, 89, 0.1);
+  
+  --border-light: rgba(26, 26, 26, 0.06);
+  --border-accent: rgba(197, 160, 89, 0.2);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
+  
+  /* Precision Easing */
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  
+  /* Spacing System */
+  --spacing-section: clamp(60px, 8vw, 100px);
+  --spacing-container: clamp(30px, 8vw, 120px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-container);
+}
+
+/* Fluid Typography */
+h1 {font-size: clamp(2rem,5vw,5rem);}
+h2 {font-size: clamp(1.5rem,4vw,3.5rem);}
+p {font-size: clamp(1rem,1.2vw,1.15rem);}
+
+/* Media Elements */
+img, video, svg, canvas {max-width:100%; height:auto; display:block;}
+
+.section {
+  padding: var(--spacing-section) 0;
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-family: var(--font-serif);
+}
+
+h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Mobile specific global resets */
+@media (max-width: 768px) {
+  html, body {
+    cursor: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    overscroll-behavior-y: auto !important;
+  }
+}
+
+.text-accent, .text-accent-value, span[style*="#b89047"] {
+  color: var(--color-accent) !important;
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+}
+
+/* Glass & Texture */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--border-light);
+}
+
+.grain-texture {
+  position: fixed;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.6;
+  animation: grainNoise 10s steps(10) infinite;
+}
+
+@keyframes grainNoise {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  30% { transform:translate(-15%, 5%) }
+  50% { transform:translate(7%, -25%) }
+  70% { transform:translate(-5%, 25%) }
+  90% { transform:translate(-15%, 10%) }
+}
+
+/* Motion Reveal Utilities */
+.mask-reveal {
+  overflow: hidden;
+  display: block;
+}
+
+.mask-reveal > * {
+  display: block;
+}
+
+.skew-up {
+  transform: skewY(5deg);
+  opacity: 0;
+  transform-origin: left;
+}
+
+/* Section Progress Indicator */
+.section-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--border-light);
+}
+
+.marker-label {
+  position: sticky;
+  top: 50vh;
+  left: 40px;
+  transform: rotate(-90deg) translateX(-50%);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Cinematic Reveal Curtain */
+.reveal-curtain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  z-index: 9998; /* Just below preloader but above everything else */
+  pointer-events: none;
+}
+
+.reveal-slat {
+  flex: 1;
+  height: 100%;
+  background-color: var(--color-bg-primary);
+  transform-origin: top;
+}
+
+.hero-main-img {
+  will-change: transform;
+}
+
+/* Performance Optimizations for GSAP Animations */
+.reveal-text, .fade-up, .scale-up, .hero-subtitle, .reveal-item, .f-text, .f-heading {
+  will-change: transform, opacity;
+}
+
+/* Glassmorphism Buttons */
+.button-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 35px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.6s var(--ease-expo);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.button-glass::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s var(--ease-expo);
+}
+
+.button-glass:hover {
+ background: rgba(255, 255, 255, 0.1);
+ border-color: var(--color-accent);
+ letter-spacing: 0.25em;
+ transform: translateY(-2px);
+ box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.button-glass:hover::before {
+ left: 100%;
+}
+
+/* Institutional Button (Matches Hero Portfolio Button) */
+.button-institutional {
+  background: var(--color-bg-secondary);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: none;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  color: var(--color-text-primary);
+  padding: 16px 40px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.button-institutional::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  padding-bottom: 150%;
+  background: var(--color-accent); /* Golden fill effect */
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+}
+
+.button-institutional:hover {
+  color: #ffffff; /* Crisp white text on gold */
+  box-shadow: 0 10px 30px 0 rgba(197, 160, 89, 0.3); /* Golden shadow on hover */
+}
+
+.button-institutional:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Dark Pill Button (From About Section) */
+.button-dark-pill {
+  background: #333333;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 26px 60px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button-dark-pill::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  padding-bottom: 150%;
+  background: var(--color-accent); /* Golden fill effect */
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+}
+
+.button-dark-pill:hover {
+  color: #000000; /* Text turns black for contrast over gold */
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(197, 160, 89, 0.2);
+}

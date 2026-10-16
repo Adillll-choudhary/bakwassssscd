@@ -1,0 +1,14 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+
+<!-- planet -->
+<circle cx="100" cy="100" r="50" fill="black"></circle>
+
+<!-- ring -->
+<ellipse cx="100" cy="100" rx="90" ry="30" transform="rotate(-20 100 100)" fill="none" stroke="black" stroke-width="10"></ellipse>
+
+<!-- small moons -->
+<circle cx="40" cy="110" r="6" fill="black"></circle>
+<circle cx="150" cy="70" r="6" fill="black"></circle>
+<circle cx="160" cy="120" r="6" fill="black"></circle>
+
+</svg>

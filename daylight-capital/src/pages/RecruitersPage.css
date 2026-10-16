@@ -1,0 +1,173 @@
+.recruiters-page {
+  background-color: var(--color-bg-primary);
+  padding-top: 100px;
+}
+
+.recruiters-hero {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.recruiters-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/recruiters_hero_bg.webp');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.4;
+  filter: grayscale(1) contrast(1.1);
+  z-index: -2;
+}
+
+.recruiters-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, var(--color-bg-primary) 20%, transparent 70%),
+              linear-gradient(to bottom, var(--color-bg-primary) 0%, transparent 15%, transparent 85%, var(--color-bg-primary) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.recruiters-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.8em;
+  color: var(--color-accent) !important;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.recruiters-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 1;
+  color: var(--color-text-primary);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.recruiters-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+}
+
+.recruiters-content {
+  padding-bottom: 150px;
+}
+
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.candidate-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--border-light);
+  padding: 40px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.candidate-card:hover {
+  background-color: var(--color-bg-ivory);
+  border-color: var(--color-accent);
+  transform: translateY(-10px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.candidate-id {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+}
+
+.availability-tag {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-primary);
+  padding: 4px 10px;
+  border: 1px solid var(--border-light);
+}
+
+.card-main {
+  flex-grow: 1;
+}
+
+.candidate-name {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-text-primary);
+  margin-bottom: 5px;
+}
+
+.candidate-role {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.candidate-city {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  display: block;
+  margin-bottom: 30px;
+}
+
+.candidate-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 40px;
+}
+
+.card-footer {
+  margin-top: auto;
+}
+
+.inquiry-cta {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .candidate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .candidate-grid {
+    grid-template-columns: 1fr;
+  }
+}

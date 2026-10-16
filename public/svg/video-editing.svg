@@ -1,0 +1,26 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="black">
+
+<!-- monitor -->
+<rect x="30" y="40" width="140" height="90" rx="8"></rect>
+
+<!-- screen -->
+<rect x="50" y="55" width="100" height="60" fill="white"></rect>
+
+<!-- play button -->
+<polygon points="90,70 120,85 90,100" fill="black"></polygon>
+
+<!-- stand -->
+<rect x="85" y="130" width="30" height="15"></rect>
+<rect x="70" y="145" width="60" height="10"></rect>
+
+<!-- clapper board -->
+<rect x="25" y="95" width="45" height="30"></rect>
+<rect x="25" y="80" width="45" height="15"></rect>
+
+<!-- scissors -->
+<circle cx="145" cy="110" r="5"></circle>
+<circle cx="155" cy="120" r="5"></circle>
+<line x1="145" y1="110" x2="160" y2="95" stroke="black" stroke-width="4"></line>
+<line x1="155" y1="120" x2="170" y2="105" stroke="black" stroke-width="4"></line>
+
+</svg>

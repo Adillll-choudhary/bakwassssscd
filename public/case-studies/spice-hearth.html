@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Spice Hearth | Case Study | Coldune Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#0B6E4F",
+                        "on-primary": "#FFFFFF",
+                        "secondary": "#6EE7B7",
+                        "background": "#0A0F0D",
+                        "surface": "#121815",
+                        "surface-container": "#1A231F",
+                        "on-surface": "#E2E8F0",
+                        "on-surface-variant": "#94A3B8",
+                        "outline": "#2D3732"
+                    },
+                    "borderRadius": {
+                        "none": "0",
+                        "sm": "0.125rem",
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Poppins", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: "Inter", sans-serif; background-color: #0A0F0D; color: #E2E8F0; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: "Poppins", sans-serif; }
+        
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .hero-video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            filter: grayscale(20%) contrast(1.1);
+        }
+        
+        .floating-mockup {
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5));
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .floating-mockup:hover {
+            transform: translateY(-20px) rotate(-2deg);
+        }
+
+        .layered-image-container {
+            position: relative;
+        }
+        .layered-image-main {
+            z-index: 10;
+            position: relative;
+        }
+        .layered-image-accent {
+            position: absolute;
+            z-index: 5;
+            width: 70%;
+            bottom: -15%;
+            right: -10%;
+            border: 8px solid #0A0F0D;
+        }
+
+        .editorial-text {
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .section-padding {
+            padding: 160px 0;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: reveal 1s forwards ease-out;
+        }
+        @keyframes reveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #6EE7B7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-white">
+<!-- Header -->
+<header class="fixed top-0 w-full z-[100] px-8 py-6 flex justify-between items-center mix-blend-difference">
+<a href="/" class="flex items-center h-20 md:h-36 transition-transform hover:scale-105 duration-300">
+    <img src="/logo.png" alt="Coldune Studio" class="h-full w-auto object-contain" />
+</a>
+<nav class="hidden md:flex gap-12 text-[10px] font-bold tracking-[0.3em] uppercase text-white">
+<a class="hover:text-primary transition-colors" href="#overview">Overview</a>
+<a class="hover:text-primary transition-colors" href="#strategy">The Work</a>
+<a class="hover:text-primary transition-colors" href="#results">Impact</a>
+</nav>
+<button class="bg-white text-black text-[10px] font-bold tracking-widest uppercase px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all">
+        Collaborate
+    </button>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="overview">
+<div class="hero-video-container">
+<!-- Simulated background video with a high-end image -->
+<img alt="Gourmet Dining" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPNEMbA45u_bb1R5BibGM7btMdbipHyP0pGg02EUeMwiDnRMo7u5nkNItnu8JZsaK4L4dOB3IHgghuCSTWCCiFnMU0Frcrj3nZtnHVJiFBZX4-a88Q21v3O49_xvtCypmaaOlTqGX8YYHiOmpkncLI0V8WzY3nESkuNLKIy8R4BJG3G06wBdUovDaoTxs33LzNHbAMYduAqdYDIrQD03NPaCeG6n5VmHXtZlFMf937t2okJ4X_rCxDDFzZAZx6R4_wuc7KDV0kPFs"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background"></div>
+</div>
+<div class="container mx-auto px-8 relative z-10">
+<div class="max-w-5xl">
+<p class="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-10 reveal-up">Fine Dining Digital Sovereignty</p>
+<h1 class="text-7xl md:text-[120px] font-bold text-white leading-[0.85] tracking-tighter mb-16 reveal-up">
+                    The Spice Hearth <br/>
+<span class="text-gradient">Redesign.</span>
+</h1>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 mt-24 border-t border-white/10 pt-12 reveal-up" style="animation-delay: 0.2s">
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest mb-2">Location</p>
+<p class="text-lg font-medium text-white">New Delhi, IN</p>
+</div>
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest mb-2">Service</p>
+<p class="text-lg font-medium text-white">Web &amp; CRM</p>
+</div>
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest mb-2">Result</p>
+<p class="text-lg font-medium text-primary">+200% Direct</p>
+</div>
+<div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest mb-2">Timeline</p>
+<p class="text-lg font-medium text-white">4 Months</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Problem / Asymmetrical Layout -->
+<section class="section-padding bg-background">
+<div class="container mx-auto px-8">
+<div class="flex flex-col lg:flex-row gap-24 items-center">
+<div class="lg:w-1/2 layered-image-container reveal-up">
+<img alt="Kitchen Detail" class="layered-image-main aspect-[4/5] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzT_baTTFJ3_9QH0IJC3LSJth4ScnxgEOUicwiYA6P-uGYJ7QwSy0SUVhDhu_MiOigPDkHCapyj3wjA1rfktAAtCpP-b841tld-t05Lcoa_-bkj_z-1lCRZlryrgPyYpr8Zc3TYhDTVnTaKYiEp0QfLPgM6c_9Hwy9nwTsnT4kGVadUhNatbryPauaCstR0iFMt9YB0mC3EVSS5X7btduc2L5um1DO7ATlctX8QSFqBOhDQqO4lJTLk1oa9ogalUzEACsuhmVY2YQ"/>
+<img alt="Plating" class="layered-image-accent aspect-square object-cover rounded-sm hidden md:block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0-zfKR3sjLtL8o7VV5NlhaNETNQCis6dYNbfufqz2OjFw5zmNxytseslOJ47ODaTbbzEpJSAqM-wDGTaunapWDD6nGXqvUYHE6LW6u7TrbNDhgrJo_yzMsWJGlC8H_RTGD24ThndMCUBkQ5iJp31pB5xHq7067RB4LKOxerXuM4PkF2QWUICsEnssICnRP6mc3J1kITIL3nAAUUFYLV4Hpat4JtFLIsVaIjxSZsLmDlTvUAE5I8DvIzYEETc1CwJoa4u1rppXmnM"/>
+</div>
+<div class="lg:w-1/2 space-y-12 reveal-up" style="animation-delay: 0.3s">
+<h2 class="text-xs font-bold tracking-[0.4em] uppercase text-primary">The Challenge</h2>
+<h3 class="text-5xl md:text-7xl font-bold text-white editorial-text">
+                        Breaking the <span class="italic text-on-surface-variant">dependency</span> cycle.
+                    </h3>
+<p class="text-xl text-on-surface-variant leading-relaxed font-light max-w-xl">
+                        The Spice Hearth was thriving on foot traffic but bleeding 30% of their digital revenue to third-party aggregators. Our mission was to reclaim their brand identity and build a walled garden for their most loyal patrons.
+                    </p>
+<div class="space-y-8 pt-8">
+<div class="flex items-center gap-6">
+<span class="w-12 h-[1px] bg-primary"></span>
+<p class="text-sm tracking-widest uppercase text-white font-bold">30% Margin Erosion</p>
+</div>
+<div class="flex items-center gap-6">
+<span class="w-12 h-[1px] bg-primary"></span>
+<p class="text-sm tracking-widest uppercase text-white font-bold">Zero Customer Data Ownership</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3D Mockup Section -->
+<section class="section-padding bg-surface" id="strategy">
+<div class="container mx-auto px-8">
+<div class="text-center mb-32 max-w-4xl mx-auto">
+<p class="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-8">Digital Architecture</p>
+<h2 class="text-5xl md:text-8xl font-bold text-white editorial-text mb-12">The Digital Front of House.</h2>
+</div>
+<div class="relative min-h-[800px] flex items-center justify-center">
+<!-- Floating Device Mockups -->
+<!-- MacBook Mockup -->
+<div class="absolute z-20 w-full max-w-4xl floating-mockup left-1/2 -translate-x-1/2">
+<img alt="Website Design" class="w-full rounded-xl border-4 border-outline shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiMo4wx2xehj2s-ndAUQFgauTOlQBq1Dc89FUuOF7Q7GzjrUZxC_GhlzHrn9MTTT2G50HqBaN9YW5wlEo8LeheChTT1dLT_rbkfSK00pTkDMMoAWnMUrev0JXZ0sUIiuaSaJ6EvRgTzxyrQfAnCZuDo403Ys3ghKf9Rx-ixFQN_V9En8frTOK1gYh4gVDYvHOFRIthwI6Ni5D5fRcQR2oNECSLAPU9pI7wGcPxZSdo5eElnxYePHln5RbRFVSJ4EExy0etyt_7Ec8"/>
+</div>
+<!-- iPhone Mockup Overlapping -->
+<div class="absolute z-30 w-64 floating-mockup -right-12 bottom-12 md:right-32 md:-bottom-20 hidden md:block">
+<img alt="Mobile App Design" class="w-full rounded-[3rem] border-8 border-background shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNd-iUjK1YZJyoYsxIqek5MPMaWfHD4kYGZiVU3_G0zMhdug11UucrMLlBRIEPNVeP_w96l9QI6nGf9NtZRSPfdJCtMkeN3uSh-MDC72iDUvNQEjdTjBKNFpRqba4r_6oQt5iDO5u8xJkkyF4Fw1vg47egLvZuQHtBeSLHXGpE_C789UTtohUwAsEjmjiURkc2sr-0zoxY7x4Ip-bLt4d0QJqyylGdhx_ItolDNh6FZSzL_F977NSmhNxFaY5e2bX8rDyor-9TFZU"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 mt-64 border-t border-white/5 pt-24">
+<div>
+<h4 class="text-white text-2xl font-bold mb-6 italic">01. Immersion</h4>
+<p class="text-on-surface-variant leading-relaxed">High-fidelity cinematics and micro-interactions that mirror the premium table-side service experience.</p>
+</div>
+<div>
+<h4 class="text-white text-2xl font-bold mb-6 italic">02. Velocity</h4>
+<p class="text-on-surface-variant leading-relaxed">A custom-built booking engine that reduces friction from discovery to reservation in under 45 seconds.</p>
+</div>
+<div>
+<h4 class="text-white text-2xl font-bold mb-6 italic">03. Loyalty</h4>
+<p class="text-on-surface-variant leading-relaxed">The Hearth Collective CRM—private WhatsApp channels for seasonal menu previews and priority access.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Visualization Section -->
+<section class="section-padding bg-background overflow-hidden" id="results">
+<div class="container mx-auto px-8">
+<div class="flex flex-col lg:flex-row-reverse gap-24 items-center">
+<div class="lg:w-1/2 space-y-12">
+<h2 class="text-xs font-bold tracking-[0.4em] uppercase text-primary">The Impact</h2>
+<h3 class="text-5xl md:text-7xl font-bold text-white editorial-text">
+                        The Shift to <span class="text-primary italic font-light">Sovereignty.</span>
+</h3>
+<div class="grid grid-cols-1 gap-12 mt-12">
+<div class="p-8 border-l border-primary bg-surface/30">
+<p class="text-6xl font-bold text-white mb-2">35%</p>
+<p class="text-xs uppercase tracking-widest text-primary font-bold">Margin Recovery Across Channels</p>
+</div>
+<div class="p-8 border-l border-outline bg-surface/10">
+<p class="text-6xl font-bold text-white mb-2">2.5k</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Direct Customer Relationships</p>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 w-full">
+<!-- Integrated Chart into Layered Design -->
+<div class="bg-surface p-12 rounded-sm border border-white/5 shadow-2xl relative">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h4 class="text-white text-lg font-bold mb-1">Channel Migration</h4>
+<p class="text-xs text-on-surface-variant">Direct vs Aggregator Bookings</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Direct</span>
+</div>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-4">
+<div class="w-full bg-primary/20 h-20 rounded-t-sm relative group cursor-pointer transition-all hover:h-40">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 opacity-0 group-hover:opacity-100 transition-all text-xs font-bold">M1</div>
+</div>
+<div class="w-full bg-primary/30 h-32 rounded-t-sm relative group cursor-pointer transition-all hover:h-44"></div>
+<div class="w-full bg-primary/40 h-40 rounded-t-sm relative group cursor-pointer transition-all hover:h-48"></div>
+<div class="w-full bg-primary/60 h-48 rounded-t-sm relative group cursor-pointer transition-all hover:h-52"></div>
+<div class="w-full bg-primary/80 h-56 rounded-t-sm relative group cursor-pointer transition-all hover:h-60"></div>
+<div class="w-full bg-primary h-64 rounded-t-sm relative group cursor-pointer">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 text-xs font-bold text-primary">Now</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote / Testimonial -->
+<section class="section-padding bg-surface">
+<div class="container mx-auto px-8 max-w-5xl">
+<span class="material-symbols-outlined text-primary text-6xl mb-12">format_quote</span>
+<blockquote class="text-4xl md:text-6xl font-light italic text-white leading-tight mb-16">
+                "Coldune didn't just build a site; they built us a digital home that finally makes financial sense. Our brand feels as premium online as it does in our dining room."
+            </blockquote>
+<div class="flex items-center gap-8">
+<img alt="Client" class="w-20 h-20 rounded-full grayscale object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSn-w8g6p_jmgjZIqA5zBvQAOGQk8YZWq5yBrdTnwzPqoJ3zrCtXV9t26Wm6HYLeylBGUyUBQ5QXJSeOFhAjh3OW4KZFeZAn9Nk-x0Ak16GzXwXzoLmf2tDagER7y7neRjkAP9SApZZb4o1KlfN4zPh0Lokm5ZyaiTgptQTdZ9Z-7iZTWTUDaEG_-zeeTk6UghXllYYE3YkMM-qfHKW1FlQdaM8blTcCOWqcXWmyXfS6BdIGM-GZGdhoMCOXlAjAsYdrt7usZMQ7A"/>
+<div>
+<p class="text-xl font-bold text-white">Vikram Mehra</p>
+<p class="text-xs uppercase tracking-widest text-primary font-bold">General Manager, The Spice Hearth</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="section-padding bg-primary relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 mix-blend-overlay">
+<img alt="Texture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMJdS8nDhImQsSXMmU2n2AA92D_lMGAxqbbiqMZmci0iFzFx17gSvApJhG4E2alPifptRo4xXbUhns-WvX6757fQypcP62Y1rO7eIVx9Mcpf6Sfdt0kaAsQJuf5Jg91jDLT5FWcJtB1fewsS-U01uvwmr0n6aGdQRR--F9yf8a0Wb4XgrDJmdI6MKoH6yB6fuxhDBUVqDVIu2FxFUMMNSmHsdke5meTibPm341CHA44Dto37u0wF-kFelGwGP9wLzGbFAnTS4bCcA"/>
+</div>
+<div class="container mx-auto px-8 relative z-10 text-center">
+<p class="text-white/70 font-bold tracking-[0.5em] uppercase text-[10px] mb-12">Take Ownership</p>
+<h2 class="text-6xl md:text-[100px] font-bold text-white leading-[0.9] tracking-tighter mb-16">
+                Scale Your Brand <br/>
+                Without the <span class="italic font-light">Tax.</span>
+</h2>
+<button class="bg-white text-primary px-16 py-6 rounded-full font-bold text-xl hover:scale-105 transition-all shadow-2xl uppercase tracking-widest">
+                Get Your Audit
+            </button>
+</div>
+</section>
+</main>
+<footer class="bg-background py-24 border-t border-white/5">
+<div class="container mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-start gap-16">
+<div class="max-w-sm">
+<a href="/" class="flex items-center h-28 md:h-36 mb-8 transition-transform hover:scale-105 duration-300">
+    <img src="/logo.png" alt="Coldune Studio" class="h-full w-auto object-contain" />
+</a>
+<p class="text-on-surface-variant font-light leading-relaxed">Building digital systems for the next generation of premium hospitality brands.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-16 text-[10px] font-bold tracking-widest uppercase">
+<div class="space-y-6 flex flex-col">
+<p class="text-primary">Studio</p>
+<a class="hover:text-white transition-colors" href="#">Our Process</a>
+<a class="hover:text-white transition-colors" href="#">Case Studies</a>
+</div>
+<div class="space-y-6 flex flex-col">
+<p class="text-primary">Connect</p>
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+</div>
+<div class="space-y-6 flex flex-col">
+<p class="text-primary">Privacy</p>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+<a class="hover:text-white transition-colors" href="#">Legal</a>
+</div>
+</div>
+</div>
+<div class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+<p class="text-on-surface-variant text-[10px] tracking-widest uppercase">© 2024 COLDUNE STUDIO. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8 text-on-surface-variant text-[10px] tracking-widest uppercase">
+<span>EST. 2021</span>
+<span>GLOBAL OPS</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+
+<!-- chip body -->
+<rect x="40" y="40" width="120" height="120" rx="8"></rect>
+
+<!-- inner squares -->
+<rect x="75" y="75" width="50" height="50"></rect>
+<rect x="90" y="90" width="20" height="20"></rect>
+
+<!-- left pins -->
+<line x1="10" y1="60" x2="40" y2="60"></line>
+<line x1="10" y1="80" x2="40" y2="80"></line>
+<line x1="10" y1="100" x2="40" y2="100"></line>
+<line x1="10" y1="120" x2="40" y2="120"></line>
+<line x1="10" y1="140" x2="40" y2="140"></line>
+
+<!-- right pins -->
+<line x1="160" y1="60" x2="190" y2="60"></line>
+<line x1="160" y1="80" x2="190" y2="80"></line>
+<line x1="160" y1="100" x2="190" y2="100"></line>
+<line x1="160" y1="120" x2="190" y2="120"></line>
+<line x1="160" y1="140" x2="190" y2="140"></line>
+
+<!-- top pins -->
+<line x1="60" y1="10" x2="60" y2="40"></line>
+<line x1="80" y1="10" x2="80" y2="40"></line>
+<line x1="100" y1="10" x2="100" y2="40"></line>
+<line x1="120" y1="10" x2="120" y2="40"></line>
+<line x1="140" y1="10" x2="140" y2="40"></line>
+
+<!-- bottom pins -->
+<line x1="60" y1="160" x2="60" y2="190"></line>
+<line x1="80" y1="160" x2="80" y2="190"></line>
+<line x1="100" y1="160" x2="100" y2="190"></line>
+<line x1="120" y1="160" x2="120" y2="190"></line>
+<line x1="140" y1="160" x2="140" y2="190"></line>
+
+</svg>

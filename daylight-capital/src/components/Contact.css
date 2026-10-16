@@ -1,0 +1,136 @@
+.contact-section {
+  background-color: var(--color-bg-ivory);
+  border-top: 1px solid var(--border-light);
+  min-height: auto;
+}
+
+.contact-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 120px;
+  padding: 80px 0;
+}
+
+.contact-col-context {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.contact-desc {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 500px;
+}
+
+.contact-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: -20px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+a.info-value:hover {
+  color: var(--color-accent);
+}
+
+/* Form Styling */
+.institutional-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 15px 0;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.4s ease;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(0,0,0,0.2);
+  font-size: 1rem;
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 1100px) {
+  .contact-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 80px;
+    padding: 60px 0;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

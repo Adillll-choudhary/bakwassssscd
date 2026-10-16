@@ -1,0 +1,317 @@
+.hero-motion-specialist {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: clip;
+  isolation: isolate;
+}
+
+.hero-sticky-visuals {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.hero-img-container {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1; /* 100% visibility */
+  filter: brightness(1.15) contrast(1.05);
+}
+
+.hero-vignette-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(
+    to bottom, 
+    rgba(0,0,0,0.4) 0%, 
+    rgba(0,0,0,0.1) 50%, 
+    rgba(0,0,0,0.5) 100%
+  );
+  z-index: 2;
+}
+
+.hero-edge-blur-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 65vw;
+  height: 100%;
+  /* Light dark tint for text legibility */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.15) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  /* Actual blur */
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  /* Fade out blur at the right edge */
+  mask-image: linear-gradient(to right, black 0%, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 55%, transparent 100%);
+  /* GPU acceleration — required for Netlify */
+  transform: translateZ(0);
+  will-change: backdrop-filter;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-edge-right-cinematic {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100%;
+  background: linear-gradient(to left, rgba(20, 15, 10, 0.7) 0%, rgba(20, 15, 10, 0.3) 50%, rgba(20, 15, 10, 0) 100%);
+  mix-blend-mode: multiply; /* Creates a rich, cinematic darkening effect */
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-content-layout {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 100;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: clamp(80px, 15vh, 180px); /* Adjusted for small laptops */
+  padding-bottom: clamp(50px, 10vh, 100px);
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.hero-content-layout > * {
+  pointer-events: auto; /* Re-enable for buttons/links */
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 5vw, 5rem) !important;
+  line-height: 1.05 !important;
+  color: white !important;
+  margin-bottom: 40px;
+  display: block;
+}
+
+@media (max-width: 1366px) {
+  .hero-content-layout {
+    left: 5% !important; /* 5% from left edge */
+    right: auto !important;
+    transform: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1440px) {
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 6.5rem) !important;
+  }
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.hero-title .mask-reveal {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.hero-title-reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.hero-title-reveal.text-accent {
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-subtitle-line {
+  height: 1px;
+  background-color: var(--color-accent);
+  width: 50px;
+}
+
+.hero-subtitle-text {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 400px;
+}
+
+.hero-footer-refined {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.scroll-hint-luxury {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.hint-text {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: white;
+}
+
+.hint-line {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, white, transparent);
+}
+
+.hero-actions-refined {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.hero-btn-minimal {
+  background: rgba(40, 40, 40, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: white;
+  padding: 14px 35px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.hero-btn-minimal::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  padding-bottom: 150%;
+  background: var(--color-accent); /* Golden fill effect */
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+}
+
+.hero-btn-minimal:hover {
+  color: #000000; /* Crisp black text on gold */
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3); /* Enhance the glass shadow on hover */
+}
+
+.hero-btn-minimal:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hero-btn-minimal.contact-btn {
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-text-primary);
+}
+
+.hero-btn-minimal.contact-btn::before {
+  background: black;
+}
+
+.hero-btn-minimal.contact-btn:hover {
+  color: white;
+}
+
+.hero-title .text-accent {
+  color: var(--color-accent) !important;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  letter-spacing: -0.01em;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* ---- MOBILE ONLY FIXES ---- */
+@media (max-width: 768px) {
+  .hero-content-layout {
+    left: 0 !important; /* Override the 5% left shift from laptop */
+    padding-left: 24px !important; /* Give more breathing room on mobile */
+    padding-right: 24px !important;
+    padding-top: clamp(140px, 22vh, 200px) !important; /* Pushed significantly further down */
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important; /* Made text smaller */
+    line-height: 0.9 !important; /* Tighter leading for larger text */
+    margin-left: 0 !important; /* Remove negative margin on mobile */
+  }
+
+  /* Ensure mask-reveal allows natural wrapping if text gets too big */
+  .hero-title .mask-reveal {
+    height: auto;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .hero-subtitle-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero-subtitle-line {
+    width: 40px; /* Shorter accent line */
+  }
+
+  .hero-actions-refined {
+    margin-top: 35px;
+  }
+
+  .hero-btn-minimal {
+    padding: 12px 24px !important; /* Much smaller padding so it doesn't stretch */
+    font-size: 0.55rem !important;
+    width: fit-content; /* Ensure it only takes needed width */
+  }
+}

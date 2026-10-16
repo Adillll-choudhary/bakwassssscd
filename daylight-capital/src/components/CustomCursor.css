@@ -1,0 +1,51 @@
+.custom-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 12px; /* Bigger Dot */
+  height: 12px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  will-change: transform, width, height;
+}
+
+/* STATES */
+
+/* Hovering Links/Buttons */
+.state-pointer.custom-dot {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-accent);
+  mix-blend-mode: normal;
+}
+
+/* Hovering Interactive Cards */
+.state-view.custom-dot {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid white;
+}
+
+/* Hovering Text Elements */
+.state-text.custom-dot {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  mix-blend-mode: difference;
+}
+
+/* Inverse over dark sections */
+.state-inverse.custom-dot {
+  background-color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .custom-dot {
+    display: none;
+  }
+}

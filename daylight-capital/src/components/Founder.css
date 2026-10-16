@@ -1,0 +1,120 @@
+.insights-cinematic {
+  background-color: var(--color-bg-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 120px;
+  align-items: center;
+}
+
+.portrait-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+}
+
+.portrait-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.founder-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.0) brightness(1.1) grayscale(0.05);
+}
+
+.portrait-grain {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.portrait-glow {
+  position: absolute;
+  top: -20%; right: -20%;
+  width: 80%; height: 80%;
+  background: radial-gradient(circle, var(--color-accent-muted) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.3;
+}
+
+.portrait-caption {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.portrait-caption .name {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-primary);
+}
+
+.portrait-caption .role {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+}
+
+.editorial-title {
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 0.95;
+  margin-top: 24px;
+  margin-bottom: 60px;
+}
+
+.editorial-body .lead-text {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-style: italic;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  margin-bottom: 40px;
+  border-left: 2px solid var(--color-accent);
+  padding-left: 30px;
+}
+
+.bio-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.bio-columns p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.insights-cta {
+  margin-top: 40px;
+}
+
+@media (max-width: 1100px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 100px;
+  }
+  .bio-columns {
+    grid-template-columns: 1fr;
+  }
+  .portrait-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
