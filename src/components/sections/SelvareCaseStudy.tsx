@@ -199,13 +199,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                         </div>
                     )}
                 </div>
-
-                <div className="pointer-events-auto">
-                    <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-black/80 border border-white/15 backdrop-blur-xl text-[10px] font-mono tracking-widest text-[#3CFF8F] uppercase font-bold shadow-2xl">
-                        <Sparkles size={11} className="text-[#3CFF8F]" />
-                        <span>CONCEPT BRAND IDENTITY</span>
-                    </div>
-                </div>
             </header>
 
             {/* --- HERO SECTION --- */}
@@ -227,17 +220,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
 
                 {/* Hero Content */}
                 <div className="relative z-10 max-w-6xl">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 mb-6 backdrop-blur-md"
-                    >
-                        <span className="w-2 h-2 rounded-full bg-[#3CFF8F] animate-pulse" />
-                        <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#3CFF8F] font-bold">
-                            LUXURY FRAGRANCE BRAND IDENTITY · CONCEPT PROJECT
-                        </span>
-                    </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -318,9 +300,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 {/* Chapter 1: Overview & The Challenge */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16 items-start mb-24 pb-20 border-b border-white/10">
                     <div className="md:col-span-5">
-                        <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#3CFF8F] font-bold block mb-3">
-                            CHAPTER 01 // OVERVIEW
-                        </span>
                         <h2 className="text-3xl sm:text-5xl font-universo font-black uppercase text-white leading-[0.88] tracking-tight">
                             The Emotional Power of Scent &amp;{" "}
                             <span 
@@ -336,9 +315,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                             <strong className="text-white font-medium">SÉLVARÉ</strong> is a conceptual niche fragrance house built around the emotional power of scent, memory and personal identity. The project explores how a fragrance brand can communicate understated luxury through a cohesive visual language spanning identity, packaging, product design and digital art direction.
                         </p>
                         <div className="p-6 rounded-2xl bg-white/5 border border-white/10 mt-6">
-                            <span className="text-[10px] font-mono tracking-widest uppercase text-[#3CFF8F] font-bold block mb-2">
-                                THE CHALLENGE
-                            </span>
                             <p className="text-xs sm:text-sm text-white/80">
                                 To create a distinctive fragrance identity that feels sophisticated without relying on excessive ornamentation or conventional luxury clichés. The system needed to work across the perfume bottle, packaging, campaign imagery and digital experience while maintaining a recognisable visual signature.
                             </p>
@@ -349,9 +325,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 {/* Chapter 2: The Creative Direction & Palette */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16 items-start mb-24 pb-20 border-b border-white/10">
                     <div className="md:col-span-5">
-                        <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#3CFF8F] font-bold block mb-3">
-                            CHAPTER 02 // CREATIVE DIRECTION
-                        </span>
                         <h2 className="text-3xl sm:text-5xl font-universo font-black uppercase text-white leading-[0.88] tracking-tight mb-6">
                             The Art of{" "}
                             <span 
@@ -406,9 +379,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
                     <div className="p-8 rounded-3xl bg-[#0E0E12] border border-white/10 flex flex-col justify-between">
                         <div>
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-[#3CFF8F] font-bold block mb-3">
-                                01 // PRODUCT & PACKAGING
-                            </span>
                             <h3 className="text-xl sm:text-2xl font-universo font-black uppercase text-white tracking-wide mb-3 flex items-center gap-2 flex-wrap">
                                 <span>Tactile</span>
                                 <span className="font-siestha normal-case text-[#3CFF8F] text-2xl sm:text-3xl -rotate-[6deg] inline-block">
@@ -423,9 +393,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
 
                     <div className="p-8 rounded-3xl bg-[#0E0E12] border border-white/10 flex flex-col justify-between">
                         <div>
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-[#3CFF8F] font-bold block mb-3">
-                                02 // ART DIRECTION
-                            </span>
                             <h3 className="text-xl sm:text-2xl font-universo font-black uppercase text-white tracking-wide mb-3 flex items-center gap-2 flex-wrap">
                                 <span>Sculptural</span>
                                 <span className="font-siestha normal-case text-[#3CFF8F] text-2xl sm:text-3xl -rotate-[6deg] inline-block">
@@ -440,9 +407,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
 
                     <div className="p-8 rounded-3xl bg-[#0E0E12] border border-white/10 flex flex-col justify-between">
                         <div>
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-[#3CFF8F] font-bold block mb-3">
-                                03 // DIGITAL EXPERIENCE
-                            </span>
                             <h3 className="text-xl sm:text-2xl font-universo font-black uppercase text-white tracking-wide mb-3 flex items-center gap-2 flex-wrap">
                                 <span>Editorial</span>
                                 <span className="font-siestha normal-case text-[#3CFF8F] text-2xl sm:text-3xl -rotate-[6deg] inline-block">
@@ -458,9 +422,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
 
                 {/* Chapter 4: Services Explored */}
                 <div className="p-8 sm:p-10 rounded-3xl bg-white/[0.03] border border-white/10 mb-28">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#3CFF8F] font-bold block mb-4">
-                        SERVICES EXPLORED & METHODOLOGY
-                    </span>
                     <div className="flex flex-wrap gap-2.5">
                         {[
                             "Brand Strategy",
@@ -485,9 +446,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 <div className="mb-12">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10 pb-6 border-b border-white/10">
                         <div>
-                            <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#3CFF8F] font-bold block mb-2">
-                                VISUAL PRODUCTION ARCHIVE
-                            </span>
                             <h2 className="text-3xl sm:text-6xl font-universo font-black uppercase text-white tracking-tight leading-none flex items-center gap-3 flex-wrap">
                                 <span>The Sélvaré</span>
                                 <span 
@@ -525,9 +483,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
                                     <div className="flex justify-between items-end">
                                         <div>
-                                            <span className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest block mb-1 font-bold">
-                                                0{index + 1} {"//"} SÉLVARÉ
-                                            </span>
                                             <h4 className="text-base sm:text-lg font-universo font-black uppercase text-white tracking-wide">
                                                 {artwork.title}
                                             </h4>
@@ -548,9 +503,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 {/* --- OUTCOME & WORK WITH COLDUNE --- */}
                 <div className="pt-20 border-t border-white/10 mt-20 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                     <div>
-                        <span className="text-[10px] font-mono tracking-widest uppercase text-[#3CFF8F] font-bold block mb-2">
-                            THE OUTCOME
-                        </span>
                         <h3 className="text-2xl sm:text-4xl font-universo font-black uppercase text-white tracking-tight leading-tight max-w-xl">
                             A Unified Creative{" "}
                             <span 
@@ -610,9 +562,6 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                             {/* Metadata Sidebar */}
                             <div className="w-full md:w-2/5 p-8 flex flex-col justify-between bg-[#121217] border-t md:border-t-0 md:border-l border-white/10">
                                 <div>
-                                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#3CFF8F]">
-                                        SÉLVARÉ // ARCHIVE
-                                    </span>
                                     <h3 className="text-2xl sm:text-3xl font-universo font-black uppercase text-white mt-1 leading-tight">
                                         {activeImage.title}
                                     </h3>

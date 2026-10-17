@@ -243,7 +243,7 @@ export default function BrandOrbitalSelector({ onSelectBrand }: BrandOrbitalSele
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(60,255,143,0.06)_0%,transparent_65%)]" />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_50%,rgba(20,20,28,0.8)_0%,#000000_80%)]" />
 
-            {/* --- TOP HEADER & RETURN TO SPECTRUM --- */}
+            {/* Top Bar Navigation */}
             <div className="relative z-50 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pointer-events-none max-w-7xl mx-auto">
                 <div className="flex items-center gap-4 pointer-events-auto">
                     <Link
@@ -253,19 +253,9 @@ export default function BrandOrbitalSelector({ onSelectBrand }: BrandOrbitalSele
                         <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
                         <span className="text-[10px] font-mono tracking-widest uppercase font-bold">Return to Hub</span>
                     </Link>
-
-                    <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3CFF8F] animate-ping" />
-                        <span className="text-[10px] md:text-xs font-mono tracking-[0.25em] text-[#3CFF8F] uppercase font-semibold">
-                            COLDUNE BRANDING ORBIT
-                        </span>
-                    </div>
                 </div>
 
                 <div className="flex items-center gap-3 pointer-events-auto">
-                    <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase hidden md:inline">
-                        DRAG / SCROLL TO ORBIT BRANDS
-                    </span>
                     <button
                         onClick={() => setRotation(0)}
                         aria-label="Reset rotation"
