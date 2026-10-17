@@ -207,8 +207,17 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                 {/* Active Hover Label */}
                 <div className="flex items-center gap-3 bg-black/80 border border-white/15 px-5 py-2.5 rounded-full backdrop-blur-xl pointer-events-auto shadow-2xl min-h-[42px]">
                     <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: hoveredBrand?.accentColor || "#3CFF8F" }} />
-                    <span className="text-xs sm:text-sm font-serif italic font-black text-accent tracking-wide">
-                        {hoveredBrand ? hoveredBrand.brandName : "Select a Brand"}
+                    <span className="text-xs sm:text-sm font-universo font-black uppercase text-white tracking-wider flex items-center gap-1.5">
+                        {hoveredBrand ? (
+                            <span>{hoveredBrand.brandName}</span>
+                        ) : (
+                            <>
+                                <span>SELECT A</span>
+                                <span className="font-siestha normal-case text-[#3CFF8F] text-base -rotate-[6deg] inline-block font-normal">
+                                    Brand
+                                </span>
+                            </>
+                        )}
                     </span>
                     <span className="text-white/20 text-xs">|</span>
                     <span className="text-[10px] font-mono tracking-widest text-white/60 uppercase">
@@ -222,7 +231,7 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                         <button
                             key={b.id}
                             onClick={() => onSelectBrand(b.brandName)}
-                            className="px-3.5 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider text-white/70 hover:text-black hover:bg-[#3CFF8F] transition-all cursor-pointer font-bold"
+                            className="px-3.5 py-1.5 rounded-full text-[10px] font-universo uppercase tracking-wider text-white/80 hover:text-black hover:bg-[#3CFF8F] transition-all cursor-pointer font-black"
                         >
                             {b.brandName}
                         </button>

@@ -604,7 +604,7 @@ export default function CategoryWorkClient() {
                             <div className="flex flex-wrap items-center justify-center gap-2.5 mb-8">
                                 <button 
                                     onClick={() => setSelectedBrand(null)} 
-                                    className="px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-xs font-mono font-bold uppercase tracking-widest text-white flex items-center gap-2 cursor-pointer shadow-lg backdrop-blur-md"
+                                    className="px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-[11px] font-universo font-black uppercase tracking-widest text-white flex items-center gap-2 cursor-pointer shadow-lg backdrop-blur-md"
                                 >
                                     <ArrowLeft size={14} /> All Brands
                                 </button>
@@ -613,9 +613,9 @@ export default function CategoryWorkClient() {
                                         <button
                                             key={b}
                                             onClick={() => setSelectedBrand(b)}
-                                            className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all cursor-pointer ${
+                                            className={`px-3.5 py-1.5 rounded-full text-[10px] font-universo uppercase tracking-wider transition-all cursor-pointer font-black ${
                                                 b === selectedBrand
-                                                    ? "bg-[#3CFF8F] text-black font-bold shadow-[0_0_12px_rgba(60,255,143,0.5)]"
+                                                    ? "bg-[#3CFF8F] text-black font-black shadow-[0_0_12px_rgba(60,255,143,0.5)]"
                                                     : "text-white/60 hover:text-white hover:bg-white/10"
                                             }`}
                                         >
@@ -625,8 +625,8 @@ export default function CategoryWorkClient() {
                                 </div>
                             </div>
 
-                            <h1 className="text-[12vw] md:text-[8vw] font-serif font-black italic uppercase leading-[0.8] tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/20">
-                                {selectedBrand}.
+                            <h1 className="text-[12vw] md:text-[8vw] font-universo font-black uppercase leading-[0.82] tracking-tight mb-8 text-white drop-shadow-[0_0_35px_rgba(255,255,255,0.2)]">
+                                {selectedBrand}
                             </h1>
                             <ChevronDown size={30} className="mx-auto text-accent animate-bounce mt-10" />
                         </motion.div>

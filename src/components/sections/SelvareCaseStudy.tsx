@@ -243,19 +243,27 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.9, delay: 0.1 }}
-                        className="text-7xl sm:text-8xl md:text-[9.5rem] lg:text-[11rem] font-serif font-black italic uppercase leading-[0.82] tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white via-white/95 to-white/20 mb-4"
+                        className="text-6xl sm:text-8xl md:text-[8.5rem] lg:text-[10.5rem] font-universo font-black uppercase leading-[0.8] tracking-tight text-white mb-2 whitespace-nowrap"
                     >
-                        SÉLVARÉ.
+                        SÉLVARÉ
                     </motion.h1>
 
-                    <motion.p
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.9, delay: 0.2 }}
-                        className="text-2xl sm:text-4xl md:text-5xl font-serif font-black italic text-accent tracking-tight mb-8 drop-shadow-md"
+                        className="flex items-center gap-3 sm:gap-4 mb-8 flex-wrap"
                     >
-                        The Art of Presence
-                    </motion.p>
+                        <span className="text-xl sm:text-3xl md:text-4xl font-universo font-black uppercase text-white tracking-wider">
+                            The Art of
+                        </span>
+                        <span
+                            className="font-siestha normal-case text-[#3CFF8F] text-4xl sm:text-5xl md:text-6xl -rotate-[7deg] inline-block -translate-y-1"
+                            style={{ textShadow: "0 4px 30px rgba(60,255,143,0.5)" }}
+                        >
+                            Presence
+                        </span>
+                    </motion.div>
 
                     {/* Metadata Strip */}
                     <motion.div
@@ -313,8 +321,14 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                         <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#3CFF8F] font-bold block mb-3">
                             CHAPTER 01 // OVERVIEW
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-serif font-black italic uppercase text-accent tracking-tighter leading-tight">
-                            The Emotional Power of Scent & Memory.
+                        <h2 className="text-3xl sm:text-5xl font-universo font-black uppercase text-white leading-[0.88] tracking-tight">
+                            The Emotional Power of Scent &amp;{" "}
+                            <span 
+                                className="font-siestha normal-case text-[#3CFF8F] text-4xl sm:text-6xl -rotate-[6deg] inline-block"
+                                style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}
+                            >
+                                Memory
+                            </span>
                         </h2>
                     </div>
                     <div className="md:col-span-7 space-y-6 text-sm sm:text-base text-white/70 font-sans leading-relaxed">
@@ -338,8 +352,14 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                         <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#3CFF8F] font-bold block mb-3">
                             CHAPTER 02 // CREATIVE DIRECTION
                         </span>
-                        <h2 className="text-3xl sm:text-5xl font-serif font-black italic uppercase text-accent tracking-tighter leading-tight mb-6">
-                            The Art of Presence.
+                        <h2 className="text-3xl sm:text-5xl font-universo font-black uppercase text-white leading-[0.88] tracking-tight mb-6">
+                            The Art of{" "}
+                            <span 
+                                className="font-siestha normal-case text-[#3CFF8F] text-4xl sm:text-6xl -rotate-[6deg] inline-block"
+                                style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}
+                            >
+                                Presence
+                            </span>
                         </h2>
                         <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
                             The concept positions fragrance as a quiet but lasting expression of identity. A refined serif wordmark, warm neutral palette, tactile material references and cinematic photography establish a world that feels intimate, timeless and contemporary.
@@ -389,8 +409,11 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                             <span className="text-[10px] font-mono uppercase tracking-widest text-[#3CFF8F] font-bold block mb-3">
                                 01 // PRODUCT & PACKAGING
                             </span>
-                            <h3 className="text-xl sm:text-2xl font-serif font-black italic uppercase text-accent tracking-tight mb-4">
-                                Tactile Unboxing.
+                            <h3 className="text-xl sm:text-2xl font-universo font-black uppercase text-white tracking-wide mb-3 flex items-center gap-2 flex-wrap">
+                                <span>Tactile</span>
+                                <span className="font-siestha normal-case text-[#3CFF8F] text-2xl sm:text-3xl -rotate-[6deg] inline-block">
+                                    Unboxing
+                                </span>
                             </h3>
                             <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
                                 The signature product direction features a substantial rectangular glass bottle, amber-toned fragrance, a dark wood-grain cap and champagne-gold detailing. Textured packaging, restrained typography and subtle embossing extend the identity into a considered unboxing experience.
@@ -403,8 +426,11 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                             <span className="text-[10px] font-mono uppercase tracking-widest text-[#3CFF8F] font-bold block mb-3">
                                 02 // ART DIRECTION
                             </span>
-                            <h3 className="text-xl sm:text-2xl font-serif font-black italic uppercase text-accent tracking-tight mb-4">
-                                Sculptural Lighting.
+                            <h3 className="text-xl sm:text-2xl font-universo font-black uppercase text-white tracking-wide mb-3 flex items-center gap-2 flex-wrap">
+                                <span>Sculptural</span>
+                                <span className="font-siestha normal-case text-[#3CFF8F] text-2xl sm:text-3xl -rotate-[6deg] inline-block">
+                                    Lighting
+                                </span>
                             </h3>
                             <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
                                 The visual world combines sculptural lighting, rich glass reflections, natural materials, botanical details and fashion-led editorial compositions. Each image communicates atmosphere while keeping the product at the center.
@@ -417,8 +443,11 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                             <span className="text-[10px] font-mono uppercase tracking-widest text-[#3CFF8F] font-bold block mb-3">
                                 03 // DIGITAL EXPERIENCE
                             </span>
-                            <h3 className="text-xl sm:text-2xl font-serif font-black italic uppercase text-accent tracking-tight mb-4">
-                                Editorial Discovery.
+                            <h3 className="text-xl sm:text-2xl font-universo font-black uppercase text-white tracking-wide mb-3 flex items-center gap-2 flex-wrap">
+                                <span>Editorial</span>
+                                <span className="font-siestha normal-case text-[#3CFF8F] text-2xl sm:text-3xl -rotate-[6deg] inline-block">
+                                    Discovery
+                                </span>
                             </h3>
                             <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
                                 The website direction translates the identity into an editorial fragrance experience, combining spacious layouts, oversized product imagery, subtle motion and clear navigation.
@@ -459,8 +488,14 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                             <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#3CFF8F] font-bold block mb-2">
                                 VISUAL PRODUCTION ARCHIVE
                             </span>
-                            <h2 className="text-3xl sm:text-6xl font-serif font-black italic uppercase text-accent tracking-tighter leading-none">
-                                The Sélvaré Collection.
+                            <h2 className="text-3xl sm:text-6xl font-universo font-black uppercase text-white tracking-tight leading-none flex items-center gap-3 flex-wrap">
+                                <span>The Sélvaré</span>
+                                <span 
+                                    className="font-siestha normal-case text-[#3CFF8F] text-4xl sm:text-7xl -rotate-[6deg] inline-block"
+                                    style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}
+                                >
+                                    Collection
+                                </span>
                             </h2>
                         </div>
                         <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
@@ -493,7 +528,7 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                                             <span className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest block mb-1 font-bold">
                                                 0{index + 1} {"//"} SÉLVARÉ
                                             </span>
-                                            <h4 className="text-lg sm:text-xl font-serif font-black italic uppercase text-white tracking-tight">
+                                            <h4 className="text-base sm:text-lg font-universo font-black uppercase text-white tracking-wide">
                                                 {artwork.title}
                                             </h4>
                                             <p className="text-xs text-white/70 max-w-md line-clamp-1 mt-1 font-sans">
@@ -516,8 +551,14 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                         <span className="text-[10px] font-mono tracking-widest uppercase text-[#3CFF8F] font-bold block mb-2">
                             THE OUTCOME
                         </span>
-                        <h3 className="text-2xl sm:text-4xl font-serif font-black italic uppercase text-accent tracking-tighter leading-tight max-w-xl">
-                            A unified creative direction demonstrating how a consistent design system turns an individual product into a complete brand world.
+                        <h3 className="text-2xl sm:text-4xl font-universo font-black uppercase text-white tracking-tight leading-tight max-w-xl">
+                            A Unified Creative{" "}
+                            <span 
+                                className="font-siestha normal-case text-[#3CFF8F] text-3xl sm:text-5xl -rotate-[6deg] inline-block"
+                                style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}
+                            >
+                                Direction
+                            </span>
                         </h3>
                     </div>
 
@@ -572,7 +613,7 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                                     <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#3CFF8F]">
                                         SÉLVARÉ // ARCHIVE
                                     </span>
-                                    <h3 className="text-2xl sm:text-3xl font-serif font-black italic uppercase text-accent mt-1 leading-tight">
+                                    <h3 className="text-2xl sm:text-3xl font-universo font-black uppercase text-white mt-1 leading-tight">
                                         {activeImage.title}
                                     </h3>
                                     <p className="mt-4 text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
