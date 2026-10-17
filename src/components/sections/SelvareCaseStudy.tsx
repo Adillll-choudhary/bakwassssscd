@@ -434,7 +434,7 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                         ].map((s) => (
                             <span
                                 key={s}
-                                className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-wider text-accent hover:border-[#3CFF8F]/60 hover:text-white transition-all"
+                                className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-universo font-black uppercase tracking-wider text-accent hover:border-[#3CFF8F]/60 hover:text-white transition-all"
                             >
                                 {s}
                             </span>
