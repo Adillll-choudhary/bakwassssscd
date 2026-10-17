@@ -124,7 +124,7 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
         <section
             onWheel={handleWheel}
             onMouseMove={handleMouseMove}
-            className="relative min-h-screen w-full bg-[#050508] text-white overflow-hidden flex flex-col justify-between select-none py-8 px-4 sm:px-8 cursor-default"
+            className="relative min-h-screen w-full bg-[#050508] text-white overflow-hidden flex flex-col justify-between select-none pt-28 md:pt-32 pb-8 px-4 sm:px-8 cursor-default"
         >
             {/* Ambient luxury lighting */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_45%_35%,rgba(60,255,143,0.06)_0%,transparent_65%)]" />
@@ -207,7 +207,7 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                 {/* Active Hover Label */}
                 <div className="flex items-center gap-3 bg-black/80 border border-white/15 px-5 py-2.5 rounded-full backdrop-blur-xl pointer-events-auto shadow-2xl min-h-[42px]">
                     <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: hoveredBrand?.accentColor || "#3CFF8F" }} />
-                    <span className="text-xs sm:text-sm font-serif italic font-black text-white tracking-wide">
+                    <span className="text-xs sm:text-sm font-serif italic font-black text-accent tracking-wide">
                         {hoveredBrand ? hoveredBrand.brandName : "Select a Brand"}
                     </span>
                     <span className="text-white/20 text-xs">|</span>
