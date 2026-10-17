@@ -4,7 +4,6 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Project } from "@/data/work";
 import { ArrowUpRight, X, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence, MotionValue } from "framer-motion";
-import Link from "next/link";
 import ParticleLinesScene from "@/components/canvas/ParticleLinesScene";
 
 interface FeaturedWebsitesProps {
@@ -403,29 +402,7 @@ export default function FeaturedWebsites({ projects }: FeaturedWebsitesProps) {
                     ))}
                 </div>
 
-                {/* 4. SUBTITLE & CTA SECTION (COLDUNE SIGNATURE FONT COMBO) */}
-                <div className="relative z-30 flex flex-col items-center text-center max-w-xl mx-auto px-4 pb-2">
-                    <div className="mb-3 max-w-lg space-y-1.5">
-                        <p className="font-universo font-black uppercase text-sm sm:text-base md:text-lg tracking-tight text-white leading-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)]">
-                            BE THE CREATIVE DIRECTOR. LET AGENTS BE YOUR{" "}
-                            <span 
-                                className="font-siestha normal-case font-light text-[#3CFF8F] -rotate-[6deg] inline-block text-[1.28em] leading-none -translate-y-0.5 ml-1 drop-shadow-[0_2px_12px_rgba(60,255,143,0.6)]"
-                                style={{ textShadow: "0 0 25px rgba(60,255,143,0.7), 0 0 10px rgba(60,255,143,0.4)" }}
-                            >
-                                team.
-                            </span>
-                        </p>
-                        <p className="text-xs sm:text-[13px] text-white/75 font-normal leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-                            Brief our agent Mel, watch the work assemble, and steer any prompt until the output lands exactly as you imagined.
-                        </p>
-                    </div>
-                    <Link
-                        href="/#contact"
-                        className="bg-[#3CFF8F] hover:bg-[#2EE67E] text-black font-universo font-black uppercase text-xs sm:text-sm tracking-wider px-8 py-2.5 rounded-xl shadow-[0_0_25px_rgba(60,255,143,0.45)] hover:shadow-[0_0_40px_rgba(60,255,143,0.75)] transition-all active:scale-95"
-                    >
-                        Start for Free
-                    </Link>
-                </div>
+
 
                 {/* 5. FLOATING INTERACTIVE CONTROLS */}
                 <div className="relative z-40 w-full flex items-end justify-between pointer-events-none pt-2">
