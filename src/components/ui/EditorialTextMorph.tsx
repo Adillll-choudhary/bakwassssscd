@@ -147,7 +147,7 @@ export default function EditorialTextMorph() {
                     {/* Text Container */}
                     <div ref={textRef} className="relative z-20 max-w-4xl">
                         <h3 className="font-universo font-black text-black text-3xl md:text-5xl lg:text-[4rem] leading-[0.9] tracking-tight uppercase">
-                            <TextSplitter text="We shape digital experiences that transform brands." />
+                            <TextSplitter text="We shape digital experiences that transform brands" />
                         </h3>
                         <p className="mt-8 font-sans text-black/80 font-medium text-lg md:text-2xl leading-tight max-w-2xl">
                             <TextSplitter text="Our methodology combines cinematic aesthetics with precision engineering. We do not just build websites—we construct immersive digital environments." />

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
 
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+{}:<>?|[];',./~";
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 export function useScramble(text: string) {
     const [scrambledText, setScrambledText] = useState(text);

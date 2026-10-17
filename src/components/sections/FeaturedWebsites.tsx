@@ -336,8 +336,8 @@ export default function FeaturedWebsites({ projects }: FeaturedWebsitesProps) {
                         transition={{ duration: 0.8 }}
                         className="flex flex-col items-center justify-center max-w-4xl mx-auto"
                     >
-                        <h1 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-universo font-black uppercase text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)] text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[0.98] tracking-tight">
-                            <span>FROM &ldquo;WHAT IF?&rdquo; TO</span>
+                        <h1 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)] text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[0.98] tracking-tight">
+                            <span className="font-universo font-black uppercase">FROM WHAT IF TO</span>
                             <span 
                                 className="font-siestha normal-case font-light text-[#3CFF8F] -rotate-[5deg] inline-block leading-none text-[1.18em] -translate-y-0.5 whitespace-nowrap"
                                 style={{ textShadow: "0 0 30px rgba(60,255,143,0.7), 0 0 15px rgba(60,255,143,0.4)" }}

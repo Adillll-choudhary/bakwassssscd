@@ -17,7 +17,7 @@ export interface BrandCardData {
 export const BRANDS: BrandCardData[] = [
     {
         id: "selvare",
-        brandName: "Sélvaré",
+        brandName: "Selvare",
         file: "/work/branding/selvare/selvare 1.png",
         accentColor: "#E8D8C8", // Champagne & Warm Ivory
         tagline: "The Art of Presence · Luxury Fragrance"

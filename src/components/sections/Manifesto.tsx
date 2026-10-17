@@ -96,7 +96,7 @@ export default function Manifesto() {
                     style={{ color: color6 }}
                     className="text-[12vw] md:text-[9rem] lg:text-[13rem] font-universo font-black uppercase inline-block leading-[0.8] tracking-normal mt-0 md:mt-2 lg:mt-4 transition-colors duration-200"
                 >
-                    FOR LESS.
+                    FOR LESS
                 </motion.span>
 
             </div>

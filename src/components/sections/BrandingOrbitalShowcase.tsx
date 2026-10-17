@@ -23,7 +23,7 @@ export interface BrandingOrbitalShowcaseProps {
 const BRANDING_ARTWORKS: BrandingArtwork[] = [
     {
         id: 1,
-        title: "L'Élixir Solaire",
+        title: "Elixir Solaire",
         brand: "Ixora Haute Parfumerie",
         category: "Fragrance Architecture",
         file: "/work/branding/ChatGPT Image Aug 11, 2026, 02_05_38 PM.png",
@@ -31,7 +31,7 @@ const BRANDING_ARTWORKS: BrandingArtwork[] = [
     },
     {
         id: 2,
-        title: "Kinetic Form & Shadow",
+        title: "Kinetic Form and Shadow",
         brand: "Atelier IX",
         category: "Fashion Editorial",
         file: "/work/branding/ChatGPT Image Aug 11, 2026, 02_18_31 PM.png",
@@ -87,7 +87,7 @@ const BRANDING_ARTWORKS: BrandingArtwork[] = [
     },
     {
         id: 9,
-        title: "Vinyl & Velvet",
+        title: "Vinyl and Velvet",
         brand: "Acoustic Heritage",
         category: "Lifestyle Campaign",
         file: "/work/branding/ChatGPT Image Aug 11, 2026, 02_56_59 PM.png",
@@ -95,7 +95,7 @@ const BRANDING_ARTWORKS: BrandingArtwork[] = [
     },
     {
         id: 10,
-        title: "Crème De Minuit",
+        title: "Creme De Minuit",
         brand: "Ixora Radiance",
         category: "Cosmetics Packaging",
         file: "/work/branding/ChatGPT Image Aug 11, 2026, 03_03_16 PM.png",
@@ -111,7 +111,7 @@ const BRANDING_ARTWORKS: BrandingArtwork[] = [
     },
     {
         id: 12,
-        title: "Facet & Crystal",
+        title: "Facet and Crystal",
         brand: "Cristal d'Or",
         category: "Product Manifesto",
         file: "/work/branding/ChatGPT Image Aug 11, 2026, 01_13_27 PM.png",
@@ -127,7 +127,7 @@ const BRANDING_ARTWORKS: BrandingArtwork[] = [
     },
     {
         id: 14,
-        title: "Verve & Precision",
+        title: "Verve and Precision",
         brand: "Coldune Atelier",
         category: "Brand Narrative",
         file: "/work/branding/ChatGPT Image Aug 11, 2026, 11_26_18 AM.png",
@@ -257,7 +257,7 @@ export default function BrandingOrbitalShowcase({
 
                     {onSelectBrand && (
                         <div className="flex items-center gap-1 bg-black/60 border border-white/10 rounded-full p-1 backdrop-blur-md">
-                            {["Sélvaré", "Ixora", "Nexa", "Define", "The Verdant Court"].map((b) => (
+                            {["Selvare", "Ixora", "Nexa", "Define", "The Verdant Court"].map((b) => (
                                 <button
                                     key={b}
                                     onClick={() => onSelectBrand(b)}

@@ -609,7 +609,7 @@ export default function CategoryWorkClient() {
                                     <ArrowLeft size={14} /> All Brands
                                 </button>
                                 <div className="flex items-center gap-1.5 bg-black/60 border border-white/10 rounded-full p-1 backdrop-blur-md">
-                                    {["Sélvaré", "Ixora", "Nexa", "Define", "The Verdant Court"].map(b => (
+                                    {["Selvare", "Ixora", "Nexa", "Define", "The Verdant Court"].map(b => (
                                         <button
                                             key={b}
                                             onClick={() => setSelectedBrand(b)}

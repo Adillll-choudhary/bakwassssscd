@@ -10,8 +10,8 @@ import { useScramble } from "@/hooks/useScramble";
 const caveat = Caveat({ subsets: ["latin"], weight: "400" });
 
 const allServices = [
-    { title: "Website Design &\nDevelopment", category: "Core", index: "01" },
-    { title: "Branding & Identity", category: "Core", index: "02" },
+    { title: "Website Design and\nDevelopment", category: "Core", index: "01" },
+    { title: "Branding and Identity", category: "Core", index: "02" },
     { title: "Social Media\nManagement", category: "Core", index: "03" },
     { title: "SEO Growth", category: "Core", index: "04" },
     { title: "Performance Marketing", category: "Core", index: "05" },

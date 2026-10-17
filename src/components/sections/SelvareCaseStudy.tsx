@@ -24,7 +24,7 @@ export const SELVARE_GALLERY: SelvareArtwork[] = [
     },
     {
         id: 2,
-        title: "Amber Tone & Reflection",
+        title: "Amber Tone and Reflection",
         caption: "Warm amber-toned fragrance interacting with natural atmospheric light and shadow.",
         file: "/work/branding/selvare/selvare 2.png",
         span: "col-span-12 md:col-span-4 row-span-1 min-h-[220px]"
@@ -101,7 +101,7 @@ export const SELVARE_GALLERY: SelvareArtwork[] = [
     },
     {
         id: 14,
-        title: "Fashion-Led Perspective",
+        title: "Fashion Led Perspective",
         caption: "Sculptural shadow and form communicating memory, scent, and understated luxury.",
         file: "/work/branding/selvare/selvare 14.png",
         span: "col-span-12 md:col-span-4 row-span-1 min-h-[260px]"
@@ -183,12 +183,12 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
 
                     {onSelectBrand && (
                         <div className="hidden sm:flex items-center gap-1 bg-black/80 border border-white/15 p-1 rounded-full backdrop-blur-xl shadow-2xl">
-                            {["Sélvaré", "Ixora", "Nexa", "Define", "The Verdant Court"].map((b) => (
+                            {["Selvare", "Ixora", "Nexa", "Define", "The Verdant Court"].map((b) => (
                                 <button
                                     key={b}
                                     onClick={() => onSelectBrand(b)}
                                     className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider transition-all cursor-pointer ${
-                                        b === "Sélvaré"
+                                        b === "Selvare"
                                             ? "bg-[#3CFF8F] text-black font-bold shadow-[0_0_12px_rgba(60,255,143,0.5)]"
                                             : "text-white/60 hover:text-white hover:bg-white/10"
                                     }`}
@@ -227,7 +227,7 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                         transition={{ duration: 0.9, delay: 0.1 }}
                         className="text-6xl sm:text-8xl md:text-[8.5rem] lg:text-[10.5rem] font-universo font-black uppercase leading-[0.8] tracking-tight text-white mb-2 whitespace-nowrap"
                     >
-                        SÉLVARÉ
+                        SELVARE
                     </motion.h1>
 
                     <motion.div
@@ -300,8 +300,8 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 {/* Chapter 1: Overview & The Challenge */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16 items-start mb-24 pb-20 border-b border-white/10">
                     <div className="md:col-span-5">
-                        <h2 className="text-3xl sm:text-5xl font-universo font-black uppercase text-white leading-[0.88] tracking-tight">
-                            The Emotional Power of Scent &amp;{" "}
+                        <h2 className="text-3xl sm:text-5xl text-white leading-[0.88] tracking-tight">
+                            <span className="font-universo font-black uppercase">The Emotional Power of Scent and </span>
                             <span 
                                 className="font-siestha normal-case text-[#3CFF8F] text-4xl sm:text-6xl -rotate-[6deg] inline-block"
                                 style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}
@@ -325,8 +325,8 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 {/* Chapter 2: The Creative Direction & Palette */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16 items-start mb-24 pb-20 border-b border-white/10">
                     <div className="md:col-span-5">
-                        <h2 className="text-3xl sm:text-5xl font-universo font-black uppercase text-white leading-[0.88] tracking-tight mb-6">
-                            The Art of{" "}
+                        <h2 className="text-3xl sm:text-5xl text-white leading-[0.88] tracking-tight mb-6">
+                            <span className="font-universo font-black uppercase">The Art of </span>
                             <span 
                                 className="font-siestha normal-case text-[#3CFF8F] text-4xl sm:text-6xl -rotate-[6deg] inline-block"
                                 style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}
@@ -446,8 +446,8 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 <div className="mb-12">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10 pb-6 border-b border-white/10">
                         <div>
-                            <h2 className="text-3xl sm:text-6xl font-universo font-black uppercase text-white tracking-tight leading-none flex items-center gap-3 flex-wrap">
-                                <span>The Sélvaré</span>
+                            <h2 className="text-3xl sm:text-6xl text-white tracking-tight leading-none flex items-center gap-3 flex-wrap">
+                                <span className="font-universo font-black uppercase">The Selvare</span>
                                 <span 
                                     className="font-siestha normal-case text-[#3CFF8F] text-4xl sm:text-7xl -rotate-[6deg] inline-block"
                                     style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}
@@ -503,8 +503,8 @@ export default function SelvareCaseStudy({ onBack, onSelectBrand }: SelvareCaseS
                 {/* --- OUTCOME & WORK WITH COLDUNE --- */}
                 <div className="pt-20 border-t border-white/10 mt-20 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                     <div>
-                        <h3 className="text-2xl sm:text-4xl font-universo font-black uppercase text-white tracking-tight leading-tight max-w-xl">
-                            A Unified Creative{" "}
+                        <h3 className="text-2xl sm:text-4xl text-white tracking-tight leading-tight max-w-xl">
+                            <span className="font-universo font-black uppercase">A Unified Creative </span>
                             <span 
                                 className="font-siestha normal-case text-[#3CFF8F] text-3xl sm:text-5xl -rotate-[6deg] inline-block"
                                 style={{ textShadow: "0 4px 30px rgba(60,255,143,0.4)" }}

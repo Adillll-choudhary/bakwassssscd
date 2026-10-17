@@ -124,8 +124,8 @@ function FounderCard({ founder, index, isMobile }: { founder: typeof founders[0]
                     viewport={{ once: true }}
                     className="space-y-8"
                 >
-                    <h2 className="text-5xl sm:text-6xl md:text-[7vw] lg:text-[7.5rem] font-universo font-black uppercase text-white tracking-tighter leading-[0.85]">
-                        {founder.name} <br />
+                    <h2 className="text-5xl sm:text-6xl md:text-[7vw] lg:text-[7.5rem] text-white tracking-tighter leading-[0.85]">
+                        <span className="font-universo font-black uppercase">{founder.name}</span> <br />
                         <span className="block mt-2 md:mt-4 text-4xl md:text-6xl font-siestha normal-case font-light tracking-normal whitespace-nowrap leading-normal text-transparent bg-clip-text bg-gradient-to-r from-[#A8BEA4] via-[#00ff88] to-[#A8BEA4] drop-shadow-[0_0_20px_rgba(0,255,136,0.4)] inline-block px-8 py-8 -mx-8 -my-8">{founder.role}</span>
                     </h2>
                 </motion.div>
