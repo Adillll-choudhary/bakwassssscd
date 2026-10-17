@@ -125,15 +125,15 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
         <section
             onWheel={handleWheel}
             onMouseMove={handleMouseMove}
-            className="relative min-h-screen w-full bg-[#050508] text-white overflow-hidden flex flex-col justify-between select-none pt-28 md:pt-32 pb-8 px-4 sm:px-8 cursor-default"
+            className="relative min-h-screen w-full bg-[#050807] text-white overflow-hidden flex flex-col justify-between select-none pt-28 md:pt-32 pb-8 px-4 sm:px-8 cursor-default"
         >
-            {/* Ambient luxury lighting */}
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_45%_35%,rgba(60,255,143,0.06)_0%,transparent_65%)]" />
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_60%_65%,rgba(225,29,72,0.05)_0%,transparent_65%)]" />
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_50%,rgba(15,15,22,0.7)_0%,#050508_85%)]" />
+            {/* Subtle emerald atmospheric lighting */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_70%_35%,rgba(99,232,29,0.045)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_30%_65%,rgba(156,255,79,0.03)_0%,transparent_65%)]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(5,8,7,0.3)_0%,#050807_85%)]" />
 
-            {/* 3D Alien Planet Rock Surface & Flowing Particle Streams */}
-            <AlienPlanetParticles accentColor={hoveredBrand?.accentColor || "#3CFF8F"} />
+            {/* Cinematic Alien Planet Image-to-Particle Reconstruction */}
+            <AlienPlanetParticles accentColor="#63E81D" />
 
             {/* Top Bar Navigation / HUD */}
             <div className="relative z-50 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pointer-events-none max-w-7xl mx-auto">
@@ -200,14 +200,14 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
             <div className="relative z-50 w-full max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 pointer-events-none">
                 {/* Active Hover Label */}
                 <div className="flex items-center gap-3 bg-black/80 border border-white/15 px-5 py-2.5 rounded-full backdrop-blur-xl pointer-events-auto shadow-2xl min-h-[42px]">
-                    <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: hoveredBrand?.accentColor || "#3CFF8F" }} />
+                    <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: hoveredBrand?.accentColor || "#63E81D" }} />
                     <span className="text-xs sm:text-sm font-universo font-black uppercase text-white tracking-wider flex items-center gap-1.5">
                         {hoveredBrand ? (
                             <span>{hoveredBrand.brandName}</span>
                         ) : (
                             <>
                                 <span>SELECT A</span>
-                                <span className="font-siestha normal-case text-[#3CFF8F] text-base -rotate-[6deg] inline-block font-normal">
+                                <span className="font-siestha normal-case text-[#63E81D] text-base -rotate-[6deg] inline-block font-normal">
                                     Brand
                                 </span>
                             </>
@@ -225,7 +225,7 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                         <button
                             key={b.id}
                             onClick={() => onSelectBrand(b.brandName)}
-                            className="px-3.5 py-1.5 rounded-full text-[10px] font-universo uppercase tracking-wider text-white/80 hover:text-black hover:bg-[#3CFF8F] transition-all cursor-pointer font-black"
+                            className="px-3.5 py-1.5 rounded-full text-[10px] font-universo uppercase tracking-wider text-white/80 hover:text-black hover:bg-[#63E81D] transition-all cursor-pointer font-black"
                         >
                             {b.brandName}
                         </button>
