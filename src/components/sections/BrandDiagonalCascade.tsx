@@ -14,7 +14,14 @@ export interface BrandCardData {
     tagline: string;
 }
 
-export const FOUR_BRANDS: BrandCardData[] = [
+export const BRANDS: BrandCardData[] = [
+    {
+        id: "selvare",
+        brandName: "Sélvaré",
+        file: "/work/branding/selvare/selvare 1.png",
+        accentColor: "#E8D8C8", // Champagne & Warm Ivory
+        tagline: "The Art of Presence · Luxury Fragrance"
+    },
     {
         id: "ixora",
         brandName: "Ixora",
@@ -45,6 +52,8 @@ export const FOUR_BRANDS: BrandCardData[] = [
     }
 ];
 
+export const FOUR_BRANDS = BRANDS;
+
 interface BrandDiagonalCascadeProps {
     onSelectBrand: (brandName: string) => void;
 }
@@ -71,9 +80,9 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
 
     // Layout spacing according to screen size
     const config = {
-        mobile: { cardSize: 165, dx: 72, dy: 56 },
-        tablet: { cardSize: 220, dx: 105, dy: 78 },
-        desktop: { cardSize: 280, dx: 135, dy: 96 }
+        mobile: { cardSize: 155, dx: 68, dy: 52 },
+        tablet: { cardSize: 205, dx: 98, dy: 72 },
+        desktop: { cardSize: 260, dx: 125, dy: 88 }
     }[screenCategory];
 
     // Physics-based smooth drag and wheel motion (Zero shivering)
@@ -109,7 +118,7 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
         mouseY.set(normY * -8);
     };
 
-    const hoveredBrand = FOUR_BRANDS.find(b => b.id === hoveredId);
+    const hoveredBrand = BRANDS.find(b => b.id === hoveredId);
 
     return (
         <section
@@ -156,7 +165,7 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                 </div>
             </div>
 
-            {/* --- MAIN STAGE: THE 4 DIAGONAL CASCADING SQUIRCLE CARDS --- */}
+            {/* --- MAIN STAGE: THE DIAGONAL CASCADING SQUIRCLE CARDS --- */}
             <motion.div
                 style={{
                     rotateX: smoothMouseY,
@@ -165,9 +174,9 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                 }}
                 className="relative flex-1 w-full flex items-center justify-center my-auto min-h-[520px] md:min-h-[640px]"
             >
-                {FOUR_BRANDS.map((brand, index) => {
-                    // Center the 4 cards diagonally: indices -1.5, -0.5, +0.5, +1.5
-                    const centerOffset = index - 1.5;
+                {BRANDS.map((brand, index) => {
+                    // Center cards symmetrically along diagonal
+                    const centerOffset = index - (BRANDS.length - 1) / 2;
                     const baseX = centerOffset * config.dx;
                     const baseY = centerOffset * config.dy;
 
@@ -203,13 +212,13 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                     </span>
                     <span className="text-white/20 text-xs">|</span>
                     <span className="text-[10px] font-mono tracking-widest text-white/60 uppercase">
-                        {hoveredBrand ? hoveredBrand.tagline : "4 Brand Identity Showcases"}
+                        {hoveredBrand ? hoveredBrand.tagline : `${BRANDS.length} Brand Identity Showcases`}
                     </span>
                 </div>
 
-                {/* 4 Brand Direct Click Pills */}
-                <div className="flex items-center gap-1.5 bg-black/80 border border-white/15 p-1.5 rounded-full backdrop-blur-xl pointer-events-auto shadow-2xl">
-                    {FOUR_BRANDS.map((b) => (
+                {/* Direct Click Pills for All Brands */}
+                <div className="flex items-center gap-1.5 bg-black/80 border border-white/15 p-1.5 rounded-full backdrop-blur-xl pointer-events-auto shadow-2xl flex-wrap justify-center">
+                    {BRANDS.map((b) => (
                         <button
                             key={b.id}
                             onClick={() => onSelectBrand(b.brandName)}

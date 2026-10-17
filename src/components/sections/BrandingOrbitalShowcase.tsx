@@ -257,7 +257,7 @@ export default function BrandingOrbitalShowcase({
 
                     {onSelectBrand && (
                         <div className="flex items-center gap-1 bg-black/60 border border-white/10 rounded-full p-1 backdrop-blur-md">
-                            {["Ixora", "Nexa", "Define", "The Verdant Court"].map((b) => (
+                            {["Sélvaré", "Ixora", "Nexa", "Define", "The Verdant Court"].map((b) => (
                                 <button
                                     key={b}
                                     onClick={() => onSelectBrand(b)}

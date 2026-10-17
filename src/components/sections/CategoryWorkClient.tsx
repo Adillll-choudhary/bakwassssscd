@@ -10,6 +10,7 @@ import Image from "next/image";
 import FeaturedWebsites from "./FeaturedWebsites";
 import BrandingOrbitalShowcase from "./BrandingOrbitalShowcase";
 import BrandDiagonalCascade from "./BrandDiagonalCascade";
+import SelvareCaseStudy from "./SelvareCaseStudy";
 
 const MediaCard = ({ item, onClick }: { item: Project, onClick?: () => void }) => {
     return (
@@ -566,6 +567,11 @@ export default function CategoryWorkClient() {
             ) : categorySlug === "branding" ? (
                 !selectedBrand ? (
                     <BrandDiagonalCascade onSelectBrand={(brandName) => setSelectedBrand(brandName)} />
+                ) : selectedBrand === "Sélvaré" || selectedBrand === "Selvare" ? (
+                    <SelvareCaseStudy 
+                        onBack={() => setSelectedBrand(null)} 
+                        onSelectBrand={(brand) => setSelectedBrand(brand)} 
+                    />
                 ) : selectedBrand === "Ixora" ? (
                     <BrandingOrbitalShowcase 
                         onBack={() => setSelectedBrand(null)} 
@@ -603,7 +609,7 @@ export default function CategoryWorkClient() {
                                     <ArrowLeft size={14} /> All Brands
                                 </button>
                                 <div className="flex items-center gap-1.5 bg-black/60 border border-white/10 rounded-full p-1 backdrop-blur-md">
-                                    {["Ixora", "Nexa", "Define", "The Verdant Court"].map(b => (
+                                    {["Sélvaré", "Ixora", "Nexa", "Define", "The Verdant Court"].map(b => (
                                         <button
                                             key={b}
                                             onClick={() => setSelectedBrand(b)}
@@ -635,6 +641,7 @@ export default function CategoryWorkClient() {
                                     if (selectedBrand === "Define") return p.title.toLowerCase().includes("define");
                                     if (selectedBrand === "The Verdant Court") return p.title.toLowerCase().includes("court");
                                     if (selectedBrand === "Ixora") return p.title.toLowerCase().includes("ixora");
+                                    if (selectedBrand === "Sélvaré" || selectedBrand === "Selvare") return p.title.toLowerCase().includes("selvare");
                                     return true;
                                 }).map((p, idx) => {
                                     // Repeating pattern of 5
