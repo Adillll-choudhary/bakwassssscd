@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo, useEffect, useSyncExternalStore } from "react";
+import { useRef, useMemo, useSyncExternalStore } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
@@ -21,54 +21,49 @@ function createLCG(seed = 94821) {
 }
 
 // ----------------------------------------------------------------------
-// 1. IMAGE-BASED ALIEN MOUNTAIN & MOON LANDSCAPE GEOMETRY (32,768 pts)
+// 1. ALIEN PLANET ROCK SURFACE PARTICLE GEOMETRY (Fibonacci Sphere Grid)
 // ----------------------------------------------------------------------
-function buildLandscapeGridGeometry(cols = 256, rows = 128) {
-    const total = cols * rows;
-    const positions = new Float32Array(total * 3);
-    const uvs = new Float32Array(total * 2);
-    const randoms = new Float32Array(total);
-    const sizes = new Float32Array(total);
+function buildAlienPlanetGeometry(count = 14000, radius = 22.0) {
+    const prng = createLCG(73918);
+    const positions = new Float32Array(count * 3);
+    const randoms = new Float32Array(count);
+    const sizes = new Float32Array(count);
 
-    const prng = createLCG(104829);
+    const phi = Math.PI * (Math.sqrt(5) - 1); // Golden ratio angle (~2.39996 rad)
 
-    let idx = 0;
-    for (let r = 0; r < rows; r++) {
-        const v = r / (rows - 1); // 0.0 (bottom/foreground) to 1.0 (top/sky)
-        for (let c = 0; c < cols; c++) {
-            const u = c / (cols - 1); // 0.0 (left) to 1.0 (right)
+    for (let i = 0; i < count; i++) {
+        const y = 1 - (i / (count - 1)) * 2; // y goes from 1 to -1
+        const radiusAtY = Math.sqrt(Math.max(0, 1 - y * y));
+        const theta = phi * i;
 
-            // Base unprojected coordinates
-            positions[idx * 3 + 0] = (u - 0.5) * 88.0;
-            positions[idx * 3 + 1] = (v - 0.5) * 36.0;
-            positions[idx * 3 + 2] = 0.0;
+        const x = Math.cos(theta) * radiusAtY;
+        const z = Math.sin(theta) * radiusAtY;
 
-            uvs[idx * 2 + 0] = u;
-            uvs[idx * 2 + 1] = v;
+        // Base spherical position with slight organic irregularity
+        const rVariation = radius + (prng() - 0.5) * 0.8;
+        positions[i * 3 + 0] = x * rVariation;
+        positions[i * 3 + 1] = y * rVariation;
+        positions[i * 3 + 2] = z * rVariation;
 
-            randoms[idx] = prng();
-            sizes[idx] = 1.0 + prng() * 1.8;
-
-            idx++;
-        }
+        randoms[i] = prng();
+        sizes[i] = 1.2 + prng() * 2.2;
     }
 
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute("aUv", new THREE.BufferAttribute(uvs, 2));
     geo.setAttribute("aRandom", new THREE.BufferAttribute(randoms, 1));
     geo.setAttribute("aSize", new THREE.BufferAttribute(sizes, 1));
     return geo;
 }
 
 // ----------------------------------------------------------------------
-// 2. FLOWING KINETIC STREAMS (WEBSITE SECTION STYLE PARTICLES)
+// 2. FLOWING COSMIC STREAMS & PARTICLES (From Website section)
 // ----------------------------------------------------------------------
 function buildCosmicStreamsGeometry() {
     const prng = createLCG(38291);
     const streamCount = 6;
-    const particlesPerStream = 340;
-    const total = streamCount * particlesPerStream; // 2,040 stream particles
+    const particlesPerStream = 320;
+    const total = streamCount * particlesPerStream; // 1,920 stream particles
 
     const positions = new Float32Array(total * 3);
     const directions = new Float32Array(total);
@@ -81,8 +76,8 @@ function buildCosmicStreamsGeometry() {
     const sizes = new Float32Array(total);
 
     let idx = 0;
-    const xMin = -50;
-    const xMax = 50;
+    const xMin = -75;
+    const xMax = 75;
 
     for (let s = 0; s < streamCount; s++) {
         const direction = s % 2 === 0 ? 1.0 : -1.0;
@@ -90,22 +85,25 @@ function buildCosmicStreamsGeometry() {
             const xProgress = p / (particlesPerStream - 1);
             const x = xMin + xProgress * (xMax - xMin) + (prng() - 0.5) * 1.5;
 
-            // Valley mist distribution height (Y in -12 to -2)
-            const spreadY = -10.0 + s * 1.6 + (prng() - 0.5) * 1.2;
-            const spreadZ = -2.0 + (prng() - 0.5) * 8.0;
+            // Box-Muller Gaussian ribbon spread
+            const u1 = Math.max(0.0001, prng());
+            const u2 = prng();
+            const normalRand = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+            const spreadY = normalRand * 1.5;
+            const spreadZ = (prng() - 0.5) * 8.0;
 
             positions[idx * 3 + 0] = x;
-            positions[idx * 3 + 1] = spreadY;
+            positions[idx * 3 + 1] = 0;
             positions[idx * 3 + 2] = spreadZ;
 
             directions[idx] = direction;
-            speeds[idx] = 0.8 + prng() * 0.6;
+            speeds[idx] = 0.8 + prng() * 0.5;
             streamIndices[idx] = s;
             initialXs[idx] = x;
             spreadYs[idx] = spreadY;
             spreadZs[idx] = spreadZ;
             randoms[idx] = prng();
-            sizes[idx] = 2.0 + prng() * 3.0;
+            sizes[idx] = 1.6 + prng() * 2.8;
 
             idx++;
         }
@@ -115,7 +113,7 @@ function buildCosmicStreamsGeometry() {
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     geo.setAttribute("aDirection", new THREE.BufferAttribute(directions, 1));
     geo.setAttribute("aSpeed", new THREE.BufferAttribute(speeds, 1));
-    geo.setAttribute("aStreamIdx", new THREE.BufferAttribute(streamIndices, 1));
+    geo.setAttribute("aStreamIndex", new THREE.BufferAttribute(streamIndices, 1));
     geo.setAttribute("aInitialX", new THREE.BufferAttribute(initialXs, 1));
     geo.setAttribute("aSpreadY", new THREE.BufferAttribute(spreadYs, 1));
     geo.setAttribute("aSpreadZ", new THREE.BufferAttribute(spreadZs, 1));
@@ -125,458 +123,399 @@ function buildCosmicStreamsGeometry() {
 }
 
 // ----------------------------------------------------------------------
-// 3. FLOATING COSMIC EMBERS / STARDUST
+// 3. AMBIENT FLOATING DUST/EMBERS
 // ----------------------------------------------------------------------
-function buildCosmicDustGeometry(count = 750) {
-    const prng = createLCG(88471);
+function buildAmbientDustGeometry(count = 700) {
+    const prng = createLCG(55219);
     const positions = new Float32Array(count * 3);
-    const initialPositions = new Float32Array(count * 3);
-    const velocities = new Float32Array(count * 3);
     const randoms = new Float32Array(count);
+    const speeds = new Float32Array(count);
     const sizes = new Float32Array(count);
 
     for (let i = 0; i < count; i++) {
-        const x = (prng() - 0.5) * 90.0;
-        const y = -14.0 + prng() * 32.0;
-        const z = -25.0 + prng() * 35.0;
-
-        positions[i * 3 + 0] = x;
-        positions[i * 3 + 1] = y;
-        positions[i * 3 + 2] = z;
-
-        initialPositions[i * 3 + 0] = x;
-        initialPositions[i * 3 + 1] = y;
-        initialPositions[i * 3 + 2] = z;
-
-        velocities[i * 3 + 0] = (prng() - 0.5) * 0.4;
-        velocities[i * 3 + 1] = 0.2 + prng() * 0.6;
-        velocities[i * 3 + 2] = (prng() - 0.5) * 0.4;
+        positions[i * 3 + 0] = (prng() - 0.5) * 110;
+        positions[i * 3 + 1] = (prng() - 0.5) * 70;
+        positions[i * 3 + 2] = (prng() - 0.5) * 45;
 
         randoms[i] = prng();
-        sizes[i] = 1.0 + prng() * 2.2;
+        speeds[i] = 0.4 + prng() * 0.8;
+        sizes[i] = 1.0 + prng() * 2.5;
     }
 
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute("aInitialPos", new THREE.BufferAttribute(initialPositions, 3));
-    geo.setAttribute("aVelocity", new THREE.BufferAttribute(velocities, 3));
     geo.setAttribute("aRandom", new THREE.BufferAttribute(randoms, 1));
+    geo.setAttribute("aSpeed", new THREE.BufferAttribute(speeds, 1));
     geo.setAttribute("aSize", new THREE.BufferAttribute(sizes, 1));
     return geo;
 }
 
 // ----------------------------------------------------------------------
-// GLSL SHADERS FOR RECREATING THE IMAGE IN PARTICLES
+// GLSL SHADERS: ALIEN PLANET ROCK SURFACE (With 3D Simplex Craggy Ridges)
 // ----------------------------------------------------------------------
+const PLANET_VERTEX_SHADER = `
+uniform float uTime;
+uniform vec3 uColorPrimary;
+uniform vec3 uColorSecondary;
+uniform vec3 uColorCore;
 
-const LANDSCAPE_VERTEX_SHADER = /* glsl */ `
-    uniform sampler2D uTexture;
-    uniform float uTime;
-    uniform vec2 uMouse;
-    uniform vec3 uAccentColor;
-    uniform float uTextureLoaded;
+attribute float aRandom;
+attribute float aSize;
 
-    attribute vec2 aUv;
-    attribute float aRandom;
-    attribute float aSize;
+varying vec3 vColor;
+varying float vElevation;
+varying float vAlpha;
 
-    varying vec3 vColor;
-    varying float vAlpha;
-    varying float vLum;
+// Simplex 3D Noise for craggy rock ridges
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
 
-    void main() {
-        // Sample exact pixel from user's image
-        vec4 texColor = texture2D(uTexture, aUv);
-        float lum = dot(texColor.rgb, vec3(0.299, 0.587, 0.114));
+float snoise(vec3 v) {
+  const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+  const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+  vec3 i = floor(v + dot(v, C.yyy));
+  vec3 x0 = v - i + dot(i, C.xxx);
+  vec3 g = step(x0.yzx, x0.xyz);
+  vec3 l = 1.0 - g;
+  vec3 i1 = min(g.xyz, l.zxy);
+  vec3 i2 = max(g.xyz, l.zxy);
+  vec3 x1 = x0 - i1 + C.xxx;
+  vec3 x2 = x0 - i2 + C.yyy;
+  vec3 x3 = x0 - D.yyy;
+  i = mod289(i);
+  vec4 p = permute(permute(permute(
+             i.z + vec4(0.0, i1.z, i2.z, 1.0))
+           + i.y + vec4(0.0, i1.y, i2.y, 1.0))
+           + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+  float n_ = 0.142857142857;
+  vec3 ns = n_ * D.wyz - D.xzx;
+  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+  vec4 x_ = floor(j * ns.z);
+  vec4 y_ = floor(j - 7.0 * x_);
+  vec4 x = x_ * ns.x + ns.yyyy;
+  vec4 y = y_ * ns.x + ns.yyyy;
+  vec4 h = 1.0 - abs(x) - abs(y);
+  vec4 b0 = vec4(x.xy, y.xy);
+  vec4 b1 = vec4(x.zw, y.zw);
+  vec4 s0 = floor(b0) * 2.0 + 1.0;
+  vec4 s1 = floor(b1) * 2.0 + 1.0;
+  vec4 sh = -step(h, vec4(0.0));
+  vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+  vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+  vec3 p0 = vec3(a0.xy, h.x);
+  vec3 p1 = vec3(a0.zw, h.y);
+  vec3 p2 = vec3(a1.xy, h.z);
+  vec3 p3 = vec3(a1.zw, h.w);
+  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+  p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+  m = m * m;
+  return 42.0 * dot(m * m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+}
 
-        vec3 pos = position;
+void main() {
+    vec3 norm = normalize(position);
 
-        // --- 1. MOUNTAIN CRAGS & ROCK TERRAIN (Bottom 54% of image) ---
-        if (aUv.y < 0.54) {
-            float tNorm = aUv.y / 0.54; // 0 = foreground close to camera, 1 = distant mountain ridge
+    // Planet slow majestic rotation on tilted axis
+    float rotAngle = uTime * 0.05;
+    mat2 rotY = mat2(cos(rotAngle), -sin(rotAngle), sin(rotAngle), cos(rotAngle));
+    vec3 rotatedNorm = norm;
+    rotatedNorm.xz = rotY * rotatedNorm.xz;
 
-            // Z-Depth: foreground reaches near camera (+10.0), distant mountains recede (-20.0)
-            pos.z = mix(9.0, -20.0, tNorm);
+    // Multi-octave alien rock mountain & ridge noise
+    float n1 = snoise(rotatedNorm * 2.1 + vec3(uTime * 0.03));
+    float n2 = snoise(rotatedNorm * 5.4 - vec3(uTime * 0.06));
+    float n3 = snoise(rotatedNorm * 11.2 + vec3(uTime * 0.04));
 
-            // Mountain height elevation driven by image brightness & ridges
-            float peakElevation = lum * 14.5 * smoothstep(0.03, 0.48, aUv.y);
-            pos.y += peakElevation - (1.0 - tNorm) * 5.0;
+    // Craggy rock elevation
+    float rockElevation = (n1 * 3.8) + (n2 * 1.8) + (n3 * 0.65);
 
-            // Low-lying valley mist kinetic movement (subtle undulating waves)
-            if (texColor.g > 0.08 && texColor.g > texColor.r * 1.1) {
-                float wave = sin(pos.x * 0.16 + uTime * 0.8) * 0.45 + cos(pos.x * 0.3 - uTime * 0.6) * 0.25;
-                pos.y += wave;
-                pos.z += sin(pos.x * 0.1 + uTime * 0.5) * 0.5;
-            }
+    // Apply elevation along spherical normal
+    vec3 displaced = position + norm * rockElevation;
+    displaced.xz = rotY * displaced.xz;
 
-            // Tectonic subtle geological breathing
-            pos.y += sin(uTime * 0.4 + aUv.x * 12.0) * 0.15;
-        }
-        // --- 2. THE GIANT RISING ALIEN CELESTIAL MOON (Right side horizon) ---
-        else if (aUv.x > 0.48 && aUv.y > 0.32) {
-            vec2 moonCenter = vec2(0.78, 0.56);
-            vec2 moonDelta = (aUv - moonCenter) * vec2(1.0, 0.72);
-            float moonDist = length(moonDelta);
-            float moonRadius = 0.30;
+    // Organic tectonic breathing pulsation
+    displaced += norm * sin(uTime * 0.7 + aRandom * 6.28) * 0.35;
 
-            if (moonDist < moonRadius) {
-                // Project into a majestic 3D spherical dome
-                float sphereZ = sqrt(max(0.0, moonRadius * moonRadius - moonDist * moonDist)) * 32.0;
-                pos.z = -25.0 + sphereZ;
-                pos.y += sphereZ * 0.12;
-                pos.x -= sphereZ * 0.08;
+    vec4 mvPosition = modelViewMatrix * vec4(displaced, 1.0);
+    gl_Position = projectionMatrix * mvPosition;
 
-                // Subtle planetary rotation & aura pulsation
-                pos.y += sin(uTime * 0.3) * 0.2;
-            } else {
-                // Distant space behind the moon
-                pos.z = -32.0 + aRandom * 4.0;
-            }
-        }
-        // --- 3. DEEP SPACE & MILKY WAY STARDUST (Upper left sky) ---
-        else {
-            pos.z = -34.0 + aRandom * 6.0;
+    // Size attenuation: closer and higher rock peaks are sharper and larger
+    float dist = length(mvPosition.xyz);
+    float peakFactor = smoothstep(-3.0, 5.0, rockElevation);
+    gl_PointSize = (aSize * (72.0 / dist)) * (0.85 + 0.65 * peakFactor);
 
-            // Subtle cosmic drift
-            pos.x += sin(uTime * 0.2 + aRandom * 6.28) * 0.3;
-            pos.y += cos(uTime * 0.25 + aRandom * 6.28) * 0.3;
-        }
+    // Mineral vein illumination on ridges and craters
+    float veinFactor = smoothstep(0.15, 0.85, n2 * 0.5 + 0.5);
+    vec3 deepRock = mix(vec3(0.04, 0.08, 0.06), uColorSecondary, clamp(n1 * 0.5 + 0.5, 0.0, 1.0));
+    vec3 glowingVein = mix(uColorPrimary, uColorCore, veinFactor);
 
-        // --- 4. INTERACTIVE 3D MOUSE PARALLAX ---
-        // Multi-depth camera parallax: closer particles shift more than deep space
-        float depthFactor = (pos.z + 36.0) / 46.0; // 0 (deep space) to 1 (near camera)
-        pos.x += uMouse.x * (0.8 + depthFactor * 3.2);
-        pos.y += uMouse.y * (0.6 + depthFactor * 2.4);
-
-        vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-        gl_Position = projectionMatrix * mvPosition;
-
-        // --- 5. PARTICLE POINT SIZE COMPUTATION ---
-        float pointSize = aSize;
-
-        // In pitch-black empty sky void, extinguish particles for high contrast
-        if (aUv.y > 0.45 && lum < 0.015) {
-            gl_PointSize = 0.0;
-            vAlpha = 0.0;
-            return;
-        }
-
-        // Bright moon crescent edge glow gets amplified size
-        if (aUv.x > 0.55 && aUv.y > 0.38 && lum > 0.45) {
-            pointSize *= (2.6 + lum * 2.8);
-        }
-        // Mountain crags & mist
-        else if (aUv.y < 0.54) {
-            pointSize *= (1.4 + lum * 2.0);
-        }
-        // Stars twinkle
-        else {
-            pointSize *= (1.0 + sin(uTime * 2.5 + aRandom * 12.56) * 0.6);
-        }
-
-        // Perspective size attenuation
-        gl_PointSize = pointSize * (75.0 / -mvPosition.z);
-
-        // --- 6. COLOR & GLOW GRADING ---
-        vec3 col = texColor.rgb;
-
-        // Enhance the luminous emerald/mint green valley fog & moon atmosphere
-        if (texColor.g > 0.06) {
-            // Blend with dynamic brand accent color
-            col = mix(col, uAccentColor * (0.8 + lum * 1.2), 0.35);
-        }
-
-        // Mountain rock contrast
-        if (aUv.y < 0.54) {
-            col += vec3(0.01, 0.02, 0.015);
-        }
-
-        vColor = col;
-        vLum = lum;
-        vAlpha = smoothstep(0.01, 0.06, lum) * 0.95;
-    }
+    vColor = mix(deepRock, glowingVein, veinFactor * 0.85 + 0.15);
+    vElevation = rockElevation;
+    vAlpha = smoothstep(-5.0, 3.5, rockElevation) * 0.75 + 0.25;
+}
 `;
 
-const LANDSCAPE_FRAGMENT_SHADER = /* glsl */ `
-    varying vec3 vColor;
-    varying float vAlpha;
-    varying float vLum;
+const PLANET_FRAGMENT_SHADER = `
+uniform vec3 uColorCore;
+varying vec3 vColor;
+varying float vElevation;
+varying float vAlpha;
 
-    void main() {
-        // Soft circular particle
-        vec2 coord = gl_PointCoord - vec2(0.5);
-        float dist = length(coord);
-        if (dist > 0.5) discard;
+void main() {
+    vec2 coord = gl_PointCoord - vec2(0.5);
+    float r = length(coord) * 2.0;
+    if (r > 1.0) discard;
 
-        // Soft radial glow falloff
-        float softShape = smoothstep(0.5, 0.05, dist);
+    // Radiant soft circular particle with intense crystal hot-core
+    float core = exp(-r * 6.5);
+    float glow = exp(-r * 2.2);
 
-        // Radiant glow boost for bright features (moon crescent, valley mist)
-        vec3 finalColor = vColor * (1.1 + vLum * 1.4);
+    vec3 finalColor = mix(vColor, uColorCore, core);
+    // Multiply by HDR multiplier for post-processing Bloom
+    finalColor *= 2.6;
 
-        gl_FragColor = vec4(finalColor, softShape * vAlpha);
-    }
+    float alpha = vAlpha * glow * mix(0.75, 2.2, core);
+    gl_FragColor = vec4(finalColor, alpha);
+}
 `;
 
 // ----------------------------------------------------------------------
-// GLSL SHADERS FOR FLOWING STREAMS (WEBSITE SECTION STYLE)
+// GLSL SHADERS: FLOWING COSMIC STREAMS (Matches ParticleLinesScene)
 // ----------------------------------------------------------------------
-const STREAMS_VERTEX_SHADER = /* glsl */ `
-    uniform float uTime;
-    uniform vec3 uAccentColor;
-    uniform vec2 uMouse;
+const STREAMS_VERTEX_SHADER = `
+uniform float uTime;
+uniform vec3 uColorPrimary;
+uniform vec3 uColorSecondary;
+uniform vec3 uColorCore;
 
-    attribute float aDirection;
-    attribute float aSpeed;
-    attribute float aStreamIdx;
-    attribute float aInitialX;
-    attribute float aSpreadY;
-    attribute float aSpreadZ;
-    attribute float aRandom;
-    attribute float aSize;
+attribute float aDirection;
+attribute float aSpeed;
+attribute float aStreamIndex;
+attribute float aInitialX;
+attribute float aSpreadY;
+attribute float aSpreadZ;
+attribute float aRandom;
+attribute float aSize;
 
-    varying vec3 vColor;
-    varying float vAlpha;
+varying vec3 vColor;
+varying float vAlpha;
 
-    void main() {
-        float xMin = -50.0;
-        float xMax = 50.0;
-        float lengthX = xMax - xMin;
+void main() {
+    float xMin = -75.0;
+    float xMax = 75.0;
+    float xSpan = xMax - xMin;
 
-        // Kinetic horizontal continuous flow
-        float advance = uTime * aSpeed * 5.0 * aDirection;
-        float currentX = mod((aInitialX - xMin) + advance, lengthX) + xMin;
+    // Continuous flow across the screen
+    float flowSpeed = 12.0 * aSpeed;
+    float currentX = aInitialX + aDirection * uTime * flowSpeed;
 
-        // Multi-frequency wave undulation weaving through mountain valleys
-        float wave1 = sin(currentX * 0.09 + uTime * 1.2 + aStreamIdx * 1.05) * 1.8;
-        float wave2 = cos(currentX * 0.18 - uTime * 0.8 + aRandom * 3.14) * 0.8;
-        float currentY = aSpreadY + wave1 + wave2;
+    // Wrap around smoothly across [-75, 75]
+    float normX = mod(currentX - xMin, xSpan);
+    if (normX < 0.0) normX += xSpan;
+    float finalX = xMin + normX;
 
-        float waveZ = sin(currentX * 0.12 + uTime * 0.9 + aStreamIdx * 0.7) * 2.5;
-        float currentZ = aSpreadZ + waveZ;
+    // Stream baseY distributed across screen height (-28 to +28)
+    float streamCount = 6.0;
+    float baseY = -28.0 + (aStreamIndex / (streamCount - 1.0)) * 56.0;
 
-        // Interactive mouse parallax
-        currentX += uMouse.x * 2.0;
-        currentY += uMouse.y * 1.5;
+    // Undulating sine wave path curving around the planet
+    float wavePhase = finalX * 0.045 + uTime * 0.45 + aStreamIndex * 1.35;
+    float waveY = sin(wavePhase) * 4.8 + cos(wavePhase * 0.5) * 2.2;
+    float waveZ = cos(wavePhase * 0.8) * 8.0;
 
-        vec4 mvPosition = modelViewMatrix * vec4(currentX, currentY, currentZ, 1.0);
-        gl_Position = projectionMatrix * mvPosition;
+    vec3 pos = vec3(
+        finalX,
+        baseY + waveY + aSpreadY,
+        waveZ + aSpreadZ - 5.0
+    );
 
-        // Perspective attenuation
-        gl_PointSize = (aSize * 2.2) * (70.0 / -mvPosition.z);
+    vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+    gl_Position = projectionMatrix * mvPosition;
 
-        // Edge fade along stream boundary
-        float edgeDist = min(currentX - xMin, xMax - currentX);
-        float edgeAlpha = smoothstep(0.0, 8.0, edgeDist);
+    float dist = length(mvPosition.xyz);
+    gl_PointSize = (aSize * (60.0 / dist));
 
-        vAlpha = edgeAlpha * (0.6 + sin(uTime * 2.0 + aRandom * 6.28) * 0.35);
-
-        // Radiant emerald and brand accent
-        vec3 baseTint = mix(vec3(0.24, 1.0, 0.56), uAccentColor, 0.4);
-        vColor = baseTint * (1.2 + aRandom * 0.8);
-    }
+    // Dynamic gradient color along stream
+    float progress = (finalX - xMin) / xSpan;
+    vec3 streamColor = mix(uColorSecondary, uColorPrimary, sin(progress * 3.14159));
+    vColor = mix(streamColor, uColorCore, step(0.88, aRandom));
+    
+    // Smooth edge fade on screen boundaries
+    float edgeFade = smoothstep(xMin, xMin + 15.0, finalX) * (1.0 - smoothstep(xMax - 15.0, xMax, finalX));
+    vAlpha = edgeFade * 0.85;
+}
 `;
 
-const STREAMS_FRAGMENT_SHADER = /* glsl */ `
-    varying vec3 vColor;
-    varying float vAlpha;
+const STREAMS_FRAGMENT_SHADER = `
+uniform vec3 uColorCore;
+varying vec3 vColor;
+varying float vAlpha;
 
-    void main() {
-        vec2 coord = gl_PointCoord - vec2(0.5);
-        float dist = length(coord);
-        if (dist > 0.5) discard;
+void main() {
+    vec2 coord = gl_PointCoord - vec2(0.5);
+    float r = length(coord) * 2.0;
+    if (r > 1.0) discard;
 
-        float soft = smoothstep(0.5, 0.02, dist);
-        gl_FragColor = vec4(vColor, soft * vAlpha);
-    }
-`;
+    float core = exp(-r * 7.0);
+    float glow = exp(-r * 2.2);
 
-// ----------------------------------------------------------------------
-// GLSL SHADERS FOR FLOATING COSMIC DUST EMBERS
-// ----------------------------------------------------------------------
-const DUST_VERTEX_SHADER = /* glsl */ `
-    uniform float uTime;
-    uniform vec3 uAccentColor;
-    uniform vec2 uMouse;
-
-    attribute vec3 aInitialPos;
-    attribute vec3 aVelocity;
-    attribute float aRandom;
-    attribute float aSize;
-
-    varying vec3 vColor;
-    varying float vAlpha;
-
-    void main() {
-        vec3 pos = aInitialPos;
-
-        // Upward floating drift from mountain valleys into space
-        float lifeCycle = mod(uTime * 0.25 + aRandom * 10.0, 10.0) / 10.0;
-        pos.y += lifeCycle * 28.0;
-
-        // Helical curl turbulence
-        pos.x += sin(uTime * 0.5 + aRandom * 6.28) * 1.8;
-        pos.z += cos(uTime * 0.6 + aRandom * 6.28) * 1.8;
-
-        // Mouse parallax
-        pos.x += uMouse.x * 1.2;
-        pos.y += uMouse.y * 1.0;
-
-        vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-        gl_Position = projectionMatrix * mvPosition;
-
-        gl_PointSize = (aSize * 1.8) * (65.0 / -mvPosition.z);
-
-        // Life cycle fade (fade in at birth, fade out at apex)
-        float lifeAlpha = sin(lifeCycle * 3.14159);
-        vAlpha = lifeAlpha * (0.4 + aRandom * 0.5);
-
-        // Soft mint / white / brand accent
-        vColor = mix(vec3(0.5, 1.0, 0.75), uAccentColor, 0.35) * 1.4;
-    }
-`;
-
-const DUST_FRAGMENT_SHADER = /* glsl */ `
-    varying vec3 vColor;
-    varying float vAlpha;
-
-    void main() {
-        vec2 coord = gl_PointCoord - vec2(0.5);
-        float dist = length(coord);
-        if (dist > 0.5) discard;
-
-        float soft = smoothstep(0.5, 0.05, dist);
-        gl_FragColor = vec4(vColor, soft * vAlpha);
-    }
+    vec3 finalColor = mix(vColor, uColorCore, core) * 2.8;
+    float alpha = vAlpha * glow * mix(0.8, 2.2, core);
+    gl_FragColor = vec4(finalColor, alpha);
+}
 `;
 
 // ----------------------------------------------------------------------
-// 4. INNER THREE.JS SCENE COMPONENT
+// GLSL SHADERS: AMBIENT FLOATING DUST/EMBERS
 // ----------------------------------------------------------------------
-function AlienLandscapeScene({ accentColor = "#3CFF8F" }: AlienPlanetParticlesProps) {
-    const landscapeMatRef = useRef<THREE.ShaderMaterial>(null!);
-    const streamsMatRef = useRef<THREE.ShaderMaterial>(null!);
-    const dustMatRef = useRef<THREE.ShaderMaterial>(null!);
+const DUST_VERTEX_SHADER = `
+uniform float uTime;
+uniform vec3 uColorPrimary;
+uniform vec3 uColorCore;
 
-    const targetColor = useMemo(() => new THREE.Color(accentColor), [accentColor]);
-    const currentColor = useRef(new THREE.Color(accentColor));
+attribute float aRandom;
+attribute float aSpeed;
+attribute float aSize;
 
-    // Mouse parallax tracking
-    const mousePos = useRef({ x: 0, y: 0 });
-    const targetMouse = useRef({ x: 0, y: 0 });
+varying vec3 vColor;
+varying float vAlpha;
 
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            const nx = (e.clientX / window.innerWidth - 0.5) * 2.0;
-            const ny = -(e.clientY / window.innerHeight - 0.5) * 2.0;
-            targetMouse.current.x = nx;
-            targetMouse.current.y = ny;
-        };
-        window.addEventListener("mousemove", handleMouseMove, { passive: true });
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+void main() {
+    vec3 pos = position;
 
-    // Load image texture with linear filtering (no mipmaps for vertex texture sampling)
-    const texture = useMemo(() => {
-        const loader = new THREE.TextureLoader();
-        const tex = loader.load("/images/alien-planet-reference.png", (loadedTex) => {
-            loadedTex.minFilter = THREE.LinearFilter;
-            loadedTex.magFilter = THREE.LinearFilter;
-            loadedTex.generateMipmaps = false;
-            loadedTex.needsUpdate = true;
-            if (landscapeMatRef.current) {
-                landscapeMatRef.current.uniforms.uTextureLoaded.value = 1.0;
-            }
-        });
-        tex.minFilter = THREE.LinearFilter;
-        tex.magFilter = THREE.LinearFilter;
-        tex.generateMipmaps = false;
-        return tex;
-    }, []);
+    // Slow organic Brownian drift
+    pos.x += sin(uTime * 0.25 * aSpeed + aRandom * 6.28) * 3.5;
+    pos.y += cos(uTime * 0.3 * aSpeed + aRandom * 6.28) * 3.0;
+    pos.z += sin(uTime * 0.2 * aSpeed + aRandom * 3.14) * 2.5;
 
-    // Geometries
-    const landscapeGeo = useMemo(() => buildLandscapeGridGeometry(256, 128), []);
+    vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+    gl_Position = projectionMatrix * mvPosition;
+
+    float dist = length(mvPosition.xyz);
+    gl_PointSize = (aSize * (48.0 / dist));
+
+    vColor = mix(uColorPrimary, uColorCore, aRandom * 0.7);
+    vAlpha = (sin(uTime * 0.8 + aRandom * 6.28) * 0.35 + 0.65) * 0.6;
+}
+`;
+
+const DUST_FRAGMENT_SHADER = `
+varying vec3 vColor;
+varying float vAlpha;
+
+void main() {
+    vec2 coord = gl_PointCoord - vec2(0.5);
+    float r = length(coord) * 2.0;
+    if (r > 1.0) discard;
+
+    float glow = exp(-r * 2.5);
+    gl_FragColor = vec4(vColor * 2.2, vAlpha * glow);
+}
+`;
+
+// ----------------------------------------------------------------------
+// REACT COMPONENT: ALIEN SCENE RENDERER
+// ----------------------------------------------------------------------
+function AlienPlanetMesh({ accentColor = "#3CFF8F" }: { accentColor?: string }) {
+    const planetPointsRef = useRef<THREE.Points>(null);
+    const planetMatRef = useRef<THREE.ShaderMaterial>(null);
+    const streamsMatRef = useRef<THREE.ShaderMaterial>(null);
+    const dustMatRef = useRef<THREE.ShaderMaterial>(null);
+
+    const planetGeo = useMemo(() => buildAlienPlanetGeometry(14000, 23.0), []);
     const streamsGeo = useMemo(() => buildCosmicStreamsGeometry(), []);
-    const dustGeo = useMemo(() => buildCosmicDustGeometry(750), []);
+    const dustGeo = useMemo(() => buildAmbientDustGeometry(650), []);
 
-    // Uniforms
-    const landscapeUniforms = useMemo(
-        () => ({
-            uTexture: { value: texture },
-            uTime: { value: 0 },
-            uMouse: { value: new THREE.Vector2(0, 0) },
-            uAccentColor: { value: new THREE.Color(accentColor) },
-            uTextureLoaded: { value: 0.0 }
-        }),
-        [texture, accentColor]
-    );
+    // Target dynamic colors derived from accentColor
+    const targetColors = useMemo(() => {
+        const base = new THREE.Color(accentColor || "#3CFF8F");
+        const secondary = base.clone().multiplyScalar(0.55);
+        const core = new THREE.Color(2.5, 3.2, 2.8);
+        return { primary: base, secondary, core };
+    }, [accentColor]);
 
-    const streamsUniforms = useMemo(
-        () => ({
-            uTime: { value: 0 },
-            uAccentColor: { value: new THREE.Color(accentColor) },
-            uMouse: { value: new THREE.Vector2(0, 0) }
-        }),
-        [accentColor]
-    );
+    const curPrimary = useRef(targetColors.primary.clone());
+    const curSecondary = useRef(targetColors.secondary.clone());
+    const curCore = useRef(targetColors.core.clone());
 
-    const dustUniforms = useMemo(
-        () => ({
-            uTime: { value: 0 },
-            uAccentColor: { value: new THREE.Color(accentColor) },
-            uMouse: { value: new THREE.Vector2(0, 0) }
-        }),
-        [accentColor]
-    );
+    const planetUniforms = useMemo(() => ({
+        uTime: { value: 0 },
+        uColorPrimary: { value: targetColors.primary.clone() },
+        uColorSecondary: { value: targetColors.secondary.clone() },
+        uColorCore: { value: targetColors.core.clone() },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }), []);
 
-    useFrame((_, delta) => {
-        const dt = Math.min(delta, 0.05);
+    const streamsUniforms = useMemo(() => ({
+        uTime: { value: 0 },
+        uColorPrimary: { value: targetColors.primary.clone() },
+        uColorSecondary: { value: targetColors.secondary.clone() },
+        uColorCore: { value: targetColors.core.clone() },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }), []);
 
-        // Smooth mouse spring interpolation
-        mousePos.current.x += (targetMouse.current.x - mousePos.current.x) * (dt * 3.0);
-        mousePos.current.y += (targetMouse.current.y - mousePos.current.y) * (dt * 3.0);
+    const dustUniforms = useMemo(() => ({
+        uTime: { value: 0 },
+        uColorPrimary: { value: targetColors.primary.clone() },
+        uColorCore: { value: targetColors.core.clone() },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }), []);
 
-        // Smooth color lerping to active brand card accent
-        currentColor.current.lerp(targetColor, dt * 3.5);
+    useFrame((state, delta) => {
+        const time = state.clock.getElapsedTime();
 
-        // Update Landscape Uniforms
-        if (landscapeMatRef.current) {
-            landscapeMatRef.current.uniforms.uTime.value += dt;
-            landscapeMatRef.current.uniforms.uAccentColor.value.copy(currentColor.current);
-            landscapeMatRef.current.uniforms.uMouse.value.set(mousePos.current.x, mousePos.current.y);
+        // Update uniforms
+        if (planetMatRef.current) planetMatRef.current.uniforms.uTime.value = time;
+        if (streamsMatRef.current) streamsMatRef.current.uniforms.uTime.value = time;
+        if (dustMatRef.current) dustMatRef.current.uniforms.uTime.value = time;
+
+        // Smooth color transition
+        const lerpFactor = Math.min(1.0, delta * 3.5);
+        curPrimary.current.lerp(targetColors.primary, lerpFactor);
+        curSecondary.current.lerp(targetColors.secondary, lerpFactor);
+        curCore.current.lerp(targetColors.core, lerpFactor);
+
+        if (planetMatRef.current) {
+            planetMatRef.current.uniforms.uColorPrimary.value.copy(curPrimary.current);
+            planetMatRef.current.uniforms.uColorSecondary.value.copy(curSecondary.current);
+            planetMatRef.current.uniforms.uColorCore.value.copy(curCore.current);
         }
-
-        // Update Streams Uniforms
         if (streamsMatRef.current) {
-            streamsMatRef.current.uniforms.uTime.value += dt;
-            streamsMatRef.current.uniforms.uAccentColor.value.copy(currentColor.current);
-            streamsMatRef.current.uniforms.uMouse.value.set(mousePos.current.x, mousePos.current.y);
+            streamsMatRef.current.uniforms.uColorPrimary.value.copy(curPrimary.current);
+            streamsMatRef.current.uniforms.uColorSecondary.value.copy(curSecondary.current);
+            streamsMatRef.current.uniforms.uColorCore.value.copy(curCore.current);
+        }
+        if (dustMatRef.current) {
+            dustMatRef.current.uniforms.uColorPrimary.value.copy(curPrimary.current);
+            dustMatRef.current.uniforms.uColorCore.value.copy(curCore.current);
         }
 
-        // Update Dust Uniforms
-        if (dustMatRef.current) {
-            dustMatRef.current.uniforms.uTime.value += dt;
-            dustMatRef.current.uniforms.uAccentColor.value.copy(currentColor.current);
-            dustMatRef.current.uniforms.uMouse.value.set(mousePos.current.x, mousePos.current.y);
+        // Gentle planetary tilt
+        if (planetPointsRef.current) {
+            planetPointsRef.current.rotation.x = Math.sin(time * 0.12) * 0.08 + 0.15;
+            planetPointsRef.current.rotation.z = Math.cos(time * 0.1) * 0.06;
         }
     });
 
     return (
-        <group position={[0, 0, -6]}>
-            {/* 1. Image-Recreated Alien Mountain & Moon Particle Landscape */}
-            <points geometry={landscapeGeo}>
+        <group position={[0, 0, -8]}>
+            {/* 1. Alien Planet Rock Surface */}
+            <points ref={planetPointsRef} geometry={planetGeo}>
                 <shaderMaterial
-                    ref={landscapeMatRef}
-                    vertexShader={LANDSCAPE_VERTEX_SHADER}
-                    fragmentShader={LANDSCAPE_FRAGMENT_SHADER}
-                    uniforms={landscapeUniforms}
+                    ref={planetMatRef}
+                    vertexShader={PLANET_VERTEX_SHADER}
+                    fragmentShader={PLANET_FRAGMENT_SHADER}
+                    uniforms={planetUniforms}
                     transparent={true}
                     depthWrite={false}
                     blending={THREE.AdditiveBlending}
                 />
             </points>
 
-            {/* 2. Flowing Kinetic Streams (Website Section Style) */}
+            {/* 2. Flowing Cosmic Streams */}
             <points geometry={streamsGeo}>
                 <shaderMaterial
                     ref={streamsMatRef}
@@ -589,7 +528,7 @@ function AlienLandscapeScene({ accentColor = "#3CFF8F" }: AlienPlanetParticlesPr
                 />
             </points>
 
-            {/* 3. Floating Cosmic Embers */}
+            {/* 3. Ambient Floating Cosmic Embers */}
             <points geometry={dustGeo}>
                 <shaderMaterial
                     ref={dustMatRef}
@@ -621,18 +560,18 @@ export default function AlienPlanetParticles({ accentColor = "#3CFF8F" }: AlienP
     return (
         <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
             <Canvas
-                camera={{ position: [0, 0, 36], fov: 48 }}
+                camera={{ position: [0, 0, 48], fov: 45 }}
                 dpr={[1, 2]}
                 gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
             >
-                <AlienLandscapeScene accentColor={accentColor} />
+                <AlienPlanetMesh accentColor={accentColor} />
 
-                {/* HDR Bloom pass for glowing moon crescent, mist & streams */}
+                {/* HDR Bloom pass to make craggy minerals & flowing streams radiate */}
                 <EffectComposer multisampling={0}>
                     <Bloom
-                        intensity={2.8}
-                        luminanceThreshold={0.12}
-                        luminanceSmoothing={0.8}
+                        intensity={3.2}
+                        luminanceThreshold={0.08}
+                        luminanceSmoothing={0.85}
                         blendFunction={BlendFunction.SCREEN}
                     />
                 </EffectComposer>
