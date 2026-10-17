@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, RotateCcw, Maximize2 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, RotateCcw, Maximize2, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
 interface BrandingArtwork {
@@ -12,6 +12,12 @@ interface BrandingArtwork {
     category: string;
     file: string;
     aspectRatio: "wide" | "square" | "portrait";
+}
+
+export interface BrandingOrbitalShowcaseProps {
+    onBack?: () => void;
+    onSelectBrand?: (brand: string) => void;
+    activeBrand?: string;
 }
 
 const BRANDING_ARTWORKS: BrandingArtwork[] = [
@@ -129,7 +135,11 @@ const BRANDING_ARTWORKS: BrandingArtwork[] = [
     }
 ];
 
-export default function BrandingOrbitalShowcase() {
+export default function BrandingOrbitalShowcase({
+    onBack,
+    onSelectBrand,
+    activeBrand = "Ixora"
+}: BrandingOrbitalShowcaseProps = {}) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [rotation, setRotation] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
@@ -233,17 +243,35 @@ export default function BrandingOrbitalShowcase() {
             <div className="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(circle_at_50%_50%,rgba(60,255,143,0.04)_0%,transparent_60%)]" />
 
             {/* --- TOP HEADER & IDENTITY --- */}
-            <div className="relative z-30 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pointer-events-none max-w-7xl mx-auto">
-                <div>
-                    <div className="flex items-center gap-2 mb-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3CFF8F] animate-ping" />
-                        <span className="text-[10px] md:text-xs font-mono tracking-[0.25em] text-[#3CFF8F] uppercase font-semibold">
-                            BRANDING & VISUAL PRODUCTION
-                        </span>
-                    </div>
-                    <h1 className="text-xl md:text-2xl font-universo font-black uppercase tracking-tight text-white drop-shadow-md">
-                        The Atelier Orbit
-                    </h1>
+            <div className="relative z-30 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pointer-events-none max-w-7xl mx-auto">
+                <div className="flex flex-wrap items-center gap-3 pointer-events-auto">
+                    {onBack && (
+                        <button
+                            onClick={onBack}
+                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white hover:text-[#3CFF8F] transition-all cursor-pointer group shadow-lg backdrop-blur-md"
+                        >
+                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                            <span className="text-[11px] font-mono tracking-widest uppercase font-bold">All Brands</span>
+                        </button>
+                    )}
+
+                    {onSelectBrand && (
+                        <div className="flex items-center gap-1 bg-black/60 border border-white/10 rounded-full p-1 backdrop-blur-md">
+                            {["Ixora", "Nexa", "Define", "The Verdant Court"].map((b) => (
+                                <button
+                                    key={b}
+                                    onClick={() => onSelectBrand(b)}
+                                    className={`px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all cursor-pointer ${
+                                        b === activeBrand
+                                            ? "bg-[#3CFF8F] text-black font-bold shadow-[0_0_12px_rgba(60,255,143,0.5)]"
+                                            : "text-white/60 hover:text-white hover:bg-white/10"
+                                    }`}
+                                >
+                                    {b}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <div className="flex items-center gap-3 pointer-events-auto">

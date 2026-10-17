@@ -173,10 +173,6 @@ export default function CategoryWorkClient() {
         return <FeaturedWebsites projects={filteredProjects} />;
     }
 
-    if (categorySlug === "branding") {
-        return <BrandingOrbitalShowcase />;
-    }
-
     if (filteredProjects.length === 0) {
         return (
             <div className="h-screen w-full bg-black flex flex-col items-center justify-center text-accent">
@@ -568,37 +564,128 @@ export default function CategoryWorkClient() {
                 </>
             ) : categorySlug === "branding" ? (
                 !selectedBrand ? (
-                    <section className="min-h-screen w-full flex flex-col items-center justify-center relative px-6 py-32 bg-[#020202]">
-                        <motion.h1 
-                            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                            className="text-[10vw] md:text-7xl font-serif font-black italic uppercase leading-none tracking-tighter mb-16 text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40"
-                        >
-                            Select Project.
-                        </motion.h1>
-                        <div className="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                    <section className="min-h-screen w-full flex flex-col items-center justify-center relative px-6 py-28 md:py-36 bg-[#020202] overflow-hidden">
+                        {/* Ambient glow in background */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#3CFF8F]/5 rounded-full blur-[140px] pointer-events-none" />
+
+                        <div className="relative z-10 text-center max-w-3xl mx-auto mb-14 md:mb-18">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 15 }} 
+                                animate={{ opacity: 1, y: 0 }}
+                                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
+                            >
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#3CFF8F] animate-ping" />
+                                <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#3CFF8F]">
+                                    COLDUNE STUDIO // BRANDING ARCHITECTURE
+                                </span>
+                            </motion.div>
+
+                            <motion.h1 
+                                initial={{ opacity: 0, y: 20 }} 
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="text-4xl sm:text-6xl md:text-7xl font-serif font-black italic uppercase leading-[0.95] tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white via-white/90 to-white/40 mb-4"
+                            >
+                                Select Brand System.
+                            </motion.h1>
+
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="text-xs sm:text-sm font-sans text-white/50 max-w-xl mx-auto uppercase tracking-wider"
+                            >
+                                Explore bespoke visual identities, campaign architectures, and art direction crafted for international labels.
+                            </motion.p>
+                        </div>
+
+                        {/* 4 Brand Cards Grid */}
+                        <div className="w-full max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative z-10">
                             {[
-                                { name: "Nexa", file: "/work/branding/nexa 2.webp" },
-                                { name: "Define", file: "/work/branding/define 1.webp" },
-                                { name: "The Verdant Court", file: "/work/branding/courts 1.webp" },
-                                { name: "Ixora", file: "/work/branding/branding-new-cover.jpg" }
+                                { 
+                                    name: "Ixora", 
+                                    tag: "Haute Parfumerie & Skincare", 
+                                    desc: "Fragrance architecture & silk editorial",
+                                    file: "/work/branding/ChatGPT Image Aug 11, 2026, 02_05_38 PM.png",
+                                    count: "18 Works"
+                                },
+                                { 
+                                    name: "Nexa", 
+                                    tag: "Visual Architecture & Modernism", 
+                                    desc: "Monolithic geometry & structural identity",
+                                    file: "/work/branding/nexa 2.webp",
+                                    count: "15 Works"
+                                },
+                                { 
+                                    name: "Define", 
+                                    tag: "Editorial Identity & Typography", 
+                                    desc: "Monochrome systems & digital print",
+                                    file: "/work/branding/define 1.webp",
+                                    count: "7 Works"
+                                },
+                                { 
+                                    name: "The Verdant Court", 
+                                    tag: "Luxury Hospitality & Estate", 
+                                    desc: "Heritage European estate branding & spatial design",
+                                    file: "/work/branding/courts 1.webp",
+                                    count: "6 Works"
+                                }
                             ].map((b, i) => (
                                 <motion.div 
                                     key={b.name}
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: i * 0.1 }}
+                                    transition={{ delay: i * 0.12, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                     onClick={() => setSelectedBrand(b.name)}
-                                    className="relative w-full aspect-[4/5] bg-[#0A0A0A] rounded-[2rem] overflow-hidden group shadow-2xl border border-white/5 cursor-pointer"
-                                    style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 40px 100%, 0 calc(100% - 40px))' }}
+                                    className="relative w-full aspect-[3/4] bg-[#0A0A0E] rounded-3xl overflow-hidden group shadow-2xl border border-white/10 hover:border-[#3CFF8F]/60 transition-all duration-500 cursor-pointer flex flex-col justify-between p-6 sm:p-8"
                                 >
-                                    <img src={b.file} alt={b.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end">
-                                        <h3 className="text-3xl font-serif italic font-black text-accent">{b.name}</h3>
+                                    {/* Cover Image */}
+                                    <div className="absolute inset-0 z-0">
+                                        <Image 
+                                            src={b.file} 
+                                            alt={b.name} 
+                                            fill 
+                                            className="object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700" 
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
+                                    </div>
+
+                                    {/* Top Card Bar */}
+                                    <div className="relative z-10 flex justify-between items-center">
+                                        <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-mono tracking-widest text-[#3CFF8F] uppercase">
+                                            {b.count}
+                                        </span>
+                                        <span className="text-[10px] font-mono tracking-widest text-white/50 uppercase">
+                                            0{i + 1}
+                                        </span>
+                                    </div>
+
+                                    {/* Bottom Info */}
+                                    <div className="relative z-10">
+                                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3CFF8F] block mb-1">
+                                            {b.tag}
+                                        </span>
+                                        <h3 className="text-3xl sm:text-4xl font-serif italic font-black text-white mb-2 leading-none group-hover:text-[#3CFF8F] transition-colors">
+                                            {b.name}
+                                        </h3>
+                                        <p className="text-xs text-white/60 font-sans line-clamp-2 mb-4 leading-relaxed">
+                                            {b.desc}
+                                        </p>
+                                        <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white group-hover:text-[#3CFF8F] transition-colors font-bold">
+                                            <span>Enter Branding</span>
+                                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                                        </div>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
                     </section>
+                ) : selectedBrand === "Ixora" ? (
+                    <BrandingOrbitalShowcase 
+                        onBack={() => setSelectedBrand(null)} 
+                        onSelectBrand={(brand) => setSelectedBrand(brand)} 
+                        activeBrand="Ixora"
+                    />
                 ) : (
                 <>
                     <section className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden px-6">
@@ -608,7 +695,6 @@ export default function CategoryWorkClient() {
                                     selectedBrand === "Nexa" ? "/work/branding/nexa 2.webp" :
                                     selectedBrand === "Define" ? "/work/branding/define 1.webp" :
                                     selectedBrand === "The Verdant Court" ? "/work/branding/courts 1.webp" :
-                                    selectedBrand === "Ixora" ? "/work/branding/branding-new-cover.jpg" :
                                     "/work/branding/branding-hero-final.webp"
                                 } 
                                 alt="Hero" 
@@ -622,9 +708,31 @@ export default function CategoryWorkClient() {
                             animate={{ opacity: 1, y: 0 }}
                             className="relative z-10 text-center"
                         >
-                            <button onClick={() => setSelectedBrand(null)} className="mb-8 px-6 py-2 rounded-full border border-white/10 hover:bg-white/5 transition-all text-sm font-bold uppercase tracking-widest text-accent mx-auto flex items-center gap-2">
-                                <ArrowLeft size={16} /> Back to Projects
-                            </button>
+                            {/* Brand switcher pills & Back Button */}
+                            <div className="flex flex-wrap items-center justify-center gap-2.5 mb-8">
+                                <button 
+                                    onClick={() => setSelectedBrand(null)} 
+                                    className="px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-xs font-mono font-bold uppercase tracking-widest text-white flex items-center gap-2 cursor-pointer shadow-lg backdrop-blur-md"
+                                >
+                                    <ArrowLeft size={14} /> All Brands
+                                </button>
+                                <div className="flex items-center gap-1.5 bg-black/60 border border-white/10 rounded-full p-1 backdrop-blur-md">
+                                    {["Ixora", "Nexa", "Define", "The Verdant Court"].map(b => (
+                                        <button
+                                            key={b}
+                                            onClick={() => setSelectedBrand(b)}
+                                            className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all cursor-pointer ${
+                                                b === selectedBrand
+                                                    ? "bg-[#3CFF8F] text-black font-bold shadow-[0_0_12px_rgba(60,255,143,0.5)]"
+                                                    : "text-white/60 hover:text-white hover:bg-white/10"
+                                            }`}
+                                        >
+                                            {b}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
                             <h1 className="text-[12vw] md:text-[8vw] font-serif font-black italic uppercase leading-[0.8] tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/20">
                                 {selectedBrand}.
                             </h1>
