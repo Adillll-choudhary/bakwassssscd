@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform, type MotionValue } fro
 import { ArrowLeft, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import AlienPlanetParticles from "@/components/canvas/AlienPlanetParticles";
 
 export interface BrandCardData {
     id: string;
@@ -130,6 +131,9 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_45%_35%,rgba(60,255,143,0.06)_0%,transparent_65%)]" />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_60%_65%,rgba(225,29,72,0.05)_0%,transparent_65%)]" />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_50%,rgba(15,15,22,0.7)_0%,#050508_85%)]" />
+
+            {/* 3D Alien Planet Rock Surface & Flowing Particle Streams */}
+            <AlienPlanetParticles accentColor={hoveredBrand?.accentColor || "#3CFF8F"} />
 
             {/* Top Bar Navigation / HUD */}
             <div className="relative z-50 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pointer-events-none max-w-7xl mx-auto">
