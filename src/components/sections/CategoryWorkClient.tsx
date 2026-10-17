@@ -8,6 +8,7 @@ import { workProjects, Project } from "@/data/work";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import FeaturedWebsites from "./FeaturedWebsites";
+import BrandingOrbitalShowcase from "./BrandingOrbitalShowcase";
 
 const MediaCard = ({ item, onClick }: { item: Project, onClick?: () => void }) => {
     return (
@@ -170,6 +171,10 @@ export default function CategoryWorkClient() {
 
     if (categorySlug === "websites") {
         return <FeaturedWebsites projects={filteredProjects} />;
+    }
+
+    if (categorySlug === "branding") {
+        return <BrandingOrbitalShowcase />;
     }
 
     if (filteredProjects.length === 0) {
