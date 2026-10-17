@@ -567,114 +567,12 @@ export default function CategoryWorkClient() {
             ) : categorySlug === "branding" ? (
                 !selectedBrand ? (
                     <BrandDiagonalCascade onSelectBrand={(brandName) => setSelectedBrand(brandName)} />
-                ) : selectedBrand === "Sélvaré" || selectedBrand === "Selvare" ? (
-                    <SelvareCaseStudy 
-                        onBack={() => setSelectedBrand(null)} 
-                        onSelectBrand={(brand) => setSelectedBrand(brand)} 
-                    />
-                ) : selectedBrand === "Ixora" ? (
-                    <BrandingOrbitalShowcase 
-                        onBack={() => setSelectedBrand(null)} 
-                        onSelectBrand={(brand) => setSelectedBrand(brand)} 
-                        activeBrand="Ixora"
-                    />
                 ) : (
-                <>
-                    <section className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden px-6">
-                        <div className="absolute inset-0 z-0 scale-105">
-                            <Image 
-                                src={
-                                    selectedBrand === "Nexa" ? "/work/branding/nexa 2.webp" :
-                                    selectedBrand === "Define" ? "/work/branding/define 1.webp" :
-                                    selectedBrand === "The Verdant Court" ? "/work/branding/courts 1.webp" :
-                                    "/work/branding/branding-hero-final.webp"
-                                } 
-                                alt="Hero" 
-                                fill 
-                                className="object-cover opacity-50" 
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
-                        </div>
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="relative z-10 text-center"
-                        >
-                            {/* Brand switcher pills & Back Button */}
-                            <div className="flex flex-wrap items-center justify-center gap-2.5 mb-8">
-                                <button 
-                                    onClick={() => setSelectedBrand(null)} 
-                                    className="px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-[11px] font-universo font-black uppercase tracking-widest text-white flex items-center gap-2 cursor-pointer shadow-lg backdrop-blur-md"
-                                >
-                                    <ArrowLeft size={14} /> All Brands
-                                </button>
-                                <div className="flex items-center gap-1.5 bg-black/60 border border-white/10 rounded-full p-1 backdrop-blur-md">
-                                    {["Selvare", "Ixora", "Nexa", "Define", "The Verdant Court"].map(b => (
-                                        <button
-                                            key={b}
-                                            onClick={() => setSelectedBrand(b)}
-                                            className={`px-3.5 py-1.5 rounded-full text-[10px] font-universo uppercase tracking-wider transition-all cursor-pointer font-black ${
-                                                b === selectedBrand
-                                                    ? "bg-[#3CFF8F] text-black font-black shadow-[0_0_12px_rgba(60,255,143,0.5)]"
-                                                    : "text-white/60 hover:text-white hover:bg-white/10"
-                                            }`}
-                                        >
-                                            {b}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <h1 className="text-[12vw] md:text-[8vw] font-universo font-black uppercase leading-[0.82] tracking-tight mb-8 text-white drop-shadow-[0_0_35px_rgba(255,255,255,0.2)]">
-                                {selectedBrand}
-                            </h1>
-                            <ChevronDown size={30} className="mx-auto text-accent animate-bounce mt-10" />
-                        </motion.div>
-                    </section>
-
-                    <div className="pt-32 pb-32">
-                        <div className="max-w-[1800px] mx-auto flex flex-col md:flex-row gap-0">
-                            {/* Left Side: 5-Image Grid Pattern (Bento/Mosaic) */}
-                            <div className="w-full grid grid-cols-2 md:grid-cols-12 gap-1 p-1 bg-white/5 overflow-hidden">
-                                {filteredProjects.filter(p => {
-                                    if (selectedBrand === "Nexa") return p.title.toLowerCase().includes("nexa");
-                                    if (selectedBrand === "Define") return p.title.toLowerCase().includes("define");
-                                    if (selectedBrand === "The Verdant Court") return p.title.toLowerCase().includes("court");
-                                    if (selectedBrand === "Ixora") return p.title.toLowerCase().includes("ixora");
-                                    if (selectedBrand === "Sélvaré" || selectedBrand === "Selvare") return p.title.toLowerCase().includes("selvare");
-                                    return true;
-                                }).map((p, idx) => {
-                                    // Repeating pattern of 5
-                                    const patternIdx = idx % 5;
-                                    let spanClass = "md:col-span-6"; 
-                                    
-                                    if (patternIdx === 0) spanClass = "md:col-span-8 md:row-span-2 min-h-[400px]";
-                                    else if (patternIdx === 1) spanClass = "md:col-span-4 md:row-span-1 min-h-[200px]";
-                                    else if (patternIdx === 2) spanClass = "md:col-span-4 md:row-span-1 min-h-[200px]";
-                                    else if (patternIdx === 3) spanClass = "md:col-span-5 md:row-span-2 min-h-[350px]";
-                                    else if (patternIdx === 4) spanClass = "md:col-span-7 md:row-span-2 min-h-[350px]";
-
-                                    return (
-                                        <motion.div 
-                                            key={p.id}
-                                            initial={{ opacity: 0, y: 30 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true, margin: "-100px" }}
-                                            transition={{ duration: 0.8, delay: (idx % 5) * 0.1 }}
-                                            className={`${spanClass} relative overflow-hidden group bg-black border border-white/5`}
-                                        >
-                                            {p.type === "video" ? (
-                                                <video src={`/work/${p.file}`} autoPlay muted loop playsInline preload="none" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-1000" />
-                                            ) : (
-                                                <img src={`/work/${p.file}`} alt={p.title} loading="lazy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-1000" />
-                                            )}
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
-                </>
+                    <SelvareCaseStudy 
+                        brandName={selectedBrand}
+                        onBack={() => setSelectedBrand(null)} 
+                        onSelectBrand={(brand) => setSelectedBrand(brand)} 
+                    />
                 )
             ) : categorySlug === "websites" ? (
                 <FeaturedWebsites projects={filteredProjects} />
