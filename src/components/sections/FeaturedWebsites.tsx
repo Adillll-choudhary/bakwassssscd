@@ -404,32 +404,31 @@ export default function FeaturedWebsites({ projects }: FeaturedWebsitesProps) {
 
 
 
-                {/* 5. FLOATING INTERACTIVE CONTROLS */}
-                <div className="relative z-40 w-full flex items-end justify-between pointer-events-none pt-2">
-                    {/* Bottom-Left: "↗ Visit site" Glass Pill */}
+                {/* 5. CENTERED "VISIT WEBSITE" BUTTON */}
+                <div className="relative z-40 w-full flex items-center justify-center pointer-events-none pb-2 sm:pb-4 pt-1">
                     <div className="pointer-events-auto">
                         <a
                             href={activeProject?.link || "#"}
                             target={activeProject?.link ? "_blank" : undefined}
                             rel="noopener noreferrer"
-                            className="bg-black/60 hover:bg-black/85 backdrop-blur-xl border border-white/15 hover:border-[#3CFF8F]/50 px-5 sm:px-6 py-3 rounded-2xl flex items-center gap-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all group active:scale-95"
+                            className="bg-black/75 hover:bg-black/95 backdrop-blur-2xl border border-white/20 hover:border-[#3CFF8F]/70 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full flex items-center gap-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.85),0_0_25px_rgba(60,255,143,0.18)] hover:shadow-[0_0_35px_rgba(60,255,143,0.45)] hover:scale-105 transition-all group active:scale-95 cursor-pointer"
                         >
-                            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#3CFF8F]/20 transition-all">
-                                <ArrowUpRight size={17} className="text-white group-hover:text-[#3CFF8F] stroke-[2.5] transition-colors" />
-                            </div>
-                            <div className="flex flex-col text-left">
-                                <span className="text-xs font-universo font-black uppercase tracking-wider text-white group-hover:text-[#3CFF8F] transition-colors flex items-center gap-1.5">
-                                    Visit site
-                                </span>
-                                <span className="text-[10px] text-white/60 font-medium tracking-wide truncate max-w-[140px] sm:max-w-[180px]">
-                                    {activeProject?.brand || activeProject?.title || "Explore Project"}
-                                </span>
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3CFF8F] opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#3CFF8F]" />
+                            </span>
+                            <span className="text-xs sm:text-sm font-universo font-black uppercase tracking-wider text-white group-hover:text-[#3CFF8F] transition-colors">
+                                Visit Website
+                            </span>
+                            <span className="text-white/30 hidden sm:inline">|</span>
+                            <span className="text-[11px] sm:text-xs text-white/70 font-medium tracking-wide truncate max-w-[160px] sm:max-w-[220px]">
+                                {activeProject?.brand || activeProject?.title || "Explore Project"}
+                            </span>
+                            <div className="w-7 h-7 rounded-full bg-white/10 group-hover:bg-[#3CFF8F] flex items-center justify-center text-white/80 group-hover:text-black transition-all ml-1">
+                                <ArrowUpRight size={15} className="stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                             </div>
                         </a>
                     </div>
-
-                    {/* Bottom-Right Spacer */}
-                    <div className="w-12 pointer-events-none" />
                 </div>
             </div>
 
