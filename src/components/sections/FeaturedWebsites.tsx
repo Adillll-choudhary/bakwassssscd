@@ -329,25 +329,27 @@ export default function FeaturedWebsites({ projects }: FeaturedWebsitesProps) {
                     <ParticleLinesScene activeProject={activeProject} />
                 </div>
 
-                {/* 2. HEADLINE SECTION WITH UNIVERSO BLACK + SIESTHA FONT COMBO */}
-                <div className="relative z-30 pt-2 md:pt-4 text-center pointer-events-none">
-                    <motion.h1 
+                {/* 2. HEADLINE SECTION: FROM "WHAT IF?" TO "THAT'S IT." */}
+                <div className="relative z-30 pt-1 md:pt-3 text-center pointer-events-none px-4">
+                    <motion.div 
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col items-center justify-center font-universo font-black uppercase text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)] text-[clamp(2.1rem,4.6vw,4.8rem)] leading-[0.88] tracking-tight"
+                        className="flex flex-col items-center justify-center max-w-4xl mx-auto"
                     >
-                        <span className="inline-block drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">ONE PLATFORM.</span>
-                        <span className="relative inline-flex items-center justify-center mt-1">
-                            <span className="drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">EVERY CREATIVE</span>
+                        <h1 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-universo font-black uppercase text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)] text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[0.98] tracking-tight">
+                            <span>FROM &ldquo;WHAT IF?&rdquo; TO</span>
                             <span 
-                                className="font-siestha normal-case font-light text-[#3CFF8F] -rotate-[8deg] inline-block ml-3 md:ml-4 leading-none text-[1.24em] -translate-y-1 whitespace-nowrap"
+                                className="font-siestha normal-case font-light text-[#3CFF8F] -rotate-[5deg] inline-block leading-none text-[1.18em] -translate-y-0.5 whitespace-nowrap"
                                 style={{ textShadow: "0 0 30px rgba(60,255,143,0.7), 0 0 15px rgba(60,255,143,0.4)" }}
                             >
-                                outcome.
+                                &ldquo;that&apos;s it.&rdquo;
                             </span>
-                        </span>
-                    </motion.h1>
+                        </h1>
+                        <p className="mt-1.5 md:mt-2 text-xs sm:text-sm md:text-[15px] text-white/65 font-sans font-light tracking-wide max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                            A look at the ideas, designs, and digital experiences we&apos;ve created with brands.
+                        </p>
+                    </motion.div>
                 </div>
 
                 {/* 3. 3D CURVED CAROUSEL RIBBON (AMPHITHEATER CYLINDER WRAP) */}
