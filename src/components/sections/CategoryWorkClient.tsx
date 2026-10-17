@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import FeaturedWebsites from "./FeaturedWebsites";
 import BrandingOrbitalShowcase from "./BrandingOrbitalShowcase";
-import BrandOrbitalSelector from "./BrandOrbitalSelector";
+import BrandDiagonalCascade from "./BrandDiagonalCascade";
 
 const MediaCard = ({ item, onClick }: { item: Project, onClick?: () => void }) => {
     return (
@@ -565,7 +565,7 @@ export default function CategoryWorkClient() {
                 </>
             ) : categorySlug === "branding" ? (
                 !selectedBrand ? (
-                    <BrandOrbitalSelector onSelectBrand={(brandName) => setSelectedBrand(brandName)} />
+                    <BrandDiagonalCascade onSelectBrand={(brandName) => setSelectedBrand(brandName)} />
                 ) : selectedBrand === "Ixora" ? (
                     <BrandingOrbitalShowcase 
                         onBack={() => setSelectedBrand(null)} 
