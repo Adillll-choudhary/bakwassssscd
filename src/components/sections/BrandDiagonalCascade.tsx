@@ -131,7 +131,7 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_60%_65%,rgba(225,29,72,0.05)_0%,transparent_65%)]" />
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_50%,rgba(15,15,22,0.7)_0%,#050508_85%)]" />
 
-            {/* --- TOP HEADER & RETURN TO SPECTRUM --- */}
+            {/* Top Bar Navigation / HUD */}
             <div className="relative z-50 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pointer-events-none max-w-7xl mx-auto">
                 <div className="flex items-center gap-4 pointer-events-auto">
                     <Link
@@ -141,13 +141,6 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                         <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
                         <span className="text-[10px] font-mono tracking-widest uppercase font-bold">Return to Hub</span>
                     </Link>
-
-                    <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3CFF8F] animate-ping" />
-                        <span className="text-[10px] md:text-xs font-mono tracking-[0.25em] text-[#3CFF8F] uppercase font-semibold">
-                            COLDUNE STUDIO // BRANDING
-                        </span>
-                    </div>
                 </div>
 
                 <div className="flex items-center gap-3 pointer-events-auto">
@@ -159,9 +152,6 @@ export default function BrandDiagonalCascade({ onSelectBrand }: BrandDiagonalCas
                     >
                         <RotateCcw size={14} />
                     </button>
-                    <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase hidden sm:inline">
-                        CLICK ANY BRAND TO EXPLORE
-                    </span>
                 </div>
             </div>
 
