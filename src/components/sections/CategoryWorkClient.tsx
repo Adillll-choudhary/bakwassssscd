@@ -11,6 +11,7 @@ import FeaturedWebsites from "./FeaturedWebsites";
 import BrandingOrbitalShowcase from "./BrandingOrbitalShowcase";
 import BrandDiagonalCascade from "./BrandDiagonalCascade";
 import SelvareCaseStudy from "./SelvareCaseStudy";
+import AIContentShowcase from "./AIContentShowcase";
 
 const MediaCard = ({ item, onClick }: { item: Project, onClick?: () => void }) => {
     return (
@@ -169,11 +170,15 @@ export default function CategoryWorkClient() {
         );
     });
 
-    if (!mounted) return <div className="min-h-screen bg-black" />;
-
     if (categorySlug === "websites") {
         return <FeaturedWebsites projects={filteredProjects} />;
     }
+
+    if (categorySlug === "ai-content" || categorySlug === "ai content") {
+        return <AIContentShowcase projects={filteredProjects} />;
+    }
+
+    if (!mounted) return <div className="min-h-screen bg-black" />;
 
     if (filteredProjects.length === 0) {
         return (
