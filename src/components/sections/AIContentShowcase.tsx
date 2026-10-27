@@ -11,16 +11,11 @@ import {
     ChevronDown, 
     Terminal, 
     Cpu, 
-    Eye, 
     Copy, 
     Check, 
     Play, 
     Pause, 
-    Grid, 
-    List, 
-    Layers,
-    Activity,
-    Radio
+    Layers
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -53,15 +48,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4025,
         protocolCode: "PR-911",
-        title: "Zero-Gravity Kinetic Flux",
+        title: "Kinetic Flux",
         series: "Motion Synthesis",
         type: "video",
         file: "/work/ai content/IMG_5079.MP4",
         category: "Zero-Gravity Fluidity",
         theoryName: "Dynamic Flow Triggers",
-        theory: "Dynamic Flow Triggers use the natural physics of movement to guide the eye. By engineering a motion sequence along proprietary Energy Curves, we ensure the viewer's gaze never exits the frame, expanding brand dwell time by 340%.",
-        description: "A cinematic motion sequence produced entirely through neural synthesis. This project explores fluid dynamics in a zero-gravity environment, creating an organic viscosity that challenges traditional physics.",
-        promptArchitecture: "zero-gravity fluid dynamics, viscous chrome mercury emulsion, cinematic lighting, volumetric refraction, ultra-smooth laminar flow, anamorphic lens flare --ar 16:9 --style coldune_synapse --motion 6",
+        theory: "Movement physics engineered along proprietary energy curves to sustain continuous visual retention.",
+        description: "Zero-gravity neural motion sequence exploring organic fluid dynamics and mercury viscosity.",
+        promptArchitecture: "zero-gravity fluid dynamics, viscous chrome mercury emulsion, cinematic lighting, volumetric refraction --ar 16:9 --style coldune_synapse",
         tensorMetrics: {
             steps: 60,
             cfg: 8.5,
@@ -80,10 +75,10 @@ export const AI_COLLECTION: AIArtifact[] = [
         type: "image",
         file: "/work/ai content/IMG_5054.webp",
         category: "Generative Realism",
-        theoryName: "Generative Realism Protocol",
-        theory: "Focuses on the uncanny valley's absolute edge. By infusing intentional biological imperfections—subtle lens grain, diffused natural light, and organic depth of field—we bypass the artificial filter of the human brain, anchoring immediate authenticity.",
-        description: "Merging synthetic architectural precision with organic textures, this AI-driven visual narrative explores the boundaries of digital dreaming. Each element was refined through multiple prompt iterations and structural overrides.",
-        promptArchitecture: "monolithic raw concrete pavilion embedded in lush bio-synthetic moss garden, soft overcast dawn illumination, 35mm optical lens characteristics, photorealistic material decay, quiet luxury atmosphere --ar 4:5 --v 6.1",
+        theoryName: "Generative Realism",
+        theory: "Subtle biological textures that bypass the artificial filter of human perception.",
+        description: "Raw monolithic architecture immersed in synthetic moss and soft dawn lighting.",
+        promptArchitecture: "monolithic raw concrete pavilion in lush bio-synthetic moss garden, soft overcast dawn, 35mm optical lens --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 50,
             cfg: 7.0,
@@ -97,15 +92,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4029,
         protocolCode: "PR-915",
-        title: "Refractive Crystalline Matrix",
+        title: "Refractive Matrix",
         series: "Synthetic Protocols",
         type: "image",
         file: "/work/ai content/IMG_5085.webp",
         category: "Optical Physics",
-        theoryName: "Refractive Trust Theory",
-        theory: "By calculating and visualizing complex multi-surface light refraction with physical accuracy, we subconsciously project technical mastery and flawless execution that viewers naturally ascribe to the brand's core capability.",
-        description: "A high-fidelity neural exploration focusing on light dispersion through synthetic surfaces, creating a layered visual experience that mimics advanced crystal optics and high-purity prism dynamics.",
-        promptArchitecture: "hyper-refractive crystal geometry, internal chromatic aberration, light caustics on black obsidian plinth, studio rim lighting, pristine macro clarity --ar 4:5 --v 6.1",
+        theoryName: "Refractive Trust",
+        theory: "Calculated light dispersion signaling precision engineering and domain mastery.",
+        description: "Synthetic prism dispersion and micro-caustics across polished crystalline surfaces.",
+        promptArchitecture: "hyper-refractive crystal geometry, internal chromatic aberration, light caustics on obsidian plinth --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 55,
             cfg: 7.5,
@@ -124,10 +119,10 @@ export const AI_COLLECTION: AIArtifact[] = [
         type: "image",
         file: "/work/ai content/IMG_5056.webp",
         category: "Impossible Architecture",
-        theoryName: "Cognitive Curiosity Theory",
-        theory: "The human mind recognises the geometric patterns as structurally coherent, yet the environment is clearly synthetic. This creates a state of perceptual tension that keeps viewers engaged 400% longer than traditional stock photography.",
-        description: "A continued exploration into generative environmental design. This visual focuses on the intersection of architecture and nature, using neural networks to simulate light diffusion through impossible vaulted structures.",
-        promptArchitecture: "vaulted brutalist archways intersecting with surreal desert landscape, twilight golden hour rays, geometric shadow play, ultra-wide 24mm architectural perspective --ar 16:9 --v 6.1",
+        theoryName: "Cognitive Curiosity",
+        theory: "Geometrically sound structures set within physically impossible environments.",
+        description: "Vaulted brutalist archways intersecting with desert light and geometric shadows.",
+        promptArchitecture: "vaulted brutalist archways intersecting with surreal desert landscape, golden hour rays, geometric shadow --ar 16:9 --v 6.1",
         tensorMetrics: {
             steps: 50,
             cfg: 7.2,
@@ -141,15 +136,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4022,
         protocolCode: "NL-03",
-        title: "Abstract Authority Plinth",
+        title: "Abstract Authority",
         series: "Neural Landscapes",
         type: "image",
         file: "/work/ai content/IMG_5058.webp",
         category: "Atmospheric Abstraction",
-        theoryName: "Abstract Authority Theory",
-        theory: "By encasing a sharp, immaculately defined monolith in chaotic atmospheric fog and particle noise, we dramatise the brand's clarity amidst market noise. A direct perceptual metaphor for authoritative market leadership.",
-        description: "This piece experiments with atmospheric overlays in an AI pipeline. Fog and particle systems obey real atmospheric physics while the subject remains a crystalline abstraction of pure form.",
-        promptArchitecture: "dark monolith pedestal floating in dense volumetric fog, low key cinematic spotlight, subtle particle suspension, ultra-deep blacks, museum installation aesthetics --ar 1:1 --v 6.1",
+        theoryName: "Abstract Authority",
+        theory: "Sharp architectural clarity cutting through chaotic volumetric atmosphere.",
+        description: "Dark monolith suspended in dense atmospheric fog under focused studio key light.",
+        promptArchitecture: "dark monolith pedestal floating in dense volumetric fog, low key cinematic spotlight, deep blacks --ar 1:1 --v 6.1",
         tensorMetrics: {
             steps: 48,
             cfg: 7.8,
@@ -163,15 +158,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4023,
         protocolCode: "PR-909",
-        title: "Non-Euclidean Sunpath",
+        title: "Non-Euclidean Void",
         series: "Synthetic Protocols",
         type: "image",
         file: "/work/ai content/IMG_5060.webp",
         category: "Impossible Architecture",
-        theoryName: "Impossible Intuition Theory",
-        theory: "Creates visuals that the brain instinctively accepts as physically plausible despite their structural impossibility. This triggers Perceptual Dissonance, prompting the mind to resolve the visual paradox.",
-        description: "Continuing the exploration of impossible architecture, this visual uses neural-weighted lighting to simulate sun paths through non-Euclidean voids. A study in prompt layering and structural override.",
-        promptArchitecture: "non-euclidean architectural interior, curved concrete planes defying gravity, natural skylight casting impossible circular shadow, minimalist gallery atmosphere --ar 4:5 --v 6.1",
+        theoryName: "Impossible Intuition",
+        theory: "Visual paradoxes the mind instinctively accepts as authentic forms.",
+        description: "Curved gravity-defying concrete planes shaping natural light into circular shadows.",
+        promptArchitecture: "non-euclidean architectural interior, curved concrete planes defying gravity, natural skylight --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 52,
             cfg: 8.0,
@@ -185,15 +180,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4024,
         protocolCode: "PR-910",
-        title: "Tactile Memory Surface",
+        title: "Tactile Surface",
         series: "Synthetic Protocols",
         type: "image",
         file: "/work/ai content/IMG_5062.webp",
         category: "Tactile Materiality",
-        theoryName: "Tactile Memory Anchoring",
-        theory: "Simulates familiar, hyper-tangible physical sensations in an unfamiliar synthetic world, bypassing digital filters and creating an indelible brand memory that feels physically felt rather than just observed.",
-        description: "A deep-field study in micro-texture, organic moss, and ancient stone within a synthetic frame. Engineered to bridge the cognitive divide between digital glass and tactile skin.",
-        promptArchitecture: "extreme macro of weathered basalt stone intertwined with velvety alpine moss, morning dew droplets, shallow depth of field, tactile haptic realism --ar 4:5 --v 6.1",
+        theoryName: "Tactile Anchoring",
+        theory: "Simulating physical sensations that transform digital imagery into haptic memory.",
+        description: "Basalt rock intertwined with micro-moss and morning condensation.",
+        promptArchitecture: "extreme macro of weathered basalt stone intertwined with velvety alpine moss, morning dew droplets --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 55,
             cfg: 7.0,
@@ -207,15 +202,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4027,
         protocolCode: "PR-913",
-        title: "Bipolar Contrast Monolith",
+        title: "Bipolar Monolith",
         series: "Synthetic Protocols",
         type: "image",
         file: "/work/ai content/IMG_5066.webp",
         category: "High-Contrast Lighting",
-        theoryName: "Bipolar Contrast Logic",
-        theory: "Maximising the dynamic spread between absolute black (#000000) and specular white creates an instinctual perception of scale, signaling monolithic stability and domain authority.",
-        description: "A master study in extreme high-contrast environmental design. Neural prompt weighting retains crisp surface microstructure in both the deepest shadow and brightest specular highlights.",
-        promptArchitecture: "stark brutalist silhouette against blinding white studio background, hard razor-sharp shadows, geometric purity, luxury editorial composition --ar 4:5 --v 6.1",
+        theoryName: "Bipolar Contrast",
+        theory: "Maximum dynamic spread between absolute black and specular white.",
+        description: "Stark brutalist silhouette defined by razor-sharp shadows and specular highlights.",
+        promptArchitecture: "stark brutalist silhouette against white studio background, hard razor-sharp shadows, geometric purity --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 45,
             cfg: 8.0,
@@ -229,15 +224,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4028,
         protocolCode: "NL-04",
-        title: "Holistic World Genesis",
+        title: "World Genesis",
         series: "Neural Landscapes",
         type: "image",
         file: "/work/ai content/IMG_5067.webp",
         category: "Worldbuilding",
-        theoryName: "Brand Universe Theory",
-        theory: "Instead of producing isolated graphics, we construct a cohesive fictional reality. Welcoming the viewer into an entire universe elevates perceived brand depth and intelligence by 300%.",
-        description: "The culmination of the Neural Landscape series. Synthesises architectural logic, organic atmosphere, and cinematic grading into a singular high-fidelity world.",
-        promptArchitecture: "vast futuristic sanctuary, seamless integration of natural stone and brushed dark titanium, soft ambient light filtering from above, cinematic scale --ar 16:9 --v 6.1",
+        theoryName: "Brand Universe",
+        theory: "Cohesive fictional environments that elevate perceived intelligence.",
+        description: "Seamless integration of raw natural rock, titanium framing, and ambient sky.",
+        promptArchitecture: "vast futuristic sanctuary, seamless natural stone and brushed dark titanium, soft ambient light --ar 16:9 --v 6.1",
         tensorMetrics: {
             steps: 60,
             cfg: 7.5,
@@ -256,10 +251,10 @@ export const AI_COLLECTION: AIArtifact[] = [
         type: "image",
         file: "/work/ai content/IMG_5087.webp",
         category: "Generative Minimalism",
-        theoryName: "Silence of Authority",
-        theory: "Leverages the psychological weight of what is omitted. By giving vast negative space to a solitary subject, we command focused attention and project unshakeable confidence.",
-        description: "An architectural study in generative minimalism. Pushes the boundaries of what neural networks perceive as structure through negative space and clean edges.",
-        promptArchitecture: "solitary geometric sculpture on seamless dark plane, sweeping negative space, minimalist exhibition aesthetic, directional key light --ar 4:5 --v 6.1",
+        theoryName: "Silence Theory",
+        theory: "Negative space commanding undivided focus and quiet confidence.",
+        description: "Solitary geometric structure grounded in vast dark negative space.",
+        promptArchitecture: "solitary geometric sculpture on seamless dark plane, sweeping negative space, minimalist exhibition --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 50,
             cfg: 7.2,
@@ -273,15 +268,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4031,
         protocolCode: "PR-917",
-        title: "Granular Micro-Structure",
+        title: "Granular Structure",
         series: "Synthetic Protocols",
         type: "image",
         file: "/work/ai content/IMG_5089.webp",
         category: "Macro Texture",
-        theoryName: "Granular Authority Theory",
-        theory: "When a brand demonstrates microscopic precision at the granular level, observers intuitively assume equal mastery at the macro scale. A subtle yet powerful trust multiplier.",
-        description: "Explores the micro-textures of digital manifestation, rendering pixel-perfect optical reflections, nano-scale surface fissures, and ultra-crisp material grains.",
-        promptArchitecture: "macro texture of pulverized volcanic sand mixed with gold leaf flecks, shallow focus, cinematic studio lighting, haptic physical presence --ar 4:5 --v 6.1",
+        theoryName: "Granular Authority",
+        theory: "Microscopic precision that subconsciously signals overall mastery.",
+        description: "Nano-scale fissures and volcanic mineral grains with gold fleck reflections.",
+        promptArchitecture: "macro texture of volcanic sand mixed with gold leaf flecks, shallow focus, studio lighting --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 54,
             cfg: 7.6,
@@ -295,15 +290,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4032,
         protocolCode: "PR-918",
-        title: "Atmospheric Kinetic Pulse",
+        title: "Kinetic Pulse",
         series: "Synthetic Protocols",
         type: "image",
         file: "/work/ai content/IMG_5091.webp",
         category: "Particle Systems",
-        theoryName: "Kinetic Resonance Theory",
-        theory: "Human perception is biologically primed to detect minute atmospheric changes as indicators of opportunity or momentum. Simulates the vital energy of a brand in motion.",
-        description: "A study in atmospheric resonance. Generates neural-driven particle systems that create a palpable sense of movement and life within a single still frame.",
-        promptArchitecture: "suspended micro-particulate vortex illuminated by faint emerald neon glow, cosmic depth, dark matter simulation, atmospheric diffusion --ar 4:5 --v 6.1",
+        theoryName: "Kinetic Resonance",
+        theory: "Simulating vital atmospheric energy within a static frame.",
+        description: "Suspended micro-particulate vortex illuminated by faint emerald radiance.",
+        promptArchitecture: "suspended micro-particulate vortex illuminated by emerald glow, dark matter simulation --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 52,
             cfg: 7.4,
@@ -317,15 +312,15 @@ export const AI_COLLECTION: AIArtifact[] = [
     {
         id: 4033,
         protocolCode: "PR-919",
-        title: "Synthesised Visual Climax",
+        title: "Visual Synthesis",
         series: "Synthetic Protocols",
         type: "image",
         file: "/work/ai content/IMG_5093.webp",
         category: "Generative Climax",
-        theoryName: "Synthesis Mastery Protocol",
-        theory: "Harmonising disparate digital elements—light, material, architecture, and atmospheric physics—into a cohesive whole demonstrates the studio's capacity to orchestrate high-order complexity.",
-        description: "The culmination of the 900-series manifestos. Synthesises light, form, and texture into a definitive vision of an AI-first creative discipline.",
-        promptArchitecture: "synthesis of monolithic stone, glowing liquid neon channels, and atmospheric haze, cinematic 8k masterpiece, transcendent luxury composition --ar 4:5 --v 6.1",
+        theoryName: "Synthesis Mastery",
+        theory: "Harmonising light, form, and texture into a singular creative future.",
+        description: "Monolithic stone, luminous fluid channels, and atmospheric haze.",
+        promptArchitecture: "synthesis of monolithic stone, glowing liquid neon channels, atmospheric haze, 8k masterpiece --ar 4:5 --v 6.1",
         tensorMetrics: {
             steps: 65,
             cfg: 8.2,
@@ -341,37 +336,29 @@ export const AI_COLLECTION: AIArtifact[] = [
 const TERMINAL_PRESETS = [
     {
         id: "fluid",
-        name: "Zero-Gravity Flux",
-        code: "PR-911",
-        prompt: "zero-gravity fluid dynamics, viscous chrome mercury emulsion, cinematic lighting, volumetric refraction, ultra-smooth laminar flow, anamorphic lens flare --ar 16:9 --style coldune_synapse --motion 6",
-        theory: "Dynamic Flow Triggers — Sustaining visual retention along proprietary energy arcs.",
+        name: "PR-911",
+        prompt: "zero-gravity fluid dynamics, viscous chrome mercury emulsion --ar 16:9 --style coldune",
         file: "/work/ai content/IMG_5079.MP4",
         type: "video" as const
     },
     {
         id: "monolith",
-        name: "Biophilic Monolith",
-        code: "NL-01",
-        prompt: "monolithic raw concrete pavilion embedded in lush bio-synthetic moss garden, soft overcast dawn illumination, 35mm optical lens characteristics, photorealistic material decay, quiet luxury atmosphere --ar 4:5 --v 6.1",
-        theory: "Generative Realism — Microscopic human imperfections that bypass the artificial filter.",
+        name: "NL-01",
+        prompt: "monolithic raw concrete pavilion in lush bio-synthetic moss garden --ar 4:5 --v 6.1",
         file: "/work/ai content/IMG_5054.webp",
         type: "image" as const
     },
     {
         id: "refraction",
-        name: "Optical Refraction",
-        code: "PR-915",
-        prompt: "hyper-refractive crystal geometry, internal chromatic aberration, light caustics on black obsidian plinth, studio rim lighting, pristine macro clarity --ar 4:5 --v 6.1",
-        theory: "Refractive Trust — Light dispersion accuracy signaling infallible technical discipline.",
+        name: "PR-915",
+        prompt: "hyper-refractive crystal geometry, internal chromatic aberration on obsidian --ar 4:5 --v 6.1",
         file: "/work/ai content/IMG_5085.webp",
         type: "image" as const
     },
     {
         id: "non-euclidean",
-        name: "Non-Euclidean Space",
-        code: "PR-909",
-        prompt: "non-euclidean architectural interior, curved concrete planes defying gravity, natural skylight casting impossible circular shadow, minimalist gallery atmosphere --ar 4:5 --v 6.1",
-        theory: "Impossible Intuition — Engaging cognitive curiosity through structural paradox.",
+        name: "PR-909",
+        prompt: "non-euclidean architectural interior, curved concrete planes defying gravity --ar 4:5 --v 6.1",
         file: "/work/ai content/IMG_5060.webp",
         type: "image" as const
     }
@@ -379,14 +366,13 @@ const TERMINAL_PRESETS = [
 
 export default function AIContentShowcase({ projects }: { projects?: Project[] }) {
     const [selectedSeries, setSelectedSeries] = useState<string>("ALL");
-    const [viewMode, setViewMode] = useState<"bento" | "editorial">("bento");
     const [activeInspector, setActiveInspector] = useState<AIArtifact | null>(null);
     const [copiedPrompt, setCopiedPrompt] = useState(false);
     const [activeTerminalPreset, setActiveTerminalPreset] = useState(TERMINAL_PRESETS[0]);
     const [featuredPlaying, setFeaturedPlaying] = useState(true);
     const videoRef = useRef<HTMLVideoElement>(null);
 
-    // Keyboard navigation for inspector
+    // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (!activeInspector) return;
@@ -432,26 +418,21 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
         <main className="min-h-screen bg-[#0A0A0A] text-white selection:bg-[#3CFF8F] selection:text-black font-sans relative overflow-x-hidden">
             {/* Ambient Dual Atmosphere: Charcoal Grid + Crimson Red (#A31C1B) + Neon Green (#3CFF8F) */}
             <div className="fixed inset-0 pointer-events-none z-0">
-                {/* Charcoal cybernetic grid */}
                 <div 
-                    className="absolute inset-0 opacity-[0.05]"
+                    className="absolute inset-0 opacity-[0.04]"
                     style={{
                         backgroundImage: "linear-gradient(to right, rgba(163,28,27,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(60,255,143,0.15) 1px, transparent 1px)",
                         backgroundSize: "64px 64px"
                     }}
                 />
-                {/* Crimson Red (#A31C1B) Deep Flare */}
-                <div className="absolute top-1/4 right-0 w-[700px] h-[500px] bg-[#A31C1B]/[0.08] blur-[180px] rounded-full" />
-                {/* Neon Green (#3CFF8F) Aura */}
-                <div className="absolute top-1/3 left-0 w-[800px] h-[450px] bg-[#3CFF8F]/[0.035] blur-[160px] rounded-full" />
-                {/* Charcoal vignette layer */}
-                <div className="absolute bottom-10 right-1/4 w-[600px] h-[600px] bg-[#A31C1B]/[0.05] blur-[200px] rounded-full" />
+                <div className="absolute top-1/4 right-0 w-[600px] h-[400px] bg-[#A31C1B]/[0.07] blur-[180px] rounded-full" />
+                <div className="absolute top-1/3 left-0 w-[700px] h-[400px] bg-[#3CFF8F]/[0.03] blur-[160px] rounded-full" />
             </div>
 
             {/* Persistent Top Sub-Navigation (Charcoal Black #171717 base) */}
             <header className="fixed top-20 md:top-24 left-0 right-0 z-[90] px-4 md:px-8 pointer-events-none">
-                <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 bg-[#171717]/90 backdrop-blur-2xl border border-white/10 px-4 md:px-6 py-2.5 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.85)] pointer-events-auto">
-                    {/* Left: Return button */}
+                <div className="max-w-6xl mx-auto flex items-center justify-between gap-3 bg-[#171717]/90 backdrop-blur-2xl border border-white/10 px-4 md:px-6 py-2.5 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.85)] pointer-events-auto">
+                    {/* Left: Return */}
                     <Link
                         href="/#spectrum"
                         className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors"
@@ -467,7 +448,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     {/* Center: Series Filter Pills */}
                     <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
                         {[
-                            { key: "ALL", label: "All Protocols", count: AI_COLLECTION.length },
+                            { key: "ALL", label: "All", count: AI_COLLECTION.length },
                             { key: "Neural Landscapes", label: "Landscapes", count: 4 },
                             { key: "Synthetic Protocols", label: "Protocols", count: 8 },
                             { key: "Motion Synthesis", label: "Motion", count: 1 }
@@ -491,42 +472,18 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         ))}
                     </div>
 
-                    {/* Right: View Mode Toggle & Telemetry status */}
-                    <div className="flex items-center gap-2.5">
-                        {/* Crimson Red telemetry badge */}
-                        <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[9px] font-mono text-[#A31C1B]">
+                    {/* Right: Telemetry status */}
+                    <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[9px] font-mono text-[#A31C1B]">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#A31C1B] animate-ping" />
-                            <span className="font-bold">CORE: SYNAPSE v4.8</span>
-                        </div>
-
-                        {/* View Switcher in Charcoal #171717 */}
-                        <div className="flex items-center bg-[#171717] border border-white/10 rounded-full p-0.5">
-                            <button
-                                onClick={() => setViewMode("bento")}
-                                title="Bento Matrix"
-                                className={`p-1.5 rounded-full transition-all cursor-pointer ${
-                                    viewMode === "bento" ? "bg-[#3CFF8F] text-black" : "text-white/60 hover:text-white"
-                                }`}
-                            >
-                                <Grid size={13} />
-                            </button>
-                            <button
-                                onClick={() => setViewMode("editorial")}
-                                title="Cognitive Blueprint Stream"
-                                className={`p-1.5 rounded-full transition-all cursor-pointer ${
-                                    viewMode === "editorial" ? "bg-[#3CFF8F] text-black" : "text-white/60 hover:text-white"
-                                }`}
-                            >
-                                <List size={13} />
-                            </button>
+                            <span className="font-bold">v4.8</span>
                         </div>
                     </div>
                 </div>
             </header>
 
-            {/* HERO SECTION */}
-            <section className="relative min-h-[92vh] flex flex-col justify-center items-center px-4 md:px-8 pt-44 md:pt-52 pb-20 overflow-hidden">
-                {/* Looping Hero Background Video with Scanlines and Radial Gradient */}
+            {/* HERO SECTION: Minimal, High-Impact, Low Text */}
+            <section className="relative min-h-[85vh] flex flex-col justify-center items-center px-4 md:px-8 pt-40 md:pt-48 pb-16 overflow-hidden">
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <video
                         src="/work/ai content/IMG_5079.MP4"
@@ -535,46 +492,36 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         loop
                         playsInline
                         preload="auto"
-                        className="w-full h-full object-cover opacity-35 filter contrast-125 saturate-50 scale-105"
+                        className="w-full h-full object-cover opacity-30 filter contrast-125 saturate-50 scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/70 to-[#0A0A0A]" />
-                    <div 
-                        className="absolute inset-0 opacity-[0.08]"
-                        style={{
-                            backgroundImage: "repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 4px)"
-                        }}
-                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/75 to-[#0A0A0A]" />
                 </div>
 
-                <div className="relative z-10 max-w-6xl mx-auto text-center space-y-6">
-                    {/* Badge: Charcoal Black #171717 with Crimson Red #A31C1B & Neon Green #3CFF8F highlights */}
+                <div className="relative z-10 max-w-5xl mx-auto text-center space-y-5">
+                    {/* Minimal Badge */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#171717] border border-[#A31C1B]/40 backdrop-blur-md shadow-[0_0_25px_rgba(163,28,27,0.2)]"
+                        className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[10px] font-universo uppercase tracking-widest text-white/90 shadow-sm"
                     >
-                        <Sparkles size={13} className="text-[#3CFF8F] animate-spin" style={{ animationDuration: "6s" }} />
-                        <span className="text-[10px] md:text-[11px] font-universo uppercase tracking-widest text-white/90">
-                            Coldune Synapse // Proprietary Generative Architecture
-                        </span>
+                        <Sparkles size={11} className="text-[#3CFF8F]" />
+                        <span>Coldune Synapse // Neural Visuals</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-[#A31C1B] animate-ping" />
                     </motion.div>
 
-                    {/* Coldune Studio Signature Typography Duo: Universo Black + Siestha Neon Green */}
+                    {/* Coldune Signature Typography Duo */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.1 }}
-                        className="relative"
+                        transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-[13vw] md:text-[8rem] lg:text-[10.5rem] font-universo font-black uppercase leading-[0.82] tracking-tight text-white select-none">
+                        <h1 className="text-[13vw] md:text-[7.5rem] lg:text-[9.5rem] font-universo font-black uppercase leading-[0.82] tracking-tight text-white select-none">
                             SYNTHETIC
                             <br />
-                            <span className="relative inline-block mt-2">
+                            <span className="relative inline-block mt-1">
                                 <span className="font-universo font-black uppercase text-white">DREAMS</span>
                                 <span 
-                                    className="block md:inline font-siestha normal-case text-[#3CFF8F] text-[15vw] md:text-[8rem] lg:text-[10rem] -rotate-[6deg] md:ml-6 align-middle"
+                                    className="block md:inline font-siestha normal-case text-[#3CFF8F] text-[15vw] md:text-[7.5rem] lg:text-[9.5rem] -rotate-[6deg] md:ml-6 align-middle"
                                     style={{ textShadow: "0 4px 35px rgba(60,255,143,0.45)" }}
                                 >
                                     &amp; Perception
@@ -583,78 +530,77 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         </h1>
                     </motion.div>
 
-                    {/* Editorial Subtitle */}
+                    {/* Crisp One-Line Subtitle */}
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.2 }}
-                        className="max-w-2xl mx-auto text-base md:text-xl text-white/70 font-light leading-relaxed pt-4"
+                        transition={{ delay: 0.15 }}
+                        className="text-sm md:text-base text-white/60 font-light max-w-lg mx-auto"
                     >
-                        Where deep neural learning meets boundary-pushing luxury. We don&apos;t produce generic AI outputs—we architect proprietary visual universes, tactile micro-physics, and subconscious perceptual triggers for tier-one brands.
+                        Proprietary generative architectures engineered for luxury brands.
                     </motion.p>
 
-                    {/* Live Cybernetic Telemetry Bar: Charcoal Black #171717 base with Crimson Red & Neon Green metrics */}
+                    {/* Compact Streamlined Telemetry Strip */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.3 }}
-                        className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto text-left"
+                        transition={{ delay: 0.25 }}
+                        className="pt-2 flex flex-wrap items-center justify-center gap-2 font-mono text-[10px]"
                     >
-                        {[
-                            { code: "01. ENGINE", label: "Coldune Synapse v4.8", stat: "Active", statColor: "text-[#3CFF8F]", borderHover: "hover:border-[#3CFF8F]/40" },
-                            { code: "02. RESOLUTION", label: "Native Generative", stat: "8K UHD", statColor: "text-[#A31C1B]", borderHover: "hover:border-[#A31C1B]/40" },
-                            { code: "03. RETENTION", label: "Cognitive Dwell Time", stat: "+400%", statColor: "text-[#3CFF8F]", borderHover: "hover:border-[#3CFF8F]/40" },
-                            { code: "04. PROTOCOLS", label: "Engineered Artifacts", stat: "13 Works", statColor: "text-[#A31C1B]", borderHover: "hover:border-[#A31C1B]/40" }
-                        ].map((stat, i) => (
-                            <div
-                                key={i}
-                                className={`p-4 rounded-2xl bg-[#171717] border border-white/5 ${stat.borderHover} transition-all backdrop-blur-md shadow-lg`}
-                            >
-                                <span className="text-[9px] font-mono text-white/40 block mb-1">{stat.code}</span>
-                                <div className="text-[11px] font-universo font-black uppercase text-white/90">{stat.label}</div>
-                                <div className={`text-sm font-universo font-black ${stat.statColor} mt-0.5`}>{stat.stat}</div>
-                            </div>
-                        ))}
+                        <span className="px-3 py-1 rounded-full bg-[#171717] border border-white/5 text-white/60">
+                            ENGINE: <strong className="text-[#3CFF8F]">SYNAPSE v4.8</strong>
+                        </span>
+                        <span className="px-3 py-1 rounded-full bg-[#171717] border border-white/5 text-white/60">
+                            RES: <strong className="text-[#A31C1B]">8K NATIVE</strong>
+                        </span>
+                        <span className="px-3 py-1 rounded-full bg-[#171717] border border-white/5 text-white/60">
+                            RETENTION: <strong className="text-[#3CFF8F]">+400%</strong>
+                        </span>
+                        <span className="px-3 py-1 rounded-full bg-[#171717] border border-white/5 text-white/60">
+                            ARCHIVE: <strong className="text-[#A31C1B]">13 WORKS</strong>
+                        </span>
                     </motion.div>
 
-                    {/* Down Indicator with Neon Green Glow */}
-                    <div className="pt-10 flex flex-col items-center">
-                        <ChevronDown size={28} className="text-[#3CFF8F] animate-bounce" />
+                    <div className="pt-6 flex justify-center">
+                        <ChevronDown size={24} className="text-[#3CFF8F] animate-bounce" />
                     </div>
                 </div>
             </section>
 
-            {/* FEATURED MOTION SPOTLIGHT: PROTOCOL 911 (Charcoal Black #171717 + Crimson Red #A31C1B tag) */}
-            <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
-                <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                    <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[10px] font-mono text-[#A31C1B] uppercase tracking-widest mb-2 shadow-sm">
-                            <span className="w-2 h-2 rounded-full bg-[#A31C1B] animate-ping" />
-                            Featured Masterwork // PR-911
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-universo font-black uppercase tracking-tight text-white">
-                            Zero-Gravity <span className="font-siestha normal-case text-[#3CFF8F] text-4xl md:text-6xl -rotate-[5deg] inline-block ml-2">Kinetic Flux</span>
+            {/* FEATURED SPOTLIGHT: Clean Visual-First */}
+            <section className="py-12 md:py-20 px-4 md:px-8 max-w-6xl mx-auto relative z-10">
+                <div className="mb-6 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[9px] font-mono text-[#A31C1B] font-bold">
+                            PR-911
+                        </span>
+                        <h2 className="text-xl md:text-3xl font-universo font-black uppercase text-white">
+                            Kinetic Flux <span className="font-siestha normal-case text-[#3CFF8F] text-2xl md:text-4xl -rotate-[5deg] inline-block ml-1">Motion</span>
                         </h2>
                     </div>
-                    <div className="flex items-center gap-3">
+
+                    <div className="flex items-center gap-2">
                         <button
                             onClick={toggleFeaturedVideo}
-                            className="px-4 py-2 rounded-full bg-[#171717] hover:bg-[#171717]/80 border border-white/15 text-xs font-universo uppercase tracking-wider text-white flex items-center gap-2 transition-all cursor-pointer shadow-md"
+                            className="p-2 rounded-full bg-[#171717] border border-white/15 text-white hover:border-[#3CFF8F]/60 transition-all cursor-pointer"
+                            title={featuredPlaying ? "Pause" : "Play"}
                         >
-                            {featuredPlaying ? <Pause size={14} className="text-[#3CFF8F]" /> : <Play size={14} className="text-[#3CFF8F]" />}
-                            <span>{featuredPlaying ? "Pause Motion" : "Play Motion"}</span>
+                            {featuredPlaying ? <Pause size={13} className="text-[#3CFF8F]" /> : <Play size={13} className="text-[#3CFF8F]" />}
                         </button>
                         <button
                             onClick={() => setActiveInspector(AI_COLLECTION[0])}
-                            className="px-4 py-2 rounded-full bg-[#3CFF8F] text-black text-xs font-universo font-black uppercase tracking-wider flex items-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(60,255,143,0.5)] cursor-pointer"
+                            className="px-3.5 py-1.5 rounded-full bg-[#3CFF8F] text-black text-xs font-universo font-black uppercase flex items-center gap-1.5 hover:shadow-[0_0_15px_rgba(60,255,143,0.5)] transition-all cursor-pointer"
                         >
-                            <Maximize2 size={14} />
-                            <span>Inspect Blueprint</span>
+                            <Maximize2 size={12} />
+                            <span>Inspect</span>
                         </button>
                     </div>
                 </div>
 
-                <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-[#171717] shadow-[0_30px_100px_rgba(0,0,0,0.9)] aspect-[16/9] md:aspect-[21/9]">
+                <div 
+                    onClick={() => setActiveInspector(AI_COLLECTION[0])}
+                    className="relative rounded-3xl overflow-hidden border border-white/10 bg-[#171717] shadow-2xl aspect-[16/9] md:aspect-[21/9] cursor-pointer group"
+                >
                     <video
                         ref={videoRef}
                         src="/work/ai content/IMG_5079.MP4"
@@ -662,292 +608,116 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         muted
                         loop
                         playsInline
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
                     />
-
-                    {/* Gradient Overlay for bottom text HUD */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-black/30 to-transparent pointer-events-none" />
-
-                    {/* Top HUD Badges */}
-                    <div className="absolute top-6 left-6 right-6 flex justify-between items-center pointer-events-none">
-                        <span className="px-3 py-1 rounded-full bg-[#171717]/80 border border-[#3CFF8F]/30 text-[10px] font-mono text-[#3CFF8F] backdrop-blur-md">
-                            4K NEURAL FLUID DYNAMICS // 60 FPS
-                        </span>
-                        <span className="px-3 py-1 rounded-full bg-[#171717]/80 border border-[#A31C1B]/50 text-[10px] font-mono text-[#A31C1B] backdrop-blur-md font-bold">
-                            TENSOR LATENCY: 14ms // ENERGY: 0.94
-                        </span>
-                    </div>
-
-                    {/* Bottom HUD Metadata */}
-                    <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row md:items-end justify-between gap-4 pointer-events-none">
-                        <div className="max-w-2xl">
-                            <span className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest block mb-1">
-                                Perceptual Theory: Dynamic Flow Triggers
-                            </span>
-                            <p className="text-xs md:text-sm text-white/80 leading-relaxed font-light backdrop-blur-md bg-[#171717]/85 p-3.5 rounded-xl border border-white/10">
-                                Engineering movement physics along proprietary energy arcs prevents saccadic gaze escape, achieving an unprecedented <strong className="text-[#3CFF8F] font-bold">+340% increase in brand dwell time</strong> compared to standard video content.
-                            </p>
-                        </div>
-                        <div className="hidden md:flex items-center gap-2 bg-[#171717]/90 border border-white/10 rounded-2xl p-3 backdrop-blur-md">
-                            <div>
-                                <span className="text-[9px] font-mono text-white/40 block">SAMPLER</span>
-                                <span className="text-xs font-mono font-bold text-white">Euler Ancestral</span>
-                            </div>
-                            <div className="w-px h-8 bg-white/10 mx-2" />
-                            <div>
-                                <span className="text-[9px] font-mono text-white/40 block">CFG SCALE</span>
-                                <span className="text-xs font-mono font-bold text-[#3CFF8F]">8.5</span>
-                            </div>
-                            <div className="w-px h-8 bg-white/10 mx-2" />
-                            <div>
-                                <span className="text-[9px] font-mono text-white/40 block">DWELL DELTA</span>
-                                <span className="text-xs font-mono font-bold text-[#A31C1B]">+340%</span>
-                            </div>
-                        </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono pointer-events-none">
+                        <span className="text-[#3CFF8F]">Dynamic Flow Triggers</span>
+                        <span className="text-white/60">4K 60FPS</span>
                     </div>
                 </div>
             </section>
 
-            {/* MAIN COLLECTION SECTION */}
-            <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
-                <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                    <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-white/10 text-[10px] font-mono text-white/60 uppercase tracking-widest mb-2">
-                            <Layers size={12} className="text-[#3CFF8F]" />
-                            Curated Synthetic Archive ({filteredArtifacts.length})
-                        </div>
-                        <h2 className="text-3xl md:text-6xl font-universo font-black uppercase tracking-tight text-white">
-                            THE NEURAL <span className="font-siestha normal-case text-[#3CFF8F] text-4xl md:text-7xl -rotate-[6deg] inline-block ml-2">Protocols</span>
-                        </h2>
-                    </div>
-
-                    <p className="text-xs md:text-sm text-white/60 max-w-md font-light">
-                        Click on any artifact to reveal its latent prompt architecture, mathematical tensor metrics, and cognitive resonance theory.
-                    </p>
+            {/* MAIN PROTOCOL GALLERY: Clean Visual Bento Grid */}
+            <section className="py-12 md:py-20 px-4 md:px-8 max-w-6xl mx-auto relative z-10">
+                <div className="mb-8 flex items-center justify-between">
+                    <h2 className="text-2xl md:text-5xl font-universo font-black uppercase tracking-tight text-white">
+                        THE NEURAL <span className="font-siestha normal-case text-[#3CFF8F] text-3xl md:text-6xl -rotate-[5deg] inline-block ml-2">Protocols</span>
+                    </h2>
+                    <span className="text-xs font-mono text-white/40">[{filteredArtifacts.length} Artifacts]</span>
                 </div>
 
-                {/* VIEW MODE A: BENTO MATRIX (Charcoal Black #171717 card backgrounds with Crimson & Green accents) */}
-                {viewMode === "bento" && (
-                    <motion.div
-                        layout
-                        className="grid grid-cols-12 gap-3 md:gap-4"
-                    >
-                        <AnimatePresence>
-                            {filteredArtifacts.map((item, idx) => (
-                                <motion.div
-                                    key={item.id}
-                                    layout
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.6, delay: (idx % 6) * 0.05 }}
-                                    onClick={() => setActiveInspector(item)}
-                                    className={`${item.spanClass} group relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#171717] border border-[#171717] hover:border-[#3CFF8F]/70 transition-all duration-500 cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_20px_60px_rgba(60,255,143,0.15)] flex flex-col justify-end`}
-                                >
-                                    {/* Media Rendering */}
-                                    {item.type === "video" ? (
-                                        <video
-                                            src={item.file}
-                                            autoPlay
-                                            muted
-                                            loop
-                                            playsInline
-                                            preload="auto"
-                                            className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                                        />
-                                    ) : (
-                                        <Image
-                                            src={item.file}
-                                            alt={item.title}
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, 50vw"
-                                            className="object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                                        />
-                                    )}
+                {/* Clean Bento Grid — Visuals First, Minimal Text */}
+                <motion.div layout className="grid grid-cols-12 gap-3 md:gap-4">
+                    <AnimatePresence>
+                        {filteredArtifacts.map((item, idx) => (
+                            <motion.div
+                                key={item.id}
+                                layout
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.5, delay: (idx % 4) * 0.05 }}
+                                onClick={() => setActiveInspector(item)}
+                                className={`${item.spanClass} group relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#171717] border border-white/5 hover:border-[#3CFF8F]/60 transition-all duration-500 cursor-pointer shadow-xl flex flex-col justify-end`}
+                            >
+                                {/* Media */}
+                                {item.type === "video" ? (
+                                    <video
+                                        src={item.file}
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        preload="auto"
+                                        className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                    />
+                                ) : (
+                                    <Image
+                                        src={item.file}
+                                        alt={item.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                    />
+                                )}
 
-                                    {/* Vignette / Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-black/40 to-transparent opacity-85 group-hover:opacity-90 transition-opacity" />
+                                {/* Subtle Dark Vignette */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                                    {/* Top Telemetry Pills: Charcoal #171717 base with Crimson Red #A31C1B code */}
-                                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-none">
-                                        <span className="px-3 py-1 rounded-full bg-[#171717]/90 border border-[#A31C1B]/50 text-[9px] font-mono font-bold text-[#A31C1B] backdrop-blur-md">
-                                            {item.protocolCode}
-                                        </span>
-                                        <span className="px-2.5 py-1 rounded-full bg-[#171717]/90 border border-white/15 text-[9px] font-mono text-white/70 backdrop-blur-md group-hover:border-[#3CFF8F]/50 transition-colors">
-                                            {item.category}
-                                        </span>
-                                    </div>
+                                {/* Top Protocol Pill */}
+                                <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-20 pointer-events-none">
+                                    <span className="px-2.5 py-0.5 rounded-full bg-[#171717]/85 border border-[#A31C1B]/40 text-[9px] font-mono font-bold text-[#A31C1B] backdrop-blur-md">
+                                        {item.protocolCode}
+                                    </span>
+                                    <span className="px-2 py-0.5 rounded-full bg-black/60 text-[9px] font-mono text-white/60 backdrop-blur-md">
+                                        {item.category}
+                                    </span>
+                                </div>
 
-                                    {/* Bottom Content Card */}
-                                    <div className="relative z-20 p-5 md:p-6 space-y-2 pointer-events-none">
-                                        <div className="text-[10px] font-mono flex items-center gap-1.5">
-                                            <span className="text-[#3CFF8F] font-semibold">{item.theoryName}</span>
-                                            <span className="text-white/40">•</span>
-                                            <span className="px-1.5 py-0.5 rounded bg-[#A31C1B]/20 text-[#A31C1B] font-bold border border-[#A31C1B]/30 text-[9px]">
-                                                {item.tensorMetrics.dwellMultiplier} Dwell
-                                            </span>
+                                {/* Bottom Minimal Title Bar (Clean, uncluttered) */}
+                                <div className="relative z-20 p-4 md:p-5 flex items-end justify-between pointer-events-none">
+                                    <div>
+                                        <div className="text-[10px] font-mono text-[#3CFF8F] opacity-90 mb-0.5">
+                                            {item.theoryName}
                                         </div>
-
-                                        <h3 className="text-xl md:text-2xl font-universo font-black uppercase text-white tracking-tight leading-tight group-hover:text-[#3CFF8F] transition-colors">
+                                        <h3 className="text-lg md:text-xl font-universo font-black uppercase text-white tracking-tight group-hover:text-[#3CFF8F] transition-colors">
                                             {item.title}
                                         </h3>
-
-                                        <p className="text-xs text-white/70 line-clamp-2 font-light leading-relaxed">
-                                            {item.theory}
-                                        </p>
-
-                                        {/* Hover Quick Action */}
-                                        <div className="pt-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <span className="text-[10px] font-universo uppercase text-white flex items-center gap-1.5 bg-[#171717] px-3.5 py-1.5 rounded-full border border-white/20 backdrop-blur-md hover:border-[#3CFF8F]/60">
-                                                <Maximize2 size={11} className="text-[#3CFF8F]" />
-                                                Inspect Tensor Directives
-                                            </span>
-                                        </div>
                                     </div>
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
-                    </motion.div>
-                )}
-
-                {/* VIEW MODE B: COGNITIVE BLUEPRINT (Charcoal Black #171717 card backgrounds with Crimson Red #A31C1B left borders) */}
-                {viewMode === "editorial" && (
-                    <div className="space-y-16 md:space-y-28">
-                        {filteredArtifacts.map((item, idx) => (
-                            <motion.article
-                                key={item.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center p-6 md:p-10 rounded-3xl bg-[#171717] border border-white/10 hover:border-[#A31C1B]/40 transition-all shadow-xl"
-                            >
-                                {/* Media Column */}
-                                <div 
-                                    onClick={() => setActiveInspector(item)}
-                                    className="lg:col-span-7 relative rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/10] bg-black border border-white/10 group cursor-pointer shadow-2xl"
-                                >
-                                    {item.type === "video" ? (
-                                        <video
-                                            src={item.file}
-                                            autoPlay
-                                            muted
-                                            loop
-                                            playsInline
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                        />
-                                    ) : (
-                                        <Image
-                                            src={item.file}
-                                            alt={item.title}
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                        />
-                                    )}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                                        <span className="px-4 py-2 rounded-full bg-[#3CFF8F] text-black font-universo font-black text-xs uppercase flex items-center gap-2 shadow-xl">
-                                            <Maximize2 size={13} /> Open Fullscreen Inspector
-                                        </span>
+                                    <div className="w-8 h-8 rounded-full bg-[#171717]/80 border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <Maximize2 size={12} className="text-[#3CFF8F]" />
                                     </div>
                                 </div>
-
-                                {/* Information / Theory Column */}
-                                <div className="lg:col-span-5 space-y-6">
-                                    <div className="flex items-center gap-2">
-                                        <span className="px-3 py-1 rounded-full bg-[#A31C1B]/15 border border-[#A31C1B]/40 text-[10px] font-mono font-bold text-[#A31C1B]">
-                                            {item.protocolCode}
-                                        </span>
-                                        <span className="text-[11px] font-mono text-white/50 uppercase tracking-widest">
-                                            {item.series}
-                                        </span>
-                                    </div>
-
-                                    <h3 className="text-3xl md:text-4xl font-universo font-black uppercase text-white tracking-tight leading-none">
-                                        {item.title}
-                                    </h3>
-
-                                    {/* Theory Callout Box: Charcoal #171717 + Crimson Red #A31C1B border */}
-                                    <div className="p-5 rounded-2xl bg-[#171717] border-l-4 border-l-[#A31C1B] border-y border-r border-white/5 space-y-2 shadow-inner">
-                                        <div className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest flex items-center gap-1.5 font-bold">
-                                            <Cpu size={12} />
-                                            <span>Perceptual Theory // {item.theoryName}</span>
-                                        </div>
-                                        <p className="text-xs md:text-sm text-white/90 leading-relaxed font-light">
-                                            &ldquo;{item.theory}&rdquo;
-                                        </p>
-                                    </div>
-
-                                    {/* Narrative Description */}
-                                    <p className="text-xs md:text-sm text-white/70 leading-relaxed font-light">
-                                        {item.description}
-                                    </p>
-
-                                    {/* Prompt Architecture Block */}
-                                    <div className="p-4 rounded-xl bg-black/70 border border-white/10 space-y-2">
-                                        <div className="flex items-center justify-between text-[10px] font-mono text-white/40">
-                                            <span className="flex items-center gap-1"><Terminal size={11} className="text-[#3CFF8F]" /> PROMPT DIRECTIVE</span>
-                                            <button
-                                                onClick={() => handleCopyPrompt(item.promptArchitecture)}
-                                                className="hover:text-[#3CFF8F] transition-colors cursor-pointer flex items-center gap-1"
-                                            >
-                                                {copiedPrompt ? <Check size={11} className="text-[#3CFF8F]" /> : <Copy size={11} />}
-                                                <span>{copiedPrompt ? "Copied" : "Copy"}</span>
-                                            </button>
-                                        </div>
-                                        <p className="text-[11px] font-mono text-white/80 line-clamp-2 leading-relaxed">
-                                            {item.promptArchitecture}
-                                        </p>
-                                    </div>
-
-                                    {/* Technical Metrics Strip */}
-                                    <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] font-mono border-t border-white/10">
-                                        <div>
-                                            <span className="text-white/40 block">SAMPLER</span>
-                                            <span className="text-white font-bold">{item.tensorMetrics.sampler}</span>
-                                        </div>
-                                        <div>
-                                            <span className="text-white/40 block">CFG / STEPS</span>
-                                            <span className="text-[#3CFF8F] font-bold">{item.tensorMetrics.cfg} / {item.tensorMetrics.steps}</span>
-                                        </div>
-                                        <div>
-                                            <span className="text-white/40 block">RETENTION</span>
-                                            <span className="text-[#A31C1B] font-bold">{item.tensorMetrics.dwellMultiplier}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.article>
+                            </motion.div>
                         ))}
-                    </div>
-                )}
+                    </AnimatePresence>
+                </motion.div>
             </section>
 
-            {/* INTERACTIVE FEATURE: COLDUNE SYNAPSE PROMPT TERMINAL (Charcoal Black #171717 + Crimson Red #A31C1B header) */}
-            <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
-                <div className="p-8 md:p-14 rounded-3xl bg-[#171717] border border-white/15 shadow-[0_40px_120px_rgba(0,0,0,0.95)] space-y-10">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[10px] font-mono text-[#A31C1B] uppercase tracking-widest mb-2 shadow-sm font-bold">
-                                <Terminal size={13} />
-                                Interactive Neural Sandbox
-                            </div>
-                            <h2 className="text-3xl md:text-5xl font-universo font-black uppercase text-white tracking-tight">
-                                SYNAPSE <span className="font-siestha normal-case text-[#3CFF8F] text-4xl md:text-6xl -rotate-[5deg] inline-block ml-2">Terminal</span>
-                            </h2>
-                            <p className="text-xs md:text-sm text-white/60 font-light mt-2 max-w-xl">
-                                Select a creative directive below to inspect how Coldune synthesises natural-language prompts into high-order visual architecture.
-                            </p>
+            {/* COMPACT INTERACTIVE TERMINAL */}
+            <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto relative z-10">
+                <div className="p-6 md:p-10 rounded-3xl bg-[#171717] border border-white/10 shadow-2xl space-y-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div className="flex items-center gap-2">
+                            <span className="px-2.5 py-0.5 rounded-full bg-[#A31C1B]/20 text-[9px] font-mono text-[#A31C1B] font-bold border border-[#A31C1B]/40">
+                                SANDBOX
+                            </span>
+                            <h3 className="text-xl md:text-2xl font-universo font-black uppercase text-white">
+                                SYNAPSE <span className="font-siestha normal-case text-[#3CFF8F] text-2xl md:text-3xl -rotate-[5deg] inline-block ml-1">Terminal</span>
+                            </h3>
                         </div>
 
-                        {/* Presets Switcher: Charcoal buttons with Neon Green active */}
-                        <div className="flex flex-wrap gap-2">
+                        {/* Presets */}
+                        <div className="flex items-center gap-1.5">
                             {TERMINAL_PRESETS.map(preset => (
                                 <button
                                     key={preset.id}
                                     onClick={() => setActiveTerminalPreset(preset)}
-                                    className={`px-3.5 py-1.5 rounded-full text-[11px] font-universo uppercase tracking-wider transition-all cursor-pointer ${
+                                    className={`px-3 py-1 rounded-full text-[10px] font-universo uppercase transition-all cursor-pointer ${
                                         activeTerminalPreset.id === preset.id
-                                            ? "bg-[#3CFF8F] text-black font-black shadow-[0_0_15px_rgba(60,255,143,0.4)]"
-                                            : "bg-[#171717] hover:bg-[#171717]/80 text-white/70 border border-white/15"
+                                            ? "bg-[#3CFF8F] text-black font-black"
+                                            : "bg-[#171717] text-white/60 hover:text-white border border-white/10"
                                     }`}
                                 >
                                     {preset.name}
@@ -956,61 +726,31 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         </div>
                     </div>
 
-                    {/* Terminal Window Grid */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                        {/* Terminal Code Screen: Charcoal Black #171717 surface */}
-                        <div className="lg:col-span-7 bg-[#171717] rounded-2xl border border-white/15 p-6 space-y-4 font-mono text-xs shadow-inner">
-                            {/* Window Header with Crimson Red #A31C1B control dot */}
-                            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-[#A31C1B]" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-[#3CFF8F]/80" />
-                                    <span className="text-[10px] text-white/40 ml-2">coldune-synapse-v4.8 --session #{activeTerminalPreset.code}</span>
+                    {/* Compact Code + Preview */}
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                        <div className="md:col-span-8 bg-black/60 rounded-2xl border border-white/10 p-4 space-y-3 font-mono text-xs">
+                            <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                                <div className="flex items-center gap-1.5">
+                                    <div className="w-2 h-2 rounded-full bg-[#A31C1B]" />
+                                    <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                                    <div className="w-2 h-2 rounded-full bg-[#3CFF8F]" />
+                                    <span className="text-[10px] text-white/40 ml-2">prompt-directive</span>
                                 </div>
-                                <span className="text-[9px] text-[#3CFF8F] font-bold">TENSOR_OK</span>
-                            </div>
-
-                            {/* Prompt Code Display */}
-                            <div className="space-y-3 pt-2">
-                                <div>
-                                    <span className="text-white/40 block">// Creative Directive Input:</span>
-                                    <p className="text-[#3CFF8F] font-bold text-sm">{activeTerminalPreset.name}</p>
-                                </div>
-
-                                <div>
-                                    <span className="text-white/40 block">// Synthesised Neural Prompt:</span>
-                                    <p className="text-white/90 leading-relaxed bg-black/60 p-3 rounded-lg border border-white/5">
-                                        &ldquo;{activeTerminalPreset.prompt}&rdquo;
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <span className="text-white/40 block">// Cognitive Resonance Logic:</span>
-                                    <p className="text-white/70 italic text-[11px]">
-                                        {activeTerminalPreset.theory}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Execution Status: Crimson Red latency badge */}
-                            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-white/40">
-                                <span className="flex items-center gap-1.5 text-[#A31C1B] font-bold">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#A31C1B] animate-ping" />
-                                    PIPELINE LATENCY: 14ms
-                                </span>
                                 <button
                                     onClick={() => handleCopyPrompt(activeTerminalPreset.prompt)}
-                                    className="hover:text-white transition-colors cursor-pointer flex items-center gap-1"
+                                    className="hover:text-[#3CFF8F] transition-colors cursor-pointer flex items-center gap-1 text-[10px] text-white/60"
                                 >
                                     {copiedPrompt ? <Check size={11} className="text-[#3CFF8F]" /> : <Copy size={11} />}
-                                    <span>{copiedPrompt ? "Copied Prompt" : "Copy Prompt Directive"}</span>
+                                    <span>{copiedPrompt ? "Copied" : "Copy"}</span>
                                 </button>
                             </div>
+
+                            <p className="text-white/80 leading-relaxed text-[11px]">
+                                &ldquo;{activeTerminalPreset.prompt}&rdquo;
+                            </p>
                         </div>
 
-                        {/* Real-time Render Result Preview */}
-                        <div className="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] bg-black border border-white/15 shadow-2xl">
+                        <div className="md:col-span-4 relative rounded-2xl overflow-hidden aspect-[16/10] bg-black border border-white/10">
                             {activeTerminalPreset.type === "video" ? (
                                 <video
                                     key={activeTerminalPreset.file}
@@ -1030,61 +770,47 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                     className="object-cover"
                                 />
                             )}
-                            <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#171717]/85 border border-[#3CFF8F]/40 text-[9px] font-mono text-[#3CFF8F] backdrop-blur-md">
-                                LIVE SYNTHESIS PREVIEW
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* COMMISSION & CONVERSION CTA (Charcoal #171717 + Crimson Red #A31C1B secondary button) */}
-            <section className="py-28 md:py-44 px-4 text-center relative z-10 border-t border-white/10 overflow-hidden">
-                <div className="max-w-4xl mx-auto space-y-8 relative">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[10px] font-universo uppercase tracking-widest text-[#A31C1B] shadow-sm">
-                        <Sparkles size={12} className="text-[#3CFF8F]" /> Bespoke Generative Commission
-                    </div>
-
-                    <h2 className="text-4xl md:text-7xl lg:text-8xl font-universo font-black uppercase tracking-tight text-white leading-none">
+            {/* MINIMAL CTA SECTION */}
+            <section className="py-20 md:py-32 px-4 text-center relative z-10 border-t border-white/10">
+                <div className="max-w-3xl mx-auto space-y-6">
+                    <h2 className="text-3xl md:text-6xl font-universo font-black uppercase text-white leading-none">
                         READY TO SCALE WITH
                         <br />
                         <span 
-                            className="font-siestha normal-case text-[#3CFF8F] text-6xl md:text-8xl lg:text-9xl -rotate-[5deg] inline-block mt-4"
+                            className="font-siestha normal-case text-[#3CFF8F] text-5xl md:text-7xl -rotate-[5deg] inline-block mt-3"
                             style={{ textShadow: "0 4px 30px rgba(60,255,143,0.5)" }}
                         >
                             Synthetic Visuals?
                         </span>
                     </h2>
 
-                    <p className="max-w-xl mx-auto text-sm md:text-lg text-white/70 font-light leading-relaxed">
-                        From campaign master visuals to entire generative product worlds, Coldune Studio engineers visual authority that leaves conventional stock assets obsolete.
-                    </p>
-
-                    <div className="pt-6 flex flex-wrap items-center justify-center gap-4">
-                        {/* Primary Button: Green #3CFF8F unchanged */}
+                    <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
                         <Link
                             href="/#contact"
-                            className="px-8 py-4 rounded-full bg-[#3CFF8F] text-black font-universo font-black text-xs md:text-sm uppercase tracking-wider hover:shadow-[0_0_30px_rgba(60,255,143,0.6)] hover:scale-105 transition-all flex items-center gap-3"
+                            className="px-7 py-3 rounded-full bg-[#3CFF8F] text-black font-universo font-black text-xs uppercase tracking-wider hover:scale-105 transition-all flex items-center gap-2 shadow-lg"
                         >
                             <span>Initiate AI Commission</span>
-                            <ArrowRight size={16} />
+                            <ArrowRight size={14} />
                         </Link>
-                        {/* Secondary Button: Crimson Red #A31C1B */}
                         <Link
                             href="/work/branding/"
-                            className="px-8 py-4 rounded-full bg-[#A31C1B] hover:bg-[#A31C1B]/85 border border-[#A31C1B] text-white font-universo font-black text-xs md:text-sm uppercase tracking-wider hover:shadow-[0_0_25px_rgba(163,28,27,0.45)] transition-all"
+                            className="px-7 py-3 rounded-full bg-[#A31C1B] hover:bg-[#A31C1B]/85 text-white font-universo font-black text-xs uppercase tracking-wider transition-all"
                         >
-                            Explore Brand Systems
+                            Brand Systems
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* FULLSCREEN NEURAL INSPECTOR MODAL (Charcoal Black #171717 container with Crimson & Green accents) */}
+            {/* FULLSCREEN INSPECTOR MODAL */}
             <AnimatePresence>
                 {activeInspector && (
                     <div className="fixed inset-0 z-[200] flex items-center justify-center p-2 md:p-6">
-                        {/* Blur Backdrop */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -1093,24 +819,21 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                             className="absolute inset-0 bg-black/95 backdrop-blur-2xl"
                         />
 
-                        {/* Modal Container: Charcoal Black #171717 */}
                         <motion.div
-                            initial={{ scale: 0.94, opacity: 0, y: 20 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.94, opacity: 0, y: 20 }}
-                            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative z-10 w-full max-w-7xl max-h-[92vh] bg-[#171717] border border-white/15 rounded-3xl overflow-hidden shadow-[0_50px_150px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row"
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            className="relative z-10 w-full max-w-6xl max-h-[90vh] bg-[#171717] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row"
                         >
-                            {/* Close Button */}
                             <button
                                 onClick={() => setActiveInspector(null)}
-                                className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-[#171717]/90 border border-white/20 text-white hover:text-[#3CFF8F] hover:scale-105 transition-all flex items-center justify-center cursor-pointer shadow-xl backdrop-blur-md"
+                                className="absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-[#171717]/90 border border-white/20 text-white hover:text-[#3CFF8F] flex items-center justify-center cursor-pointer shadow-xl"
                             >
-                                <X size={18} />
+                                <X size={16} />
                             </button>
 
-                            {/* Left: Media Canvas */}
-                            <div className="lg:w-7/12 relative bg-black flex items-center justify-center min-h-[40vh] lg:min-h-[75vh] overflow-hidden">
+                            {/* Canvas */}
+                            <div className="lg:w-7/12 relative bg-black flex items-center justify-center min-h-[40vh] lg:min-h-[70vh]">
                                 {activeInspector.type === "video" ? (
                                     <video
                                         src={activeInspector.file}
@@ -1119,10 +842,10 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                         loop
                                         playsInline
                                         controls
-                                        className="w-full h-full max-h-[85vh] object-contain"
+                                        className="w-full h-full max-h-[80vh] object-contain"
                                     />
                                 ) : (
-                                    <div className="relative w-full h-full min-h-[45vh] lg:min-h-[75vh]">
+                                    <div className="relative w-full h-full min-h-[45vh] lg:min-h-[70vh]">
                                         <Image
                                             src={activeInspector.file}
                                             alt={activeInspector.title}
@@ -1131,100 +854,65 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                         />
                                     </div>
                                 )}
-
-                                {/* Protocol Overlay Badge: Charcoal #171717 + Crimson Red #A31C1B code */}
-                                <div className="absolute bottom-4 left-4 pointer-events-none">
-                                    <span className="px-3 py-1.5 rounded-full bg-[#171717]/90 border border-[#A31C1B]/50 text-[10px] font-mono text-[#A31C1B] backdrop-blur-md font-bold">
-                                        {activeInspector.protocolCode} // {activeInspector.category}
-                                    </span>
-                                </div>
                             </div>
 
-                            {/* Right: Technical Telemetry Drawer: Charcoal Black #171717 */}
-                            <div className="lg:w-5/12 p-6 md:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10 overflow-y-auto max-h-[85vh] space-y-6 bg-[#171717]">
-                                <div className="space-y-6">
-                                    {/* Header */}
+                            {/* Minimal Drawer */}
+                            <div className="lg:w-5/12 p-6 md:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10 overflow-y-auto space-y-5 bg-[#171717]">
+                                <div className="space-y-5">
                                     <div>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded bg-[#A31C1B]/20 text-[10px] font-mono text-[#A31C1B] uppercase tracking-widest font-bold border border-[#A31C1B]/40">
-                                                {activeInspector.series}
-                                            </span>
-                                            <span className="text-white/30">•</span>
-                                            <span className="text-[10px] font-mono text-white/50">
-                                                Seed: {activeInspector.tensorMetrics.seed}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-2xl md:text-3xl font-universo font-black uppercase text-white leading-tight">
+                                        <span className="px-2 py-0.5 rounded bg-[#A31C1B]/20 text-[10px] font-mono text-[#A31C1B] font-bold border border-[#A31C1B]/40">
+                                            {activeInspector.protocolCode} // {activeInspector.series}
+                                        </span>
+                                        <h3 className="text-2xl md:text-3xl font-universo font-black uppercase text-white mt-2">
                                             {activeInspector.title}
                                         </h3>
                                     </div>
 
-                                    {/* Theory Callout: Neon Green #3CFF8F left border */}
-                                    <div className="p-4 rounded-2xl bg-black/40 border-l-4 border-l-[#3CFF8F] border-y border-r border-white/5 space-y-1.5 shadow-inner">
-                                        <div className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest flex items-center gap-1.5 font-bold">
-                                            <Cpu size={12} />
-                                            <span>Perceptual Theory // {activeInspector.theoryName}</span>
-                                        </div>
-                                        <p className="text-xs text-white/90 leading-relaxed font-light">
-                                            &ldquo;{activeInspector.theory}&rdquo;
+                                    {/* Theory */}
+                                    <div className="p-3.5 rounded-xl bg-black/40 border-l-4 border-l-[#3CFF8F] border-y border-r border-white/5 space-y-1">
+                                        <span className="text-[10px] font-mono text-[#3CFF8F] uppercase font-bold block">
+                                            {activeInspector.theoryName}
+                                        </span>
+                                        <p className="text-xs text-white/80 leading-relaxed font-light">
+                                            {activeInspector.theory}
                                         </p>
                                     </div>
 
-                                    {/* Description */}
-                                    <div className="space-y-1">
-                                        <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Architecture Breakdown</span>
-                                        <p className="text-xs text-white/70 leading-relaxed font-light">
-                                            {activeInspector.description}
-                                        </p>
-                                    </div>
-
-                                    {/* Prompt Directive */}
-                                    <div className="space-y-2">
+                                    {/* Prompt */}
+                                    <div className="space-y-1.5">
                                         <div className="flex items-center justify-between text-[10px] font-mono text-white/40">
-                                            <span className="flex items-center gap-1"><Terminal size={11} className="text-[#3CFF8F]" /> PROMPT DIRECTIVE</span>
+                                            <span>PROMPT</span>
                                             <button
                                                 onClick={() => handleCopyPrompt(activeInspector.promptArchitecture)}
                                                 className="hover:text-[#3CFF8F] transition-colors cursor-pointer flex items-center gap-1 text-[10px]"
                                             >
                                                 {copiedPrompt ? <Check size={11} className="text-[#3CFF8F]" /> : <Copy size={11} />}
-                                                <span>{copiedPrompt ? "Copied" : "Copy Directive"}</span>
+                                                <span>{copiedPrompt ? "Copied" : "Copy"}</span>
                                             </button>
                                         </div>
-                                        <div className="p-3.5 rounded-xl bg-black/70 border border-white/10 text-[11px] font-mono text-white/80 leading-relaxed max-h-32 overflow-y-auto">
+                                        <div className="p-3 rounded-xl bg-black/70 border border-white/10 text-[11px] font-mono text-white/80 leading-relaxed max-h-24 overflow-y-auto">
                                             {activeInspector.promptArchitecture}
                                         </div>
                                     </div>
 
-                                    {/* Tensor Metrics Grid */}
-                                    <div className="grid grid-cols-3 gap-2.5 p-3 rounded-2xl bg-black/30 border border-white/5 text-[10px] font-mono">
+                                    {/* Metrics */}
+                                    <div className="grid grid-cols-3 gap-2 p-3 rounded-xl bg-black/30 border border-white/5 text-[10px] font-mono">
                                         <div>
                                             <span className="text-white/40 block">SAMPLER</span>
                                             <span className="text-white font-bold">{activeInspector.tensorMetrics.sampler}</span>
                                         </div>
                                         <div>
-                                            <span className="text-white/40 block">CFG SCALE</span>
+                                            <span className="text-white/40 block">CFG</span>
                                             <span className="text-[#3CFF8F] font-bold">{activeInspector.tensorMetrics.cfg}</span>
                                         </div>
                                         <div>
-                                            <span className="text-white/40 block">STEPS</span>
-                                            <span className="text-white font-bold">{activeInspector.tensorMetrics.steps}</span>
-                                        </div>
-                                        <div>
-                                            <span className="text-white/40 block">ASPECT</span>
-                                            <span className="text-white font-bold">{activeInspector.tensorMetrics.aspectRatio}</span>
-                                        </div>
-                                        <div>
-                                            <span className="text-white/40 block">RETENTION</span>
+                                            <span className="text-white/40 block">DWELL</span>
                                             <span className="text-[#A31C1B] font-bold">{activeInspector.tensorMetrics.dwellMultiplier}</span>
-                                        </div>
-                                        <div>
-                                            <span className="text-white/40 block">ENGINE</span>
-                                            <span className="text-white font-bold">Synapse v4.8</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Modal Footer Nav */}
+                                {/* Footer Navigation */}
                                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         <button
@@ -1233,7 +921,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                                 const prevIndex = (currentIndex - 1 + AI_COLLECTION.length) % AI_COLLECTION.length;
                                                 setActiveInspector(AI_COLLECTION[prevIndex]);
                                             }}
-                                            className="px-3.5 py-1.5 rounded-full bg-[#171717] hover:bg-white/10 border border-white/15 text-xs font-universo uppercase text-white flex items-center gap-1.5 transition-all cursor-pointer"
+                                            className="px-3 py-1.5 rounded-full bg-[#171717] hover:bg-white/10 border border-white/15 text-xs font-universo uppercase text-white flex items-center gap-1 cursor-pointer"
                                         >
                                             <ArrowLeft size={12} /> Prev
                                         </button>
@@ -1243,18 +931,17 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                                 const nextIndex = (currentIndex + 1) % AI_COLLECTION.length;
                                                 setActiveInspector(AI_COLLECTION[nextIndex]);
                                             }}
-                                            className="px-3.5 py-1.5 rounded-full bg-[#171717] hover:bg-white/10 border border-white/15 text-xs font-universo uppercase text-white flex items-center gap-1.5 transition-all cursor-pointer"
+                                            className="px-3 py-1.5 rounded-full bg-[#171717] hover:bg-white/10 border border-white/15 text-xs font-universo uppercase text-white flex items-center gap-1 cursor-pointer"
                                         >
                                             Next <ArrowRight size={12} />
                                         </button>
                                     </div>
 
-                                    {/* Action button kept with green #3CFF8F */}
                                     <Link
                                         href="/#contact"
-                                        className="px-4 py-1.5 rounded-full bg-[#3CFF8F] text-black font-universo font-black text-xs uppercase tracking-wider hover:shadow-[0_0_15px_rgba(60,255,143,0.5)] transition-all"
+                                        className="px-4 py-1.5 rounded-full bg-[#3CFF8F] text-black font-universo font-black text-xs uppercase"
                                     >
-                                        Commission Style
+                                        Commission
                                     </Link>
                                 </div>
                             </div>
