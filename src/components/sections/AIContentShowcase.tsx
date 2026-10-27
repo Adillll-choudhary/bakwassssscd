@@ -18,8 +18,9 @@ import {
     Pause, 
     Grid, 
     List, 
-    Sliders,
-    Layers
+    Layers,
+    Activity,
+    Radio
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -428,29 +429,34 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
     };
 
     return (
-        <main className="min-h-screen bg-[#000000] text-white selection:bg-[#3CFF8F] selection:text-black font-sans relative overflow-x-hidden">
-            {/* Ambient Cyber Grid & Glow */}
+        <main className="min-h-screen bg-[#0A0A0A] text-white selection:bg-[#3CFF8F] selection:text-black font-sans relative overflow-x-hidden">
+            {/* Ambient Dual Atmosphere: Charcoal Grid + Crimson Red (#A31C1B) + Neon Green (#3CFF8F) */}
             <div className="fixed inset-0 pointer-events-none z-0">
+                {/* Charcoal cybernetic grid */}
                 <div 
-                    className="absolute inset-0 opacity-[0.035]"
+                    className="absolute inset-0 opacity-[0.05]"
                     style={{
-                        backgroundImage: "linear-gradient(to right, rgba(60,255,143,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(60,255,143,0.15) 1px, transparent 1px)",
-                        backgroundSize: "60px 60px"
+                        backgroundImage: "linear-gradient(to right, rgba(163,28,27,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(60,255,143,0.15) 1px, transparent 1px)",
+                        backgroundSize: "64px 64px"
                     }}
                 />
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#3CFF8F]/[0.03] blur-[150px] rounded-full" />
-                <div className="absolute bottom-1/4 left-10 w-[500px] h-[500px] bg-[#3CFF8F]/[0.02] blur-[180px] rounded-full" />
+                {/* Crimson Red (#A31C1B) Deep Flare */}
+                <div className="absolute top-1/4 right-0 w-[700px] h-[500px] bg-[#A31C1B]/[0.08] blur-[180px] rounded-full" />
+                {/* Neon Green (#3CFF8F) Aura */}
+                <div className="absolute top-1/3 left-0 w-[800px] h-[450px] bg-[#3CFF8F]/[0.035] blur-[160px] rounded-full" />
+                {/* Charcoal vignette layer */}
+                <div className="absolute bottom-10 right-1/4 w-[600px] h-[600px] bg-[#A31C1B]/[0.05] blur-[200px] rounded-full" />
             </div>
 
-            {/* Persistent Top Sub-Navigation (Fixed at top-20 md:top-24 so it never overlaps the main Coldune logo/nav) */}
+            {/* Persistent Top Sub-Navigation (Charcoal Black #171717 base) */}
             <header className="fixed top-20 md:top-24 left-0 right-0 z-[90] px-4 md:px-8 pointer-events-none">
-                <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 bg-black/80 backdrop-blur-2xl border border-white/10 px-4 md:px-6 py-2.5 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.8)] pointer-events-auto">
+                <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 bg-[#171717]/90 backdrop-blur-2xl border border-white/10 px-4 md:px-6 py-2.5 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.85)] pointer-events-auto">
                     {/* Left: Return button */}
                     <Link
                         href="/#spectrum"
                         className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors"
                     >
-                        <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#3CFF8F]/50 group-hover:scale-105 transition-all">
+                        <div className="w-7 h-7 rounded-full bg-[#171717] border border-white/15 flex items-center justify-center group-hover:border-[#3CFF8F]/60 group-hover:scale-105 transition-all">
                             <ArrowLeft size={13} className="group-hover:-translate-x-0.5 transition-transform text-[#3CFF8F]" />
                         </div>
                         <span className="text-[10px] md:text-[11px] font-universo font-black uppercase tracking-wider hidden sm:inline">
@@ -459,7 +465,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     </Link>
 
                     {/* Center: Series Filter Pills */}
-                    <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+                    <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
                         {[
                             { key: "ALL", label: "All Protocols", count: AI_COLLECTION.length },
                             { key: "Neural Landscapes", label: "Landscapes", count: 4 },
@@ -472,12 +478,12 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                 className={`px-3 py-1 rounded-full text-[10px] font-universo uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
                                     selectedSeries === tab.key
                                         ? "bg-[#3CFF8F] text-black font-black shadow-[0_0_15px_rgba(60,255,143,0.5)]"
-                                        : "text-white/60 hover:text-white hover:bg-white/5"
+                                        : "bg-[#171717]/60 text-white/60 hover:text-white hover:bg-white/10 border border-white/5"
                                 }`}
                             >
                                 <span>{tab.label}</span>
                                 <span className={`text-[9px] px-1 rounded-full ${
-                                    selectedSeries === tab.key ? "bg-black/20 text-black font-mono" : "bg-white/10 text-white/40"
+                                    selectedSeries === tab.key ? "bg-black/20 text-black font-mono font-bold" : "bg-white/10 text-white/40"
                                 }`}>
                                     {tab.count}
                                 </span>
@@ -486,17 +492,19 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     </div>
 
                     {/* Right: View Mode Toggle & Telemetry status */}
-                    <div className="flex items-center gap-2">
-                        <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/5 border border-white/5 text-[9px] font-mono text-[#3CFF8F]">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#3CFF8F] animate-pulse" />
-                            <span>LATENT v4.8 ONLINE</span>
+                    <div className="flex items-center gap-2.5">
+                        {/* Crimson Red telemetry badge */}
+                        <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[9px] font-mono text-[#A31C1B]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#A31C1B] animate-ping" />
+                            <span className="font-bold">CORE: SYNAPSE v4.8</span>
                         </div>
 
-                        <div className="flex items-center bg-white/5 border border-white/10 rounded-full p-0.5">
+                        {/* View Switcher in Charcoal #171717 */}
+                        <div className="flex items-center bg-[#171717] border border-white/10 rounded-full p-0.5">
                             <button
                                 onClick={() => setViewMode("bento")}
                                 title="Bento Matrix"
-                                className={`p-1.5 rounded-full transition-all ${
+                                className={`p-1.5 rounded-full transition-all cursor-pointer ${
                                     viewMode === "bento" ? "bg-[#3CFF8F] text-black" : "text-white/60 hover:text-white"
                                 }`}
                             >
@@ -505,7 +513,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                             <button
                                 onClick={() => setViewMode("editorial")}
                                 title="Cognitive Blueprint Stream"
-                                className={`p-1.5 rounded-full transition-all ${
+                                className={`p-1.5 rounded-full transition-all cursor-pointer ${
                                     viewMode === "editorial" ? "bg-[#3CFF8F] text-black" : "text-white/60 hover:text-white"
                                 }`}
                             >
@@ -529,7 +537,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         preload="auto"
                         className="w-full h-full object-cover opacity-35 filter contrast-125 saturate-50 scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-[#000000]" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/70 to-[#0A0A0A]" />
                     <div 
                         className="absolute inset-0 opacity-[0.08]"
                         style={{
@@ -539,21 +547,21 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                 </div>
 
                 <div className="relative z-10 max-w-6xl mx-auto text-center space-y-6">
-                    {/* Badge */}
+                    {/* Badge: Charcoal Black #171717 with Crimson Red #A31C1B & Neon Green #3CFF8F highlights */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-[#3CFF8F]/30 backdrop-blur-md shadow-[0_0_20px_rgba(60,255,143,0.15)]"
+                        className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#171717] border border-[#A31C1B]/40 backdrop-blur-md shadow-[0_0_25px_rgba(163,28,27,0.2)]"
                     >
                         <Sparkles size={13} className="text-[#3CFF8F] animate-spin" style={{ animationDuration: "6s" }} />
                         <span className="text-[10px] md:text-[11px] font-universo uppercase tracking-widest text-white/90">
                             Coldune Synapse // Proprietary Generative Architecture
                         </span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3CFF8F] animate-ping" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#A31C1B] animate-ping" />
                     </motion.div>
 
-                    {/* Coldune Studio Signature Typography Duo */}
+                    {/* Coldune Studio Signature Typography Duo: Universo Black + Siestha Neon Green */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -585,7 +593,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         Where deep neural learning meets boundary-pushing luxury. We don&apos;t produce generic AI outputs—we architect proprietary visual universes, tactile micro-physics, and subconscious perceptual triggers for tier-one brands.
                     </motion.p>
 
-                    {/* Live Cybernetic Telemetry Bar */}
+                    {/* Live Cybernetic Telemetry Bar: Charcoal Black #171717 base with Crimson Red & Neon Green metrics */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -593,35 +601,35 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                         className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto text-left"
                     >
                         {[
-                            { code: "01. ENGINE", label: "Coldune Synapse v4.8", stat: "Active" },
-                            { code: "02. RESOLUTION", label: "Native Generative", stat: "8K UHD" },
-                            { code: "03. RETENTION", label: "Cognitive Dwell Time", stat: "+400%" },
-                            { code: "04. PROTOCOLS", label: "Engineered Artifacts", stat: "13 Works" }
+                            { code: "01. ENGINE", label: "Coldune Synapse v4.8", stat: "Active", statColor: "text-[#3CFF8F]", borderHover: "hover:border-[#3CFF8F]/40" },
+                            { code: "02. RESOLUTION", label: "Native Generative", stat: "8K UHD", statColor: "text-[#A31C1B]", borderHover: "hover:border-[#A31C1B]/40" },
+                            { code: "03. RETENTION", label: "Cognitive Dwell Time", stat: "+400%", statColor: "text-[#3CFF8F]", borderHover: "hover:border-[#3CFF8F]/40" },
+                            { code: "04. PROTOCOLS", label: "Engineered Artifacts", stat: "13 Works", statColor: "text-[#A31C1B]", borderHover: "hover:border-[#A31C1B]/40" }
                         ].map((stat, i) => (
                             <div
                                 key={i}
-                                className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-md"
+                                className={`p-4 rounded-2xl bg-[#171717] border border-white/5 ${stat.borderHover} transition-all backdrop-blur-md shadow-lg`}
                             >
                                 <span className="text-[9px] font-mono text-white/40 block mb-1">{stat.code}</span>
                                 <div className="text-[11px] font-universo font-black uppercase text-white/90">{stat.label}</div>
-                                <div className="text-sm font-universo font-black text-[#3CFF8F] mt-0.5">{stat.stat}</div>
+                                <div className={`text-sm font-universo font-black ${stat.statColor} mt-0.5`}>{stat.stat}</div>
                             </div>
                         ))}
                     </motion.div>
 
-                    {/* Down Indicator */}
+                    {/* Down Indicator with Neon Green Glow */}
                     <div className="pt-10 flex flex-col items-center">
                         <ChevronDown size={28} className="text-[#3CFF8F] animate-bounce" />
                     </div>
                 </div>
             </section>
 
-            {/* FEATURED MOTION SPOTLIGHT: PROTOCOL 911 */}
+            {/* FEATURED MOTION SPOTLIGHT: PROTOCOL 911 (Charcoal Black #171717 + Crimson Red #A31C1B tag) */}
             <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
                 <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>
-                        <div className="inline-flex items-center gap-2 text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest mb-2">
-                            <span className="w-2 h-2 rounded-full bg-[#3CFF8F] animate-ping" />
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[10px] font-mono text-[#A31C1B] uppercase tracking-widest mb-2 shadow-sm">
+                            <span className="w-2 h-2 rounded-full bg-[#A31C1B] animate-ping" />
                             Featured Masterwork // PR-911
                         </div>
                         <h2 className="text-3xl md:text-5xl font-universo font-black uppercase tracking-tight text-white">
@@ -631,7 +639,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     <div className="flex items-center gap-3">
                         <button
                             onClick={toggleFeaturedVideo}
-                            className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-universo uppercase tracking-wider text-white flex items-center gap-2 transition-all cursor-pointer"
+                            className="px-4 py-2 rounded-full bg-[#171717] hover:bg-[#171717]/80 border border-white/15 text-xs font-universo uppercase tracking-wider text-white flex items-center gap-2 transition-all cursor-pointer shadow-md"
                         >
                             {featuredPlaying ? <Pause size={14} className="text-[#3CFF8F]" /> : <Play size={14} className="text-[#3CFF8F]" />}
                             <span>{featuredPlaying ? "Pause Motion" : "Play Motion"}</span>
@@ -646,7 +654,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     </div>
                 </div>
 
-                <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-black shadow-[0_30px_100px_rgba(0,0,0,0.9)] aspect-[16/9] md:aspect-[21/9]">
+                <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-[#171717] shadow-[0_30px_100px_rgba(0,0,0,0.9)] aspect-[16/9] md:aspect-[21/9]">
                     <video
                         ref={videoRef}
                         src="/work/ai content/IMG_5079.MP4"
@@ -658,15 +666,15 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     />
 
                     {/* Gradient Overlay for bottom text HUD */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-black/30 to-transparent pointer-events-none" />
 
                     {/* Top HUD Badges */}
                     <div className="absolute top-6 left-6 right-6 flex justify-between items-center pointer-events-none">
-                        <span className="px-3 py-1 rounded-full bg-black/60 border border-white/15 text-[10px] font-mono text-[#3CFF8F] backdrop-blur-md">
+                        <span className="px-3 py-1 rounded-full bg-[#171717]/80 border border-[#3CFF8F]/30 text-[10px] font-mono text-[#3CFF8F] backdrop-blur-md">
                             4K NEURAL FLUID DYNAMICS // 60 FPS
                         </span>
-                        <span className="px-3 py-1 rounded-full bg-black/60 border border-white/15 text-[10px] font-mono text-white/70 backdrop-blur-md">
-                            ENERGY CURVE: 0.94
+                        <span className="px-3 py-1 rounded-full bg-[#171717]/80 border border-[#A31C1B]/50 text-[10px] font-mono text-[#A31C1B] backdrop-blur-md font-bold">
+                            TENSOR LATENCY: 14ms // ENERGY: 0.94
                         </span>
                     </div>
 
@@ -676,11 +684,11 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                             <span className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest block mb-1">
                                 Perceptual Theory: Dynamic Flow Triggers
                             </span>
-                            <p className="text-xs md:text-sm text-white/80 leading-relaxed font-light backdrop-blur-sm bg-black/30 p-3 rounded-xl border border-white/10">
+                            <p className="text-xs md:text-sm text-white/80 leading-relaxed font-light backdrop-blur-md bg-[#171717]/85 p-3.5 rounded-xl border border-white/10">
                                 Engineering movement physics along proprietary energy arcs prevents saccadic gaze escape, achieving an unprecedented <strong className="text-[#3CFF8F] font-bold">+340% increase in brand dwell time</strong> compared to standard video content.
                             </p>
                         </div>
-                        <div className="hidden md:flex items-center gap-2 bg-black/70 border border-white/10 rounded-2xl p-3 backdrop-blur-md">
+                        <div className="hidden md:flex items-center gap-2 bg-[#171717]/90 border border-white/10 rounded-2xl p-3 backdrop-blur-md">
                             <div>
                                 <span className="text-[9px] font-mono text-white/40 block">SAMPLER</span>
                                 <span className="text-xs font-mono font-bold text-white">Euler Ancestral</span>
@@ -692,8 +700,8 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                             </div>
                             <div className="w-px h-8 bg-white/10 mx-2" />
                             <div>
-                                <span className="text-[9px] font-mono text-white/40 block">STEPS</span>
-                                <span className="text-xs font-mono font-bold text-white">60</span>
+                                <span className="text-[9px] font-mono text-white/40 block">DWELL DELTA</span>
+                                <span className="text-xs font-mono font-bold text-[#A31C1B]">+340%</span>
                             </div>
                         </div>
                     </div>
@@ -704,7 +712,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
             <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
                 <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>
-                        <div className="inline-flex items-center gap-2 text-[10px] font-mono text-white/50 uppercase tracking-widest mb-2">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-white/10 text-[10px] font-mono text-white/60 uppercase tracking-widest mb-2">
                             <Layers size={12} className="text-[#3CFF8F]" />
                             Curated Synthetic Archive ({filteredArtifacts.length})
                         </div>
@@ -718,7 +726,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     </p>
                 </div>
 
-                {/* VIEW MODE A: BENTO MATRIX */}
+                {/* VIEW MODE A: BENTO MATRIX (Charcoal Black #171717 card backgrounds with Crimson & Green accents) */}
                 {viewMode === "bento" && (
                     <motion.div
                         layout
@@ -734,7 +742,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     transition={{ duration: 0.6, delay: (idx % 6) * 0.05 }}
                                     onClick={() => setActiveInspector(item)}
-                                    className={`${item.spanClass} group relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#0A0A0A] border border-white/10 hover:border-[#3CFF8F]/60 transition-all duration-500 cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_60px_rgba(60,255,143,0.15)] flex flex-col justify-end`}
+                                    className={`${item.spanClass} group relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#171717] border border-[#171717] hover:border-[#3CFF8F]/70 transition-all duration-500 cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_20px_60px_rgba(60,255,143,0.15)] flex flex-col justify-end`}
                                 >
                                     {/* Media Rendering */}
                                     {item.type === "video" ? (
@@ -758,24 +766,26 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                     )}
 
                                     {/* Vignette / Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-black/40 to-transparent opacity-85 group-hover:opacity-90 transition-opacity" />
 
-                                    {/* Top Telemetry Pills */}
+                                    {/* Top Telemetry Pills: Charcoal #171717 base with Crimson Red #A31C1B code */}
                                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-none">
-                                        <span className="px-3 py-1 rounded-full bg-black/70 border border-white/15 text-[9px] font-mono font-bold text-[#3CFF8F] backdrop-blur-md">
+                                        <span className="px-3 py-1 rounded-full bg-[#171717]/90 border border-[#A31C1B]/50 text-[9px] font-mono font-bold text-[#A31C1B] backdrop-blur-md">
                                             {item.protocolCode}
                                         </span>
-                                        <span className="px-2.5 py-1 rounded-full bg-black/70 border border-white/15 text-[9px] font-mono text-white/70 backdrop-blur-md group-hover:border-[#3CFF8F]/50 transition-colors">
+                                        <span className="px-2.5 py-1 rounded-full bg-[#171717]/90 border border-white/15 text-[9px] font-mono text-white/70 backdrop-blur-md group-hover:border-[#3CFF8F]/50 transition-colors">
                                             {item.category}
                                         </span>
                                     </div>
 
                                     {/* Bottom Content Card */}
                                     <div className="relative z-20 p-5 md:p-6 space-y-2 pointer-events-none">
-                                        <div className="text-[10px] font-mono text-[#3CFF8F] flex items-center gap-1.5 opacity-90">
-                                            <span>{item.theoryName}</span>
+                                        <div className="text-[10px] font-mono flex items-center gap-1.5">
+                                            <span className="text-[#3CFF8F] font-semibold">{item.theoryName}</span>
                                             <span className="text-white/40">•</span>
-                                            <span className="text-white/60">{item.tensorMetrics.dwellMultiplier} Dwell</span>
+                                            <span className="px-1.5 py-0.5 rounded bg-[#A31C1B]/20 text-[#A31C1B] font-bold border border-[#A31C1B]/30 text-[9px]">
+                                                {item.tensorMetrics.dwellMultiplier} Dwell
+                                            </span>
                                         </div>
 
                                         <h3 className="text-xl md:text-2xl font-universo font-black uppercase text-white tracking-tight leading-tight group-hover:text-[#3CFF8F] transition-colors">
@@ -788,7 +798,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
 
                                         {/* Hover Quick Action */}
                                         <div className="pt-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <span className="text-[10px] font-universo uppercase text-white flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
+                                            <span className="text-[10px] font-universo uppercase text-white flex items-center gap-1.5 bg-[#171717] px-3.5 py-1.5 rounded-full border border-white/20 backdrop-blur-md hover:border-[#3CFF8F]/60">
                                                 <Maximize2 size={11} className="text-[#3CFF8F]" />
                                                 Inspect Tensor Directives
                                             </span>
@@ -800,7 +810,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     </motion.div>
                 )}
 
-                {/* VIEW MODE B: COGNITIVE BLUEPRINT (EDITORIAL STREAM) */}
+                {/* VIEW MODE B: COGNITIVE BLUEPRINT (Charcoal Black #171717 card backgrounds with Crimson Red #A31C1B left borders) */}
                 {viewMode === "editorial" && (
                     <div className="space-y-16 md:space-y-28">
                         {filteredArtifacts.map((item, idx) => (
@@ -810,7 +820,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.8 }}
-                                className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center p-6 md:p-10 rounded-3xl bg-white/[0.02] border border-white/10 hover:border-[#3CFF8F]/30 transition-all"
+                                className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center p-6 md:p-10 rounded-3xl bg-[#171717] border border-white/10 hover:border-[#A31C1B]/40 transition-all shadow-xl"
                             >
                                 {/* Media Column */}
                                 <div 
@@ -844,7 +854,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                 {/* Information / Theory Column */}
                                 <div className="lg:col-span-5 space-y-6">
                                     <div className="flex items-center gap-2">
-                                        <span className="px-3 py-1 rounded-full bg-[#3CFF8F]/10 border border-[#3CFF8F]/30 text-[10px] font-mono font-bold text-[#3CFF8F]">
+                                        <span className="px-3 py-1 rounded-full bg-[#A31C1B]/15 border border-[#A31C1B]/40 text-[10px] font-mono font-bold text-[#A31C1B]">
                                             {item.protocolCode}
                                         </span>
                                         <span className="text-[11px] font-mono text-white/50 uppercase tracking-widest">
@@ -856,9 +866,9 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                         {item.title}
                                     </h3>
 
-                                    {/* Theory Callout Box */}
-                                    <div className="p-5 rounded-2xl bg-white/[0.03] border-l-2 border-l-[#3CFF8F] border-y border-r border-white/5 space-y-2">
-                                        <div className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest flex items-center gap-1.5">
+                                    {/* Theory Callout Box: Charcoal #171717 + Crimson Red #A31C1B border */}
+                                    <div className="p-5 rounded-2xl bg-[#171717] border-l-4 border-l-[#A31C1B] border-y border-r border-white/5 space-y-2 shadow-inner">
+                                        <div className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest flex items-center gap-1.5 font-bold">
                                             <Cpu size={12} />
                                             <span>Perceptual Theory // {item.theoryName}</span>
                                         </div>
@@ -873,7 +883,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                     </p>
 
                                     {/* Prompt Architecture Block */}
-                                    <div className="p-4 rounded-xl bg-black/60 border border-white/10 space-y-2">
+                                    <div className="p-4 rounded-xl bg-black/70 border border-white/10 space-y-2">
                                         <div className="flex items-center justify-between text-[10px] font-mono text-white/40">
                                             <span className="flex items-center gap-1"><Terminal size={11} className="text-[#3CFF8F]" /> PROMPT DIRECTIVE</span>
                                             <button
@@ -901,7 +911,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                         </div>
                                         <div>
                                             <span className="text-white/40 block">RETENTION</span>
-                                            <span className="text-[#3CFF8F] font-bold">{item.tensorMetrics.dwellMultiplier}</span>
+                                            <span className="text-[#A31C1B] font-bold">{item.tensorMetrics.dwellMultiplier}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -911,12 +921,12 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                 )}
             </section>
 
-            {/* INTERACTIVE FEATURE: COLDUNE SYNAPSE PROMPT TERMINAL */}
+            {/* INTERACTIVE FEATURE: COLDUNE SYNAPSE PROMPT TERMINAL (Charcoal Black #171717 + Crimson Red #A31C1B header) */}
             <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
-                <div className="p-8 md:p-14 rounded-3xl bg-gradient-to-b from-[#0c0e12] to-[#050608] border border-white/15 shadow-[0_40px_120px_rgba(0,0,0,0.9)] space-y-10">
+                <div className="p-8 md:p-14 rounded-3xl bg-[#171717] border border-white/15 shadow-[0_40px_120px_rgba(0,0,0,0.95)] space-y-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <div>
-                            <div className="inline-flex items-center gap-2 text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest mb-2">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[10px] font-mono text-[#A31C1B] uppercase tracking-widest mb-2 shadow-sm font-bold">
                                 <Terminal size={13} />
                                 Interactive Neural Sandbox
                             </div>
@@ -928,7 +938,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                             </p>
                         </div>
 
-                        {/* Presets Switcher */}
+                        {/* Presets Switcher: Charcoal buttons with Neon Green active */}
                         <div className="flex flex-wrap gap-2">
                             {TERMINAL_PRESETS.map(preset => (
                                 <button
@@ -937,7 +947,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                     className={`px-3.5 py-1.5 rounded-full text-[11px] font-universo uppercase tracking-wider transition-all cursor-pointer ${
                                         activeTerminalPreset.id === preset.id
                                             ? "bg-[#3CFF8F] text-black font-black shadow-[0_0_15px_rgba(60,255,143,0.4)]"
-                                            : "bg-white/5 hover:bg-white/10 text-white/70 border border-white/10"
+                                            : "bg-[#171717] hover:bg-[#171717]/80 text-white/70 border border-white/15"
                                     }`}
                                 >
                                     {preset.name}
@@ -948,17 +958,17 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
 
                     {/* Terminal Window Grid */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                        {/* Terminal Code Screen */}
-                        <div className="lg:col-span-7 bg-[#050505] rounded-2xl border border-white/15 p-6 space-y-4 font-mono text-xs shadow-inner">
-                            {/* Window Header */}
+                        {/* Terminal Code Screen: Charcoal Black #171717 surface */}
+                        <div className="lg:col-span-7 bg-[#171717] rounded-2xl border border-white/15 p-6 space-y-4 font-mono text-xs shadow-inner">
+                            {/* Window Header with Crimson Red #A31C1B control dot */}
                             <div className="flex items-center justify-between border-b border-white/10 pb-3">
                                 <div className="flex items-center gap-2">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-[#A31C1B]" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-[#3CFF8F]/80" />
                                     <span className="text-[10px] text-white/40 ml-2">coldune-synapse-v4.8 --session #{activeTerminalPreset.code}</span>
                                 </div>
-                                <span className="text-[9px] text-[#3CFF8F]">TENSOR_OK</span>
+                                <span className="text-[9px] text-[#3CFF8F] font-bold">TENSOR_OK</span>
                             </div>
 
                             {/* Prompt Code Display */}
@@ -970,7 +980,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
 
                                 <div>
                                     <span className="text-white/40 block">// Synthesised Neural Prompt:</span>
-                                    <p className="text-white/90 leading-relaxed bg-white/[0.02] p-3 rounded-lg border border-white/5">
+                                    <p className="text-white/90 leading-relaxed bg-black/60 p-3 rounded-lg border border-white/5">
                                         &ldquo;{activeTerminalPreset.prompt}&rdquo;
                                     </p>
                                 </div>
@@ -983,10 +993,10 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                 </div>
                             </div>
 
-                            {/* Execution Status */}
+                            {/* Execution Status: Crimson Red latency badge */}
                             <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-white/40">
-                                <span className="flex items-center gap-1.5 text-[#3CFF8F]">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#3CFF8F] animate-ping" />
+                                <span className="flex items-center gap-1.5 text-[#A31C1B] font-bold">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-[#A31C1B] animate-ping" />
                                     PIPELINE LATENCY: 14ms
                                 </span>
                                 <button
@@ -1020,7 +1030,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                     className="object-cover"
                                 />
                             )}
-                            <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 border border-white/15 text-[9px] font-mono text-[#3CFF8F] backdrop-blur-md">
+                            <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#171717]/85 border border-[#3CFF8F]/40 text-[9px] font-mono text-[#3CFF8F] backdrop-blur-md">
                                 LIVE SYNTHESIS PREVIEW
                             </div>
                         </div>
@@ -1028,11 +1038,11 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                 </div>
             </section>
 
-            {/* COMMISSION & CONVERSION CTA */}
+            {/* COMMISSION & CONVERSION CTA (Charcoal #171717 + Crimson Red #A31C1B secondary button) */}
             <section className="py-28 md:py-44 px-4 text-center relative z-10 border-t border-white/10 overflow-hidden">
                 <div className="max-w-4xl mx-auto space-y-8 relative">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-universo uppercase tracking-widest text-[#3CFF8F]">
-                        <Sparkles size={12} /> Bespoke Generative Commission
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#171717] border border-[#A31C1B]/40 text-[10px] font-universo uppercase tracking-widest text-[#A31C1B] shadow-sm">
+                        <Sparkles size={12} className="text-[#3CFF8F]" /> Bespoke Generative Commission
                     </div>
 
                     <h2 className="text-4xl md:text-7xl lg:text-8xl font-universo font-black uppercase tracking-tight text-white leading-none">
@@ -1051,6 +1061,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                     </p>
 
                     <div className="pt-6 flex flex-wrap items-center justify-center gap-4">
+                        {/* Primary Button: Green #3CFF8F unchanged */}
                         <Link
                             href="/#contact"
                             className="px-8 py-4 rounded-full bg-[#3CFF8F] text-black font-universo font-black text-xs md:text-sm uppercase tracking-wider hover:shadow-[0_0_30px_rgba(60,255,143,0.6)] hover:scale-105 transition-all flex items-center gap-3"
@@ -1058,9 +1069,10 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                             <span>Initiate AI Commission</span>
                             <ArrowRight size={16} />
                         </Link>
+                        {/* Secondary Button: Crimson Red #A31C1B */}
                         <Link
                             href="/work/branding/"
-                            className="px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white font-universo font-black text-xs md:text-sm uppercase tracking-wider transition-all"
+                            className="px-8 py-4 rounded-full bg-[#A31C1B] hover:bg-[#A31C1B]/85 border border-[#A31C1B] text-white font-universo font-black text-xs md:text-sm uppercase tracking-wider hover:shadow-[0_0_25px_rgba(163,28,27,0.45)] transition-all"
                         >
                             Explore Brand Systems
                         </Link>
@@ -1068,7 +1080,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                 </div>
             </section>
 
-            {/* FULLSCREEN NEURAL INSPECTOR MODAL */}
+            {/* FULLSCREEN NEURAL INSPECTOR MODAL (Charcoal Black #171717 container with Crimson & Green accents) */}
             <AnimatePresence>
                 {activeInspector && (
                     <div className="fixed inset-0 z-[200] flex items-center justify-center p-2 md:p-6">
@@ -1081,18 +1093,18 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                             className="absolute inset-0 bg-black/95 backdrop-blur-2xl"
                         />
 
-                        {/* Modal Container */}
+                        {/* Modal Container: Charcoal Black #171717 */}
                         <motion.div
                             initial={{ scale: 0.94, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.94, opacity: 0, y: 20 }}
                             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative z-10 w-full max-w-7xl max-h-[92vh] bg-[#0A0D10] border border-white/15 rounded-3xl overflow-hidden shadow-[0_50px_150px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row"
+                            className="relative z-10 w-full max-w-7xl max-h-[92vh] bg-[#171717] border border-white/15 rounded-3xl overflow-hidden shadow-[0_50px_150px_rgba(0,0,0,0.95)] flex flex-col lg:flex-row"
                         >
                             {/* Close Button */}
                             <button
                                 onClick={() => setActiveInspector(null)}
-                                className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/70 border border-white/20 text-white hover:text-[#3CFF8F] hover:scale-105 transition-all flex items-center justify-center cursor-pointer shadow-xl backdrop-blur-md"
+                                className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-[#171717]/90 border border-white/20 text-white hover:text-[#3CFF8F] hover:scale-105 transition-all flex items-center justify-center cursor-pointer shadow-xl backdrop-blur-md"
                             >
                                 <X size={18} />
                             </button>
@@ -1120,21 +1132,21 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                     </div>
                                 )}
 
-                                {/* Protocol Overlay Badge */}
+                                {/* Protocol Overlay Badge: Charcoal #171717 + Crimson Red #A31C1B code */}
                                 <div className="absolute bottom-4 left-4 pointer-events-none">
-                                    <span className="px-3 py-1.5 rounded-full bg-black/80 border border-white/15 text-[10px] font-mono text-[#3CFF8F] backdrop-blur-md">
+                                    <span className="px-3 py-1.5 rounded-full bg-[#171717]/90 border border-[#A31C1B]/50 text-[10px] font-mono text-[#A31C1B] backdrop-blur-md font-bold">
                                         {activeInspector.protocolCode} // {activeInspector.category}
                                     </span>
                                 </div>
                             </div>
 
-                            {/* Right: Technical Telemetry Drawer */}
-                            <div className="lg:w-5/12 p-6 md:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10 overflow-y-auto max-h-[85vh] space-y-6">
+                            {/* Right: Technical Telemetry Drawer: Charcoal Black #171717 */}
+                            <div className="lg:w-5/12 p-6 md:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10 overflow-y-auto max-h-[85vh] space-y-6 bg-[#171717]">
                                 <div className="space-y-6">
                                     {/* Header */}
                                     <div>
                                         <div className="flex items-center gap-2 mb-2">
-                                            <span className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest">
+                                            <span className="px-2 py-0.5 rounded bg-[#A31C1B]/20 text-[10px] font-mono text-[#A31C1B] uppercase tracking-widest font-bold border border-[#A31C1B]/40">
                                                 {activeInspector.series}
                                             </span>
                                             <span className="text-white/30">•</span>
@@ -1147,9 +1159,9 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                         </h3>
                                     </div>
 
-                                    {/* Theory Callout */}
-                                    <div className="p-4 rounded-2xl bg-white/[0.03] border-l-2 border-l-[#3CFF8F] border-y border-r border-white/5 space-y-1.5">
-                                        <div className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest flex items-center gap-1.5">
+                                    {/* Theory Callout: Neon Green #3CFF8F left border */}
+                                    <div className="p-4 rounded-2xl bg-black/40 border-l-4 border-l-[#3CFF8F] border-y border-r border-white/5 space-y-1.5 shadow-inner">
+                                        <div className="text-[10px] font-mono text-[#3CFF8F] uppercase tracking-widest flex items-center gap-1.5 font-bold">
                                             <Cpu size={12} />
                                             <span>Perceptual Theory // {activeInspector.theoryName}</span>
                                         </div>
@@ -1178,13 +1190,13 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                                 <span>{copiedPrompt ? "Copied" : "Copy Directive"}</span>
                                             </button>
                                         </div>
-                                        <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 text-[11px] font-mono text-white/80 leading-relaxed max-h-32 overflow-y-auto">
+                                        <div className="p-3.5 rounded-xl bg-black/70 border border-white/10 text-[11px] font-mono text-white/80 leading-relaxed max-h-32 overflow-y-auto">
                                             {activeInspector.promptArchitecture}
                                         </div>
                                     </div>
 
                                     {/* Tensor Metrics Grid */}
-                                    <div className="grid grid-cols-3 gap-2.5 p-3 rounded-2xl bg-white/[0.02] border border-white/5 text-[10px] font-mono">
+                                    <div className="grid grid-cols-3 gap-2.5 p-3 rounded-2xl bg-black/30 border border-white/5 text-[10px] font-mono">
                                         <div>
                                             <span className="text-white/40 block">SAMPLER</span>
                                             <span className="text-white font-bold">{activeInspector.tensorMetrics.sampler}</span>
@@ -1202,8 +1214,8 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                             <span className="text-white font-bold">{activeInspector.tensorMetrics.aspectRatio}</span>
                                         </div>
                                         <div>
-                                            <span className="text-white/40 block">DWELL MULTIPLIER</span>
-                                            <span className="text-[#3CFF8F] font-bold">{activeInspector.tensorMetrics.dwellMultiplier}</span>
+                                            <span className="text-white/40 block">RETENTION</span>
+                                            <span className="text-[#A31C1B] font-bold">{activeInspector.tensorMetrics.dwellMultiplier}</span>
                                         </div>
                                         <div>
                                             <span className="text-white/40 block">ENGINE</span>
@@ -1221,7 +1233,7 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                                 const prevIndex = (currentIndex - 1 + AI_COLLECTION.length) % AI_COLLECTION.length;
                                                 setActiveInspector(AI_COLLECTION[prevIndex]);
                                             }}
-                                            className="px-3.5 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-universo uppercase text-white flex items-center gap-1.5 transition-all cursor-pointer"
+                                            className="px-3.5 py-1.5 rounded-full bg-[#171717] hover:bg-white/10 border border-white/15 text-xs font-universo uppercase text-white flex items-center gap-1.5 transition-all cursor-pointer"
                                         >
                                             <ArrowLeft size={12} /> Prev
                                         </button>
@@ -1231,12 +1243,13 @@ export default function AIContentShowcase({ projects }: { projects?: Project[] }
                                                 const nextIndex = (currentIndex + 1) % AI_COLLECTION.length;
                                                 setActiveInspector(AI_COLLECTION[nextIndex]);
                                             }}
-                                            className="px-3.5 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-universo uppercase text-white flex items-center gap-1.5 transition-all cursor-pointer"
+                                            className="px-3.5 py-1.5 rounded-full bg-[#171717] hover:bg-white/10 border border-white/15 text-xs font-universo uppercase text-white flex items-center gap-1.5 transition-all cursor-pointer"
                                         >
                                             Next <ArrowRight size={12} />
                                         </button>
                                     </div>
 
+                                    {/* Action button kept with green #3CFF8F */}
                                     <Link
                                         href="/#contact"
                                         className="px-4 py-1.5 rounded-full bg-[#3CFF8F] text-black font-universo font-black text-xs uppercase tracking-wider hover:shadow-[0_0_15px_rgba(60,255,143,0.5)] transition-all"
